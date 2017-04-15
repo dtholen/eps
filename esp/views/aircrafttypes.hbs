@@ -1,0 +1,25 @@
+{{!< layout}}
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<div style="border-radius: 20px; background-color:Bisque; padding-top:10px; padding-bottom:20px" class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+  <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+   <tr>
+     <th>Plane Type</th>
+     <th>MTOW</th>
+     <th>Description</th>
+   </tr>
+   {{#each obj}}
+    <tr>
+       <td title={{this._id}}>{{this.ptype}}</td>
+       <td>{{this.mtow}}</td>
+       <td>{{this.desc}}</td>
+    </tr>
+   {{/each}}
+  </table>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Home</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AODB Desk<span class="caret glyphicon glyphicon-plane"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/events/home">AODB Desk</a></li>
+              <li><a href="/events/create">Create</a></li>
+              <li><a href="/events/monitor">Monitor</a></li>
+              <li><a href="#">...</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/events/edit">Edit</a></li>
+              <li><a href="#">...</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Service<span class="caret glyphicon glyphicon-list-alt"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="/service/home">GA Desk</a></li>
+                <li><a href="/expected/ppr">PPR Flights</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">...</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maintain<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li role="separator" class="divider">Events</li>
+                <li><a href="/events/drop">Drop all events</a></li>
+                <li role="separator" class="divider">Aircrafts</li>
+                <li><a href="/aircraft">Aircraft</a></li>
+                <li><a href="/aircrafttype">Aircraft Types</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">...</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li role="separator" class="divider">Subscriptions</li>
+                    <li><a href="/subscribe?ON=0">Sensor Data OFF</a></li>
+                    <li><a href="/subscribe?ON=1">Sensor Data ON</a></li>
+                <li role="separator" class="divider">Events</li>
+                    <li><a href="#">...</a></li>
+                <li role="separator" class="divider">Aircrafts</li>
+                    <li><a href="#">...</a></li>
+                <li role="separator" class="divider"></li>
+                    <li><a href="#">...</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pilots<span class="caret glyphicon glyphicon-user"></span></a>
+            <ul class="dropdown-menu">
+                <li role="separator" class="divider">Subscriptions</li>
+                    <li><a href="/pilots/home">Selfe Service</a></li>
+                    <li><a href="/pilots/ppr">Request your Fight</a></li>
+                    <li><a href="/pilots/myflights">Your Fights</a></li>
+            </ul>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  {{#if errorMessage}}
+    <div class="alert alert-danger fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{errorMessage}}
+    </div>
+  {{/if}}
+
+  <div class="container">
+    {{{body}}}
+  </div>
+
+</body>
+</html>

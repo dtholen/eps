@@ -1,0 +1,80 @@
+{{!< layout_blank}}
+
+{{#if refresh}}
+    <meta http-equiv="refresh" content="30"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<div style="background-color:  #d4efdf  ; padding-top:10px; padding-bottom:20px" class="container">
+<h3>{{title}}</h3>
+<div class="container">
+        <div class="col-lg-10" >
+          <div class="form-group">
+            <label class="control-label col-sm-2">Flight:</label>
+            <div class="col-sm-10">
+              <p>{{obj.name}} / {{obj.eta}}</p>
+              <p>{{obj.registration}} / {{obj.ptype}} / MTOW:{{obj.mtoW}}</p>
+            </div>
+          </div>
+        </div>
+  </div>
+
+<div class="container">
+  <div class="entry">
+  <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+   <tr>
+     <th>time</th>
+     <th>Service</th>
+     <th>amount</th>
+   </tr>
+   {{#each events}}
+    <tr>
+       <td title={{this._id}}>{{this.ti}}</td>
+       <td>{{this.eventType}}</td>
+       <td>{{this.data.amount}}</td>
+    </tr>
+   {{/each}}
+  </table>
+
+  <div class="form-group">
+      <div class="col-sm-10">
+          <button id="HCI" class="btn btn-primary" onclick="myse('HCI')" >Hangar Checkin</button>
+          <button id="HCO" class="btn btn-info" onclick="myse('HCO')" >Hangar Checkout</button>
+          <a href="/pilots/home" id="cancel" name="cancel" class="btn btn-default">Cancel</a>
+      </div>
+  </div>
+
+  <script>
+      var ok="service booked";
+      function myse(se) {
+          model_data =
+          {'registration': "{{obj.registration}}",
+          'ptype': "{{obj.ptype}}" ,
+          'etype': se,
+          'amount': 1
+          };
+          $.ajax({
+              url: '/events/create/',
+              type: 'POST',
+              contentType: 'application/json',
+              data: JSON.stringify(model_data),
+              dataType: 'json',
+              success:function(e){
+                  alert('erfolgreich gespeichert');
+                 }
+            });
+          document.getElementById(se).innerHTML = ok;
+          window.location.href = window.location.href;
+          return false;
+      }
+
+  </script>
+
+  </div>
+</div>
+</div>

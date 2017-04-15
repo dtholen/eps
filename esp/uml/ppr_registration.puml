@@ -1,0 +1,24 @@
+@startuml
+actor Pilot
+participant MyAirport
+participant EventBroker
+participant GADesk
+actor GAT
+
+Pilot -> MyAirport : enters Information about the plant
+MyAirport -> EventBroker : Validates and stores data
+Pilot -> EventBroker : Fligtplan - Request for landing
+ref over Pilot, MyAirport,EventBroker
+  Onboarding/Registration
+end ref
+
+EventBroker -> Pilot : generates unique GAT boarding pass
+EventBroker -> GADesk : Send Information to GA Desk
+EventBroker -> GADesk : receive first flight event
+GADesk -> GAT : Links together landing and ppr request
+
+ref over EventBroker, GADesk, GAT
+  GAT Registration
+end ref
+
+@enduml

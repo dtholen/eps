@@ -1,0 +1,100 @@
+{{!< layout}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+<script>
+
+var currentRow;
+
+function whichRow(obj){
+    var par=obj.parentNode;
+    while(par.nodeName.toLowerCase()!='tr'){ par=par.parentNode;}
+    currentRow=par.rowIndex;
+    changeContent("EDIT CONTENT","yellow");
+    }
+
+function changeContent(text,color){
+        var x=document.getElementById('myTable').rows
+        var y=x[currentRow].cells
+        y[3].innerHTML=text
+        x[currentRow].bgColor = color
+    }
+
+  function editValue(currentValue,id,obj) {
+      $("#refresh_id").val("60");
+      $("#modInput").val(currentValue);
+      $("#MyEventId").val(id);
+      whichRow(obj);
+      $('#myModal').modal('show');
+  }
+function sendValue() {
+  var value = document.getElementById("modInput").value;
+  var key = document.getElementById("MyEventId").value;
+  updateValue(key,value);
+  changeContent(value,"lightgreen");
+  }
+
+function updateValue(id,value) {
+        $.post("http://192.168.1.91:8081/event/update", {"id" : id, "value" : value}, function(result){
+        alert(JSON.stringify(result));
+        $("#refresh_id").val("10");
+        });
+    };
+
+
+</script>
+<style>
+  th { background-color: #aaaaaa }
+  table tr:nth-child(2){ counter-reset: rowNumber;}
+  table tr { counter-increment: rowNumber;}
+  table tr td:first-child::before {
+    content: counter(rowNumber);
+}
+</style>
+
+  <div style="border-radius: 20px; background-color:LightGray ; padding-top:10px; padding-bottom:20px" class="container">
+<h1>{{title}}</h1>
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+             <h4 class="modal-title">Enter Value</h4>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" size=25 value="" disabled alt="" name="MyEventId" id="MyEventId" />
+          <input type="text" id="modInput" value="" autofocus="autofocus" />
+        </div>
+        <div class="modal-footer">
+          <button id="modal_cancel" name="modal_cancel" type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+          <button id="modal_ok" name="modal_ok" type="button" class="btn btn-default" data-dismiss="modal" onclick="sendValue()">ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="entry">
+  <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+   <tr>
+     <th>No</th>
+     <th>time</th>
+     <th>Registration</th>
+     <th>type</th>
+     <th>value</th>
+   </tr>
+   {{#each obj}}
+    <tr bgcolor="{{this.bg}}" >
+       <td title={{this._id}}></td>
+       <td>{{this.ti}}</td>
+       <td title={{this.data.value}}>{{this.accountExternalKey}}</td>
+       <td>{{this.eventType}}</td>
+       <td id={{this._id}} name={{this._id}} onclick="editValue(event.target.innerText,'{{this._id}}',this)">{{this.data.value}}</td>
+    </tr>
+   {{/each}}
+  </table>
+  </div>
+</div>

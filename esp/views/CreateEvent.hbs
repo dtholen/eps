@@ -1,0 +1,200 @@
+{{!< layout}}
+
+<script>
+
+function defaultFields(){
+    $("#divFueltype").fadeOut();
+    $("#divAmount").fadeOut();
+    $("#divPassenger").fadeIn();
+    $("#divDuration").fadeOut();
+    document.getElementById("ptype").required = true;
+}
+
+
+$(document).ready(function() {
+     defaultFields();
+     $("#FRMppr").submit(function(evt){
+        evt.preventDefault();
+        var dateString = $('#datepicker').val();
+        eda=Date.parse(dateString)/1000 | 0;
+
+        model_data =
+        {
+        'registration': document.getElementById("registration").value.toUpperCase(),
+        'ptype': document.getElementById("ptype").value.toUpperCase(),
+        'etype': document.getElementById("etype").value,
+        'ftype': document.getElementById("fueltype").value,
+        "passenger": document.getElementById("passenger").value,
+        "duration": document.getElementById("duration").value,
+        'amount': document.getElementById("amount").value
+        };
+
+        $.ajax({
+            url: '/events/create/',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(model_data),
+            dataType: 'json',
+            success:function(e){
+                alert('erfolgreich gespeichert');
+               }
+          });
+          window.location.href = "/events/create";
+          return false;
+    });
+});
+
+
+</script>
+
+  <div style="border-radius: 20px; background-color:lightgrey; padding-top:10px; padding-bottom:20px" class="container">
+  <h1>{{title}}</h1>
+  <div class="entry"} >
+    <form id="FRMppr" name="FRMppr" class="form-horizontal"  >
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="registration">Registration:</label>
+        <div class="col-sm-10">
+          <input  autofocus type="text" class="form-control" id="registration" placeholder="Enter Registration (DEWKW)" pattern="[A-Za-z]{5}" style='text-transform:uppercase' required>
+        </div>
+      </div>
+      <div id=divPType class="form-group">
+        <label class="control-label col-sm-2" for="ptype">Type:</label>
+        <div class="col-sm-10">
+          <input  autofocus type="text" class="form-control" id="ptype" placeholder="Enter type of plain e.g. PA28" style='text-transform:uppercase' required>
+        </div>
+      </div>
+      <div id="divTime" class="form-group" style="display: none;" >
+        <label class="control-label col-sm-2" for="time">Time:</label>
+        <div class="col-sm-10">
+          <input id="time" type="time" class="form-control"  >
+          <script>
+              document.getElementById("time").value = Date();
+          </script>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="type">Activity:</label>
+          <div class="col-sm-10">
+            <script>
+            $(function() {
+                $('.selectpicker').on('change', function(){
+                  var selected = $(this).find("option:selected").val();
+                  switch(selected) {
+                      case "LDG":
+                          $("#divPassenger").fadeIn();
+                          $("#divAmount").fadeOut();
+                          $("#divFueltype").fadeOut();
+             	  	        $("#divPType").fadeIn();
+                          $("#divFueltype").fadeOut();
+                          $("#divDuration").fadeOut();
+			                    document.getElementById("ptype").required = true;
+                          break;
+                      case "TOD":
+                          $("#divPType").fadeOut();
+                          $("#divPassenger").fadeOut();
+                          $("#divDuration").fadeOut();
+			                    document.getElementById("ptype").required = false;
+                          break;
+                      case "FUE":
+                          $("#divPType").fadeOut();
+                          $("#divPassenger").fadeOut();
+                          $("#divFueltype").fadeIn();
+                          $("#divDuration").fadeOut();
+                          $("#divAmount").fadeIn();
+			                    document.getElementById("ptype").required = false;
+                          break
+                      case "AvGas":
+                          $("#divFueltype").fadeIn();
+                          $("#divAmount").fadeIn();
+                          $("#divDuration").fadeOut();
+			                    document.getElementById("ptype").required = false;
+                          break
+                      case "Kerosin":
+                          $("#divFueltype").fadeIn();
+                          $("#divDuration").fadeOut();
+                          $("#divAmount").fadeIn();
+			                    document.getElementById("ptype").required = false;
+                          break
+                      case "PAR":
+                          $("#divPType").fadeOut();
+                          $("#divPassenger").fadeOut();
+                          $("#divDuration").fadeIn();
+                          $("#divAmount").fadeIn();
+    			                document.getElementById("ptype").required = false;
+                          break
+                      default:
+                          $("#divPassenger").fadeOut(500);
+                          $("#divDuration").fadeOut();
+                          $("#divFueltype").fadeOut();
+                   	      $("#divPType").fadeOut();
+                          $("#divAmount").fadeOut();
+			                    document.getElementById("ptype").required = false;
+			                    break;
+                  }
+                });
+              });
+            </script>
+            <select id=etype class="selectpicker col-sm-4" data-live-search="true" data-size="8" required>
+              <optgroup label="Fligt">
+                <option value="LDG" >Landing</option>
+                <option value="DEP" >Deature</option>
+                <option value="TOD">Touchdown</option>
+              </optgroup>
+              <optgroup label="Service">
+                <option value="HCI">Hangar Checkin</option>
+                <option value="HCO">Hangar Checkout</option>
+                <option value="SER">Service</option>
+                <option value="FUE">Fuel</option>
+                <option value="PAR">Parking</option>
+              </optgroup>
+          </select>
+        </div>
+      </div>
+     <div id=divPassenger class="form-group">
+       <label class="control-label col-sm-2" for="value">Passengers:</label>
+       <div class="col-sm-4">
+         <input id=passenger type="text" class="form-control" placeholder="Enter Value" value=1>
+       </div>
+     </div>
+     <div id=divFueltype class="form-group">
+       <label class="control-label col-sm-2" for="value">Fuel Type:</label>
+       <div class="col-sm-10">
+         <select id=fueltype class="selectpicker col-sm-4" data-live-search="true" data-size=4 required>
+           <optgroup label="Fuel Type">
+             <option value="AvGas">AvGas</option>
+             <option value="Kerosin">Kerosin</option>
+           </optgroup>
+          </select>
+       </div>
+    </div>
+    <div id=divDuration class="form-group">
+      <label class="control-label col-sm-2" for="value">Duration:</label>
+      <div class="col-sm-4">
+        <input id=duration type="text" class="form-control" value="Duration (h)" disabled>
+      </div>
+    </div>
+
+    <div id=divAmount class="form-group">
+      <label class="control-label col-sm-2" for="value">Amount:</label>
+      <div class="col-sm-4">
+        <input id=amount type="text" class="form-control" placeholder="Enter amount">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary" >Submit</button>
+          <a href="{{cancel}}" id="cancel" name="cancel" class="btn btn-default">Cancel</a>
+      </div>
+    </div>
+
+    <div id=succes_message class="form-group" style="display: none"; >
+            <p> Your request has been sent</p>
+    </div>
+
+   </form>
+
+  </div>
+</div>
+</div>

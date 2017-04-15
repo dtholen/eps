@@ -1,0 +1,37 @@
+{{!< layout}}
+
+
+{{#if refresh}}
+    <meta http-equiv="refresh" content="30"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<div style="border-radius: 20px; background-color:Bisque; padding-top:10px; padding-bottom:20px" class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+  <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+   <tr>
+     <th>Registration</th>
+     <th>Plane</th>
+     <th>Name</th>
+     <th>eMail</th>
+     <th>ETA</th>
+   </tr>
+   {{#each obj}}
+    <tr>
+       <tr onclick="location.href='/service/create?ref={{this._id}}'"  style="cursor:pointer;">
+       <td title={{this._id}}>{{this.registration}}</td>
+       <td>{{this.ptype}}</td>
+       <td> {{this.name}}</td>
+       <td>{{this.email}}</td>
+       <td>{{this.eta}}</td>
+    </tr>
+   {{/each}}
+  </table>
+  </div>
+</div>

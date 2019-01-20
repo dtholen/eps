@@ -1,0 +1,30 @@
+@startuml
+actor Lieferant
+actor Bauherr
+actor Versicherung
+actor User
+participant Baustelle
+participant IOTCloud
+participant Billing
+participant Trockner
+autonumber
+
+Bauherr -> Vesicherung : Meldet Versicherungsschaden
+Versicherung -> Bauherr : Erteilt Freigabe
+Bauherr -> Lieferant : beauftragt mit der Lieferung eines Bautrockners
+Lieferant -> Baustelle : stellt Raumtrockner
+Bauherr -> Lieferant : Unterzeichnet Mietvertrag
+User -> Bautrockner  : schaltet Bautrockner Freigabe
+Bautrockner -> IOTCloud : registriert ich
+Bautrockner -> Billing : Vorgang wird angelegt
+Bautrockner -> IOTCloud : Verbrauchsdaten (KW, Zeit, Feuchtigkeit)
+IOTCloud -> Billing : erhällt Verbrauchsdaten
+User -> Billing : Prüft regelmäßig Verbrauchsdaten und Luftfeuchtigkeit
+User -> Bautrockner : beendet Einsatz anhand der Messwerte
+User -> Billing : Überprüfung der Verbrauchs/Rechnungsdaten
+User -> Lieferant : Info an Lieferant zum Abholen der Trockners oder neuer Einsatz
+Lieferant -> Billing : Erstellt Rechnung für Einsatz
+User -> Billing : prüft Rechnung
+Bauherr -> Versicherung : Leitet Informationen weiter
+
+@enduml

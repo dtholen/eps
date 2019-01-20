@@ -1,0 +1,65 @@
+{{!< layout01}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+<script>
+
+function myFunction(x,i) {
+      rows = document.getElementById('tableData').getElementsByTagName('TR');
+      col = rows[x.rowIndex].getElementsByTagName('TD');
+      self.location.href='/transaction/create?BID='+col[i].innerHTML;
+    }
+
+
+</script>
+
+<style>
+    th { background-color: #aaaaaa }
+    table tr:nth-child(2){ counter-reset: rowNumber;}
+    table tr { counter-increment: rowNumber;}
+    table tr td:first-child::before {
+    content: counter(rowNumber);
+
+  }
+</style>
+
+<div style="border-radius: 10px; background-color:BurlyWood; padding-left:10px; padding-top:5px; padding-bottom: 5px; class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+    <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
+     <tr>
+       <th>No</th>
+       <th>ID</th>
+       <th>Name</th>
+       <th>Fach</th>
+       <th>Bestand</th>
+       <th>ausgeliegen</th>
+       <th>vorhanden</th>
+     </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}" id="myTabler" name="myTabler"  onclick="myFunction(this,1)" >
+        <td></td>
+        <td id="id">{{this.ID}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.fach}}</td>
+        <td>{{this.v1}}</td>
+        <td>{{this.v2}}</td>
+        <td>{{this.v3}}</td>
+      </tr>
+     {{/each}}
+    </table>
+
+    <form action="input_button.htm">
+    <p>
+    <input type="button" name="Ausleihen" value="Buch ausleihen"
+    onClick="self.location.href='/transaction/create'">
+    </p>
+
+    </form>
+
+
+
+  </div>
+</div>

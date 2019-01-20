@@ -1,0 +1,71 @@
+{{!< layout}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="20"/>
+{{else}}
+    <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<canvas id="myChart"></canvas>
+<script>
+
+
+function chart(_id) {
+        $.get("/chart", {"type" : _id}, function(result){
+        });
+    };
+
+function hallo(test) {
+            alert(test);
+        };
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {{{json data}}},
+    options: {{{json options}}}
+});
+</script>
+
+
+<div style="border-radius: 20px; background-color:white; padding-top:10px; padding-bottom:20px" class="container">
+  <div class="entry">
+    <div class="navbar-collapse collapse" id="navbar-footer">
+        <ul class="nav navbar-nav navbar-left">
+          <li><button onclick="location.href='/chart?type=TEMP'" type="button" class="btn btn-info navbar-btn"><span class="glyphicon glyphicon-fire"></span> Temperature</button></li>
+          <li><button onclick="location.href='/chart?type=HUM'" type="button" class="btn btn-info navbar-btn"><span class="glyphicon glyphicon-cloud"></span> Humidity</button>
+          <li><button onclick="location.href='/chart?type=BAT'" type="button" class="btn btn-warning navbar-btn"><span class="glyphicon glyphicon-info-sign"></span> Battery</button>
+          <li><button onclick="location.href='/chart?type=ACTOR'" type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-wrench"></span> Actor</button></li>
+          <li><button onclick="location.href='/chart?type=STATE'" type="button" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-wrench"></span> Error</button></li>
+       </ul>
+    </div>
+  </div>
+</div>
+
+
+<div style="border-radius: 20px; background-color:Bisque; padding-top:10px; padding-bottom:20px" class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+
+    <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+     <tr>
+       <th>upd</th>
+       <th>Room</th>
+       <th>Device</th>
+       <th>Value</th>
+     </tr>
+     {{#each obj}}
+     <tr bgcolor="{{this.bg}}" onclick="location.href='/chart_time?id={{this.ID}}&type={{this.type}}'"  style="cursor:pointer;" >
+         <td>{{this.ti}}</td>
+         <td>{{this.room}}</td>
+         <td>{{this.ID}}</td>
+         <td> {{this.value}}</td>
+      </tr>
+     {{/each}}
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,52 @@
+@startuml
+actor Pilot
+actor GAT
+participant GADesk
+actor GroundHandling
+participant AODB
+participant Sensors
+participant AirportService
+participant Accounting
+participant BoockingArchiving
+actor tower
+autonumber
+
+
+ref over GAT, Pilot : My Portal
+
+Pilot -> GAT : PPR Reqest
+Pilot -> tower : request for landing
+tower -> Pilot : free to land
+tower -> AODB : landing event
+note left: Landing Event s the first Event \n which open the turn
+Pilot -> GAT : Ckeckin
+note left: Pilot check in on the \n GA Desk (GAT) and identifies with his \n PPR Reference
+GAT -> GADesk : Links together landing and ppr request
+GADesk -> AirportService: opens GA Turn
+hnote over Pilot : Checkin\nfinished
+GADesk -> AirportService: collects additional information
+Pilot -> GroundHandling: used aditional services
+Sensors -> GADesk: Collect additional data ( e.g. Fuel)
+GADesk -> AirportService: add services
+
+ref over tower
+  Tower records the operational
+  flight data
+end ref
+
+ref over GADesk, Sensors, AirportService
+  Sensors records additional data
+end ref
+
+Pilot -> GAT : ask for cash payment
+GAT -> GADesk: Checkout
+GAT -> GADesk: Add's aditional services
+GAT -> GADesk: generate PreBilling information and delivery slip
+GAT -> Pilot: ask for approval
+Pilot -> GAT: approval
+GADesk -> Accounting : send billig information
+GADesk -> BoockingArchiving : call archiving services
+Accounting -> GADesk: generate receipt
+GAT -> GADesk: Prints Invoice
+GADesk -> AirportService: Close GA Turn
+@enduml

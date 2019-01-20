@@ -1,0 +1,56 @@
+{{!< layout01}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+<script>
+
+function deleteClass(_id) {
+        $.post("{{link}}", {"_id" : _id, "action":"d" }, function(result){
+        });
+    };
+</script>
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<div style="border-radius: 10px; background-color:MediumAquaMarine; padding-left:10px; padding-top:5px; padding-bottom: 5px; class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+    <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+     <tr>
+       <th>Lehrer</th>
+       <th>Buch</th>
+       <th>Klasse</th>
+       <th></th>
+       <th>Vorgang</th>
+       <th>Anzahl</th>
+       <th>Datum/Zeit</th>
+       <th></th>
+    </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}" >
+        <td>{{this.teacher}}</td>
+        <td>{{this.book}}</td>
+        <td>{{this.CID}}</td>
+        <td data-toggle="tooltip" title="{{this.transaction}}"> <i class="{{this.gi}}"></i> {{this.alt}}</td>
+        <td>{{this.transaction}}</td>
+        <td>{{this.value}}</td>
+        <td>{{this.ti}}</td>
+        <td width=10%>
+          <button class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}")'></button>
+        </td>
+      </tr>
+     {{/each}}
+    </table>
+
+    <form action="input_button.htm">
+    <p>
+    <input type="button" name="Ausleihen" value="Buch ausleihen"
+    onClick="self.location.href='/transaction/create'">
+    </p>
+    </form>
+  </div>
+</div>

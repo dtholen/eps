@@ -1,0 +1,7 @@
+OUTPUT_STRING="Restart Service"
+while :
+do
+  sleep 0.5
+  echo -e "\n\r\n\r$OUTPUT_STRING :"`date`
+  node alexa.js
+done

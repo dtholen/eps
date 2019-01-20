@@ -1,0 +1,7 @@
+- erläutern der Menues
+- erläutern der Sequenzdiagramme und er unterschiedlichen Rollen
+- Zurücksetzen der Daten
+- Daten bereinigen (drop)
+- PPR request (1)
+- Landing event
+- check in procedure

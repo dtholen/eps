@@ -1,0 +1,2 @@
+use DBsensor
+db.events.aggregate({$group:{'_id':'$type',t:{$sum: 1}}})

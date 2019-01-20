@@ -1,0 +1,42 @@
+{{!< layout01}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+<script>
+
+var currentRow;
+function delete_book(_id) {
+        $.post("/book_status", {"_id" : _id, "action":"d" }, function(result){
+        });
+    };
+</script>
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<div style="border-radius: 10px; background-color:LightSalmon; padding-left:10px; padding-top:5px; padding-bottom: 5px; class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+    <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+     <tr>
+       <th>ID</th>
+       <th>Klasse</th>
+       <th></th>
+     </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}" onclick="location.href='/state?ID={{this.ID}}'"  style="cursor:pointer;" >
+        <td>{{this.ID}}</td>
+        <td>{{this.name}}</td>
+        <td width=20%>
+          <button class="glyphicon glyphicon-pencil" onclick='editSubject("{{this._id}}")'> </button>
+          <button class="glyphicon glyphicon-trash" onclick='deleteSubject("{{this._id}}")'></button>
+        </td>
+      </tr>
+     {{/each}}
+    </table>
+
+  </div>
+</div>

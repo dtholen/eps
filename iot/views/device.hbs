@@ -1,0 +1,48 @@
+{{!< layout}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+<script>
+
+
+var currentRow;
+function deleteDevice(_id) {
+        $.post("/device", {"_id" : _id, "action":"d"}, function(result){
+        });
+    };
+
+function hallo(text) {
+            alert(text);
+        };
+
+
+</script>
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<div style="border-radius: 20px; background-color:Bisque; padding-top:10px; padding-bottom:20px" class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+    <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+     <tr>
+       <th>Device</th>
+       <th>Type</th>
+       <th>Lable</th>
+     </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}" onclick="location.href='/events/monitor?id={{this._id}}'"  style="cursor:pointer;" >
+         <td>{{this._id}}</td>
+         <td>{{this.type}}</td>
+         <td>{{this.lable}}</td>
+         <td> <button class="glyphicon glyphicon-trash" onclick='deleteDevice("{{this._id}}")'></button> </td>
+      </tr>
+     {{/each}}
+    </table>
+
+  </div>
+</div>

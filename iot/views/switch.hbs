@@ -1,0 +1,58 @@
+{{!< layout}}
+  <h1>{{title}}</h1>
+  {{#if refresh}}
+      <meta http-equiv="refresh" content="10"/>
+  {{else}}
+        <meta http-equiv="refresh" content="600"/>
+  {{/if}}
+
+  <div class="form-group">
+  <div style="border-radius: 20px; background-color:Bisque; padding-top:10px; padding-bottom:20px" class="container">
+        <div class="entry">
+          <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+           <tr>
+             <th>Device</th>
+             <th>Status</th>
+             <th>Command</th>
+           </tr>
+           {{#each obj}}
+           <tr bgcolor="{{this.bg}}" onclick="location.href='/switch?ID={{this.ID}}'"  style="cursor:pointer;" >
+               <td>{{this.ID}}</td>
+               <td>{{this.value}}</td>
+               <td width=20%>
+                   <button id="OFF" class="btn btn-info" onclick="myaction('0','{{this.ID}}')" >OFF</button>
+                   <button id="ON" class="btn btn-primary" onclick="myaction('1','{{this.ID}}')" >ON</button>
+               </td>
+            </tr>
+           {{/each}}
+          </table>
+
+        </div>
+      </div>
+
+  <script>
+    var ok="service booked";
+
+    function myaction(value,type) {
+        model_data =
+        {'type': "switch",
+         'id': type,
+         'value': value
+        };
+        $.ajax({
+            url: '/mqtt/create/',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(model_data),
+            dataType: 'json',
+            success:function(e){
+                alert('erfolgreich gespeichert');
+               }
+          });
+        document.getElementById(value).innerHTML = ok;
+        window.location.href = window.location.href;
+        return false;
+    }
+
+</script>
+</div>

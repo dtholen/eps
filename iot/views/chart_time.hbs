@@ -1,0 +1,48 @@
+{{!< layout}}
+{{#if opt.refresh}}
+    <meta http-equiv="refresh" content="20"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<canvas id="myChart"></canvas>
+<script>
+var lp = {{opt.limit}}*2;
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myBarChart = new Chart(ctx, {
+    type: 'line',
+    data: {{{json data}}},
+    options: {{{json options}}}
+});
+</script>
+<div class="input-group">
+    <button type="button" class="btn btn-danger btn-number"  onclick="location.href='/chart_time?id={{opt.id}}&type={{opt.type}}&unit={{opt.unit}}&limit={{opt.lm}}'" ><span class="glyphicon glyphicon-minus"></span></button>
+    <button type="button" class="btn btn-success btn-number" onclick="location.href='/chart_time?id={{opt.id}}&type={{opt.type}}&unit={{opt.unit}}&limit={{opt.lp}}'"><span class="glyphicon glyphicon-plus"></span></button>
+    <button type="button" class="btn btn-default btn-number" onclick="location.href='/chart_time?id={{opt.id}}&type={{opt.type}}&unit={{opt.unit}}&limit={{opt.limit}}'"  style="cursor:pointer;"><span>{{opt.limit}}</span></button>
+    <button type="button" class="btn btn-default btn-number" onclick="location.href='/chart'"  style="cursor:pointer;"><span>Return</span></button>
+</div>
+<div style="padding-top:10px; padding-bottom:10px" class="container"></div>
+
+<div style="border-radius: 20px; background-color:Bisque; padding-top:10px; padding-bottom:20px" class="container">
+  <h1>{{opt.title}}</h1>
+  <div class="entry" >
+    <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+     <tr>
+       <th>upd</th>
+       <th>Value</th>
+     </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}" >
+         <td>{{this.ti}}</td>
+         <td> {{this.value}}</td>
+      </tr>
+     {{/each}}
+    </table>
+
+  </div>
+</div>

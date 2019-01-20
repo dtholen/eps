@@ -1,0 +1,52 @@
+{{!< layout}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+
+
+<script>
+
+
+var currentRow;
+function deleteEvent(_id) {
+        $.post("/events", {"_id" : _id, "action":"d" }, function(result){
+        });
+    };
+
+function hallo(text) {
+            alert(text);
+        };
+
+</script>
+<style>
+  th { background-color: #aaaaaa }
+</style>
+
+  <div style="border-radius: 20px; background-color:LightGray ; padding-top:10px; padding-bottom:20px" class="container">
+<h1>{{title}}</h1>
+  <div class="entry">
+  <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+   <tr>
+     <th>type</th>
+     <th>time</th>
+     <th>device</th>
+     <th>Raum</th>
+     <th>value</th>
+   </tr>
+   {{#each obj}}
+
+  <tr bgcolor="{{this.bg}}" onclick="location.href='/chart_time?id={{this.ID}}&type={{this.type}}'"  style="cursor:pointer;" >
+       <td data-toggle="tooltip" title="{{this.type}}"> <i class="{{this.gi}}"></i> {{this.alt}}</td>
+       <td> {{this.ti}}</td>
+       <td> {{this.ID}}</td>
+       <td> {{this.lable}}</td>
+       <td >{{this.value}}</td>
+       <td> <button class="glyphicon glyphicon-trash" onclick='deleteEvent("{{this._id}}")'></button> </td>
+    </tr>
+   {{/each}}
+  </table>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+      {"_id": "MCU002", "type": "sonoff","lable":"Carport"}
+      {"_id": "MCU003", "type": "sonoff","lable":"S Light"}
+      {"_id": "MCU004", "type": "sonoff","lable":"Studio2"}
+      {"_id": "MCU005", "type": "PIR","lable":"Studio3"}
+      {"_id": "MCU007", "type": "DHT","lable":"DHT Studio"}
+      {"_id": "MCU008", "type": "DHT","lable":"Außen Links"}
+      {"_id": "MCU009", "type": "DHT","lable":"Test Labor #2"}
+      {"_id": "MCU010", "type": "sonoff","lable":"Außen Terasse"}
+      {"_id": "MCU012", "type": "sonoff","lable":"PIR Experiment"}
+      {"_id": "FHT_WOHN", "type": "FHT","lable":"Wohnzimmer"}
+      {"_id": "FHT_DIELE", "type": "FHT","lable":"Diele"}
+      {"_id": "FHT_JULIA", "type": "FHT","lable":"Julia"}
+      {"_id": "FHT_BAD", "type": "FHT","lable":"Bad"}
+      {"_id": "FHT_KUECHE", "type": "FHT","lable":"Kueche"}
+      {"_id": "FHT_STUDIO", "type": "FHT","lable":"Studio"}
+      {"_id": "FHT_WC", "type": "FHT","lable":"WC"}
+      {"_id": "FHT_SCHLAF", "type": "FHT","lable":"Schlafzimmer"}
+      {"_id": "FHT_LARS", "type": "FHT","lable":"Lars"}

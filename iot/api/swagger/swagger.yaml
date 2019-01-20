@@ -1,0 +1,105 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: IOT Service
+# during dev, should point to your local machine
+host: localhost:8081
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /time:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: time
+    get:
+      description: calculate landingfee
+      # used as the method name of the controller
+      operationId: time
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/DefaultResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /init:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: init
+    get:
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: init
+
+      parameters:
+        - name: id
+          in: query
+          description: any message if you want
+          required: false
+          type: string
+      
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/DefaultResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /getValue:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: getValue
+    get:
+      description: get event
+      # used as the method name of the controller
+      operationId: getValue
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/DefaultResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+ 
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  DefaultResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  
+
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+
+

@@ -1,0 +1,161 @@
+{{!< layout01}}
+
+<script>
+
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) {
+            return pair[1];
+        }
+    }
+    return (false);
+}
+
+
+$(function() {
+    if (getQueryVariable('LID')) $('#teacher').val(getQueryVariable('LID'));
+    if (getQueryVariable('BID')) $('#book').val(getQueryVariable('BID'));
+    if (getQueryVariable('CID')) $('#class').val(getQueryVariable('CID'));
+})
+
+function check_field(eID) {
+  var name={};
+  var element={};
+  switch (eID) {
+    case 0:
+      name='teacher';
+      element='llid';
+      break;
+    case 1:
+      name='book'
+      element='lbid';
+      break;
+    case 2:
+      name='class'
+      element='lcid';
+      break;
+  }
+    console.log("name:"+name);
+    var val = $("#" + name).val();
+    var url="/test?eID="+eID+"&ID="+val;
+    $.get(url, function(data, status){
+      document.getElementById(element).innerHTML = data.value;
+//      alert("Data: " + data + "\nStatus: " + status);
+    });
+
+    var obj = $("#" + name + "_list").find("option[value='" + val + "']");
+
+    if (obj != null && obj.length > 0) {
+        console.log(obj.length);
+        console.log("option[value='" + val + "']");
+        document.getElementById("llid").innerHTML = nameArray[5];
+        return true;
+      }
+    else
+        alert("Eingabe ungültig: "+val);
+    $("#" + name).focus();
+    return false;
+}
+
+function validateForm() {
+  if (!check_field(0)) return false;
+  if (!check_field(1)) return false;
+  if (!check_field(2)) return false;
+  return true;
+}
+
+</script>
+
+
+  <div style="border-radius: 20px; background-color:lightgrey; padding-top:10px; padding-bottom:20px" class="container">
+  <h1>{{title}}</h1>
+  <div class="entry"} >
+    <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action="/transaction/create" onsubmit="return validateForm()" method="post" >
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="teacher">Lehrer:</label>
+        <div class="col-sm-2">
+          <input  autofocus type="text"  class="form-control" name="teacher" id="teacher" list=teacher_list autocomplete="off" onchange="check_field(0)" placeholder="Names des Lehrers" required>
+          <datalist id="teacher_list">
+             {{#each teacher_list}}
+                    <option value="{{this.ID}}" label="{{this.name}}  {{this.surename}}" />
+             {{/each}}
+          </datalist>
+        </div>
+        <lable id="llid" class="control-label col-sm-2" for="teacher"></label>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="class">Klasse:</label>
+          <div class="col-sm-2">
+            <input  autofocus type="text"  class="form-control" name="class" id="class" list=class_list autocomplete="off" onchange="check_field(2)" placeholder="Klasse" required>
+            <datalist id="class_list">
+               {{#each class_list}}
+                      <option value="{{this.ID}}" label="{{this.name}}">
+               {{/each}}
+            </datalist>
+          </div>
+          <label id="lcid" class="control-label col-sm-2" for="class"></label>
+          </div>
+
+        <div class="form-group">
+        <label class="control-label col-sm-2" for="book">Buch:</label>
+        <div class="col-sm-2">
+          <input  autofocus type="text" class="form-control" id="book" name="book" list=book_list autocomplete="off" onchange="check_field(1)" placeholder="Bitte Buch Titel eingeben" required>
+          <datalist id="book_list">
+             {{#each book_list}}
+                    <option value="{{this.ID}}" label="{{this.name}}">
+             {{/each}}
+          </datalist>
+        </div>
+        <label id="lbid" class="control-label col-sm-2" for="book"></label>
+      </div>
+
+      <div id="divTime" class="form-group" style="display: none;" >
+        <label class="control-label col-sm-2" for="time">Time:</label>
+        <div class="col-sm-2">
+          <input id="time" type="time" class="form-control"  >
+          <script>
+              document.getElementById("time").value = Date();
+          </script>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="type">Vorgang:</label>
+          <div class="col-sm-6">
+            <select id=etype name=eType class="selectpicker col-sm-4" data-live-search="true" data-size="8" required>
+              <optgroup label="Ausleihen">
+                <option value="ISSUE" >Ausleien</option>
+                <option value="RETURN" >Rückgabe</option>
+              </optgroup>
+              <optgroup label="Zu/Abgang">
+                <option value="INVENTORY">Inventar</option>
+                <option value="LOST">Verlust</option>
+                <option value="NEW">Neu Beschaffung</option>
+              </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="type">Anzahl:</label>
+          <div class="col-sm-1">
+         <input id=value name=value type="text" pattern="[0-9]{1,3}" class="form-control" placeholder="Anzahl" value=1>
+        </div>
+      </div>
+
+    <div class="form-group">
+      <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary" >Eingabe prüfen</button>
+          <a href="{{cancel}}" id="cancel" name="cancel" class="btn btn-default">Cancel</a>
+      </div>
+    </div>
+
+  </form>
+
+  </div>
+</div>
+</div>

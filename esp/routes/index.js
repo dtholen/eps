@@ -4,7 +4,8 @@
 var express = require('express'),
   controllers = require('require-dir-all')('../controllers'),
   validation = require('require-dir-all')('../controllers/validation'),
-  sprintf = require("sprintf-js").sprintf;
+  sprintf = require("sprintf-js").sprintf,
+  store = require('store');
 
 
 exports.indexRouter = function () {
@@ -18,29 +19,42 @@ exports.indexRouter = function () {
    */
 
   indexRouter.route('/')
-    .get(controllers.start);
+    .get(controllers.events_monitor);
   indexRouter.route('/qr*')
     .get(controllers.qr);
   indexRouter.route('/events/monitor')
     .get(controllers.events_monitor);
-  indexRouter.route('/test')
-    .get(controllers.sandbox);
-  indexRouter.route('/expected/ppr')
-    .get(controllers.expected_ppr);
-  indexRouter.route('/events/create')
-    .get(controllers.events_create)
-    .post(controllers.events_create);
+  indexRouter.route('/events')
+    .post(controllers.events);
+  indexRouter.route('/device_time')
+    .get(controllers.device_time);
+  indexRouter.route('/battery')
+    .get(controllers.battery);
+  indexRouter.route('/switch')
+    .get(controllers.switch);
+  indexRouter.route('/temp')
+    .get(controllers.temp);
+  indexRouter.route('/baro')
+    .get(controllers.baro);
+  indexRouter.route('/chart')
+    .get(controllers.chart);
+  indexRouter.route('/chart_time')
+    .get(controllers.chart_time);
+  indexRouter.route('/device')
+    .get(controllers.device)
+    .post(controllers.device)
+  indexRouter.route('/hum')
+    .get(controllers.hum);
+  indexRouter.route('/state')
+    .get(controllers.state);
+  indexRouter.route('/act')
+    .get(controllers.act);
+  indexRouter.route('/mqtt/create')
+    .post(controllers.mqtt_create);
   indexRouter.route('/events/home')
     .get(controllers.AODB_home);
-  indexRouter.route('/events/edit')
-    .get(controllers.events_edit);
-  indexRouter.route('/events/drop')
-    .get(controllers.eventsD);
-  indexRouter.route('/subscribe')
-    .get(controllers.subscribe);
-  indexRouter.route('/aircraft')
-    .get(controllers.aircraft)
-    .post(controllers.aircraft);
+  indexRouter.route('/init')
+    .get(controllers.init);
   indexRouter.route('/se/:text')
     .get(controllers.service_use)
   indexRouter.route('/service/home')
@@ -56,14 +70,12 @@ exports.indexRouter = function () {
   indexRouter.route('/pilots/ppr')
     .get(controllers.pilots_ppr)
     .post(controllers.pilots_ppr);
-  indexRouter.route('/aircrafttype')
-    .get(controllers.aircrafttype)
-    .post(controllers.aircrafttype);
-  indexRouter.route('/logout')
+  indexRouter.route('/reset')
     .get(function (req, res) {
-      req.logout();
+      req.session.destroy();
       res.redirect('/');
-    });
+  });
+
 
   return indexRouter;
 };

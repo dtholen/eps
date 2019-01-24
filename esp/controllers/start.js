@@ -3,6 +3,6 @@
  */
 module.exports = function (req, res) {
   res.render('start', {
-    title: 'GA Desk - Home'
+    title: 'HA Desk - Home'
   });
 };

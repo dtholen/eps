@@ -11,6 +11,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+
 
 </head>
 
@@ -22,66 +25,49 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AODB Desk<span class="caret glyphicon glyphicon-plane"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monitor<span class="caret glyphicon glyphicon-plane"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/events/home">AODB Desk</a></li>
-              <li><a href="/events/create">Create</a></li>
+              <li><a href="/events/monitor">Monitor</a></li>
+              <li><a href="/switch">Switch</a></li>
+              <li><a href="#">...</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/device">Device</a></li>
+              <li><a href="/device_time">Device Time</a></li>
+              <li><a href="/battery">Battery Status</a></li>
+              <li><a href="/temp">Temperature</a></li>
+              <li><a href="/baro">Luftdruck</a></li>
+              <li><a href="/hum">Luftfeuchtigkeit</a></li>
+              <li><a href="/state">Device Status</a></li>
+              <li><a href="/act">Actor</a></li>
+              <li><a href="/chart">Chart</a></li>
+              <li><a href="#">...</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/init">Drop all events</a></li>
+              <li><a href="#">...</a></li>
+            </ul>
+         </li>
+
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Config<span class="caret glyphicon glyphicon-cog"></span></a>
+            <ul class="dropdown-menu">
               <li><a href="/events/monitor">Monitor</a></li>
               <li><a href="#">...</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="/events/edit">Edit</a></li>
+              <li><a href="/device_time">Device Time</a></li>
+              <li><a href="#">...</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/init">Drop all events</a></li>
               <li><a href="#">...</a></li>
             </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Service<span class="caret glyphicon glyphicon-list-alt"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="/service/home">GA Desk</a></li>
-                <li><a href="/expected/ppr">PPR Flights</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">...</a></li>
-            </ul>
-        </li>
-
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maintain<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li role="separator" class="divider">Events</li>
-                <li><a href="/events/drop">Drop all events</a></li>
-                <li role="separator" class="divider">Aircrafts</li>
-                <li><a href="/aircraft">Aircraft</a></li>
-                <li><a href="/aircrafttype">Aircraft Types</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">...</a></li>
-            </ul>
-        </li>
-
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li role="separator" class="divider">Subscriptions</li>
-                    <li><a href="/subscribe?ON=0">Sensor Data OFF</a></li>
-                    <li><a href="/subscribe?ON=1">Sensor Data ON</a></li>
-                <li role="separator" class="divider">Events</li>
-                    <li><a href="#">...</a></li>
-                <li role="separator" class="divider">Aircrafts</li>
-                    <li><a href="#">...</a></li>
-                <li role="separator" class="divider"></li>
-                    <li><a href="#">...</a></li>
-            </ul>
-        </li>
-
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pilots<span class="caret glyphicon glyphicon-user"></span></a>
-            <ul class="dropdown-menu">
-                <li role="separator" class="divider">Subscriptions</li>
-                    <li><a href="/pilots/home">Selfe Service</a></li>
-                    <li><a href="/pilots/ppr">Request your Fight</a></li>
-                    <li><a href="/pilots/myflights">Your Fights</a></li>
-            </ul>
-        </li>
+         </li>
 
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/reset">Reset</a></li>
+      </ul>
+
     </div>
   </nav>
 

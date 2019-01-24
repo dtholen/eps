@@ -122,6 +122,8 @@ exports.indexRouterLibrary = function () {
       .get(controllers.library);
   indexRouter.route('/init')
       .get(controllers.init_library);
+  indexRouter.route('/reload')
+      .get(controllers.reload_transactions);
   indexRouter.route('/config/teacher')
       .get(controllers.teacher)
       .post(controllers.teacher)
@@ -138,16 +140,12 @@ exports.indexRouterLibrary = function () {
   indexRouter.route('/transaction')
       .get(controllers.transaction)
       .post(controllers.transaction)
-  indexRouter.route('/test')
-          .get(controllers.test)
   indexRouter.route('/transaction/create')
       .get(controllers.transaction_c)
       .post(controllers.transaction_c)
-  indexRouter.route('/transaction/insert')
-      .post(controllers.transaction_i)
   indexRouter.route('/')
       .get(controllers.access);
-  indexRouter.route('/test')
-      .get(controllers.test);
+  indexRouter.route('/validate')
+      .get(controllers.validate);
   return indexRouter;
 };

@@ -9,12 +9,11 @@ var config =
      {
        demo: {
          server: {
-           port: 3001
+           port: 3002
          },
          mqtt: {
            url: 'mqtt://localhost',
-           topics: [ "aods/connect", "aods/evens","aods/service" ],
-           sensor: "sensor/#"
+           topics: [ "sensor/#","actor/#","FHEM/#"]
          },
          mail_service: {
            host: '127.0.0.1',
@@ -28,10 +27,11 @@ var config =
     };
 var globals = {
   'message' : 'Configuration',
-  'version':'0.1',
+  'version':'0.2',
   'db': db,
-  evt: ['SYS','CONNECT','TIME','TEMP','BARO','HUM','LDG','DEP','TOD','FUE','PAR','SER','PPR','HCI','HCO','HAN'],
-  evt_billable: ['LDG','TOD','FUE','PAR','SER','HAN'],
+  'mongo': mongo,
+  evt: ['CONNECT','TIME','TIMER','BARO','HUM','SWITCH','STATE','BAT','ACTOR','TEMP','DEL','VAR','ERROR'],
+  evt_billable: [],
   ok : {'message': 'OK'},
   nok : {'message': 'Not OK'},
   state: [

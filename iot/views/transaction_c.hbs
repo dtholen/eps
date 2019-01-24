@@ -18,7 +18,6 @@ function getQueryVariable(variable) {
 $(function() {
     if (getQueryVariable('LID')) $('#teacher').val(getQueryVariable('LID'));
     if (getQueryVariable('BID')) $('#book').val(getQueryVariable('BID'));
-    if (getQueryVariable('CID')) $('#class').val(getQueryVariable('CID'));
 })
 
 function check_field(eID) {
@@ -33,14 +32,10 @@ function check_field(eID) {
       name='book'
       element='lbid';
       break;
-    case 2:
-      name='class'
-      element='lcid';
-      break;
   }
     console.log("name:"+name);
     var val = $("#" + name).val();
-    var url="/test?eID="+eID+"&ID="+val;
+    var url="/validate?eID="+eID+"&ID="+val;
     $.get(url, function(data, status){
       document.getElementById(element).innerHTML = data.value;
 //      alert("Data: " + data + "\nStatus: " + status);
@@ -63,7 +58,6 @@ function check_field(eID) {
 function validateForm() {
   if (!check_field(0)) return false;
   if (!check_field(1)) return false;
-  if (!check_field(2)) return false;
   return true;
 }
 
@@ -74,7 +68,7 @@ function validateForm() {
   <h1>{{title}}</h1>
   <div class="entry"} >
     <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action="/transaction/create" onsubmit="return validateForm()" method="post" >
-
+      <input  value="c" type="hidden"   name="mode_s" id="mode_s">
       <div class="form-group">
         <label class="control-label col-sm-2" for="teacher">Lehrer:</label>
         <div class="col-sm-2">
@@ -91,23 +85,17 @@ function validateForm() {
         <div class="form-group">
           <label class="control-label col-sm-2" for="class">Klasse:</label>
           <div class="col-sm-2">
-            <input  autofocus type="text"  class="form-control" name="class" id="class" list=class_list autocomplete="off" onchange="check_field(2)" placeholder="Klasse" required>
-            <datalist id="class_list">
-               {{#each class_list}}
-                      <option value="{{this.ID}}" label="{{this.name}}">
-               {{/each}}
-            </datalist>
+            <input  autofocus type="text"  class="form-control" name="class" id="class" autocomplete="off" onchange="check_field(2)" placeholder="Klasse" required>
           </div>
-          <label id="lcid" class="control-label col-sm-2" for="class"></label>
           </div>
 
         <div class="form-group">
         <label class="control-label col-sm-2" for="book">Buch:</label>
-        <div class="col-sm-2">
+        <div class="col-sm-6">
           <input  autofocus type="text" class="form-control" id="book" name="book" list=book_list autocomplete="off" onchange="check_field(1)" placeholder="Bitte Buch Titel eingeben" required>
           <datalist id="book_list">
              {{#each book_list}}
-                    <option value="{{this.ID}}" label="{{this.name}}">
+                    <option value="{{this.ID}}">{{this.name}} ({{this.ID}})</option>
              {{/each}}
           </datalist>
         </div>

@@ -6,11 +6,13 @@
 {{/if}}
 <script>
 
-function myFunction(x,i) {
+function myBID(x,i) {
       rows = document.getElementById('tableData').getElementsByTagName('TR');
       col = rows[x.rowIndex].getElementsByTagName('TD');
       self.location.href='/transaction/create?BID='+col[i].innerHTML;
     }
+
+
 
 
 </script>
@@ -21,17 +23,27 @@ function myFunction(x,i) {
     table tr { counter-increment: rowNumber;}
     table tr td:first-child::before {
     content: counter(rowNumber);
+}
 
-  }
+
 </style>
 
-<div style="border-radius: 10px; background-color:BurlyWood; padding-left:10px; padding-top:5px; padding-bottom: 5px; class="container">
+<div style="border-radius: 10px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+
+     {{#each sid}}
+        <button style="border-radius: 10%; height:40px; width:80px " onclick="window.location.href='/library?SID={{this.ID}}'">{{this.ID}}</button>
+     {{/each}}
+
+</div>
+
+<div style="border-radius: 10px; background-color:BurlyWood; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
   <h1>{{title}}</h1>
   <div class="entry">
     <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
      <tr>
        <th>No</th>
        <th>ID</th>
+       <th></th>
        <th>Name</th>
        <th>Fach</th>
        <th>Bestand</th>
@@ -39,11 +51,12 @@ function myFunction(x,i) {
        <th>vorhanden</th>
      </tr>
      {{#each obj}}
-      <tr bgcolor="{{this.bg}}" id="myTabler" name="myTabler"  onclick="myFunction(this,1)" >
+      <tr bgcolor="{{this.bg}}" id="myTabler" name="myTabler"  onclick="myBID(this,1)" >
         <td></td>
         <td id="id">{{this.ID}}</td>
+        <td id="id">{{this.class}}</td>
         <td>{{this.name}}</td>
-        <td>{{this.fach}}</td>
+        <td>{{this.SID}}</td>
         <td>{{this.v1}}</td>
         <td>{{this.v2}}</td>
         <td>{{this.v3}}</td>

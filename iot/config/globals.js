@@ -66,9 +66,10 @@ var desc ={};
 var bg = {};
 var teacher = {};
 var book = {};
-var cc = {};
 var entity = {};
 var trantype = {};
+var sid = {};
+var subject = {};
 var ttsign = {};
 var device_lable = {};
 var available= {};
@@ -99,10 +100,12 @@ collection.find(query,function(e,docs){
   }
 })
 
-collection = db.get('class');
+
+collection = db.get('subject');
 collection.find(query,function(e,docs){
   for (var i = 0, len = docs.length; i < len; i++) {
-    cc[docs[i].ID] = docs[i].name;
+    subject[docs[i].ID] = docs[i].name;
+    sid[i]=docs[i];
   }
 })
 
@@ -159,7 +162,8 @@ var globals = {
   desc : desc,
   bg : bg,
   entity:entity,
-  cc:cc,
+  subject:subject,
+  sid:sid,
   teacher:teacher,
   book:book,
   available:available,

@@ -4,14 +4,15 @@ global = require('../config/globals');
 module.exports = function (req, res) {
   var fs = require('fs');
 // var col=['trantype']
-  var col=['teacher','class','subject', 'book','transaction','trantype','entity']
+  var col=['teacher','subject', 'book','transaction','trantype','entity']
   function collectioncreate(element, index, array) {
     var collection = global.db.get(element);
-    var data ="config/"+element+".json";
+    var file ="config/"+element+".json";
+    console.log("read file:"+file)
     collection.drop()
     console.log("Collection "+element+" droped");
     setTimeout(function() {
-    fs.readFileSync(data, 'utf-8').split(/\r?\n/).forEach(function(line){
+    fs.readFileSync(file, 'utf-8').split(/\r?\n/).forEach(function(line){
     if (line.length >5) {
           var obj = JSON.parse(line);
           var d = new Date();

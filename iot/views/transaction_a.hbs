@@ -12,8 +12,8 @@ function hallo(text) {
   <div style="border-radius: 20px; background-color:lightgrey; padding-top:10px; padding-bottom:20px" class="container">
   <h1>{{title}}</h1>
   <div class="entry"} >
-    <form id="FRMtra" name="FRMtra" class="form-horizontal" action="/transaction/insert" method="post" >
-
+    <form id="FRMtra" name="FRMtra" class="form-horizontal" action="/transaction/create" method="post" >
+      <input  value="a" type="hidden"   name="mode_s" id="mode_s">
       <div id="divTime" class="form-group" style="display: none;" >
         <label class="control-label col-sm-2" for="time">Time:</label>
         <div class="col-sm-10">

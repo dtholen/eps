@@ -9,12 +9,18 @@
 function myBID(x,i) {
       rows = document.getElementById('tableData').getElementsByTagName('TR');
       col = rows[x.rowIndex].getElementsByTagName('TD');
-      self.location.href='/transaction/create?BID='+col[i].innerHTML;
+      if ($('#mode_s').val()=='c') self.location.href='/transaction/create?BID='+col[i].innerHTML
+      else {
+        $('#mode_s').val('c');
+        self.location.href='/library';
+      }
     }
 
-
-
-
+function deleteClass(_id) {
+     $.post("{{link}}", {"_id" : _id, "action":"d" }, function(result){
+    });
+    $('#mode_s').val('d');
+  };
 </script>
 
 <style>
@@ -31,7 +37,7 @@ function myBID(x,i) {
 <div style="border-radius: 10px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
 
      {{#each sid}}
-        <button style="border-radius: 10%; height:40px; width:80px " onclick="window.location.href='/library?SID={{this.ID}}'">{{this.ID}}</button>
+        <button onclick="window.location.href='/library?SID={{this.ID}}'" type="button" class="btn btn-info">{{this.ID}}</button>
      {{/each}}
 
 </div>
@@ -39,6 +45,7 @@ function myBID(x,i) {
 <div style="border-radius: 10px; background-color:BurlyWood; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
   <h1>{{title}}</h1>
   <div class="entry">
+    <input  type=hidden value="c"   name="mode_s" id="mode_s">
     <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
      <tr>
        <th>No</th>
@@ -54,12 +61,15 @@ function myBID(x,i) {
       <tr bgcolor="{{this.bg}}" id="myTabler" name="myTabler"  onclick="myBID(this,1)" >
         <td></td>
         <td id="id">{{this.ID}}</td>
-        <td id="id">{{this.class}}</td>
+        <td id="class">{{this.class}}</td>
         <td>{{this.name}}</td>
         <td>{{this.SID}}</td>
         <td>{{this.v1}}</td>
         <td>{{this.v2}}</td>
         <td>{{this.v3}}</td>
+        <td width=10%>
+          <button class="glyphicon glyphicon-trash" onclick='deleteClass("{{this.ID}}")'></button>
+        </td>
       </tr>
      {{/each}}
     </table>

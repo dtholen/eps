@@ -8,7 +8,7 @@ var lable=title;
 module.exports = function (req, res) {
   collection = global.db.get(entity);
   if (req.method=="POST" & req.body.action=="d") {
-     collection.remove({"_id": req.body._id});
+     collection.remove({"ID": req.body._id});
      global.valid=false;
   }
 

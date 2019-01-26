@@ -9,6 +9,46 @@ var express = require('express'),
   store = require('store');
 
 
+  exports.indexRouterLibrary = function () {
+    var indexRouter = express.Router();
+    indexRouter.route('/config/entity')
+        .get(controllers.entity)
+        .post(controllers.entity)
+    indexRouter.route('/config/teacher')
+        .get(controllers.teacher)
+        .post(controllers.teacher)
+    indexRouter.route('/stop')
+        .get(controllers.stop);
+    indexRouter.route('/library')
+        .get(controllers.library)
+        .post(controllers.library)
+    indexRouter.route('/init')
+        .get(controllers.init_library);
+    indexRouter.route('/reload')
+        .get(controllers.reload_transactions);
+    indexRouter.route('/config/subject')
+        .get(controllers.subject)
+        .post(controllers.subject)
+    indexRouter.route('/config/book')
+        .get(controllers.book)
+        .post(controllers.book)
+    indexRouter.route('/config/trantype')
+        .get(controllers.trantype)
+        .post(controllers.trantype)
+    indexRouter.route('/transaction')
+        .get(controllers.transaction)
+        .post(controllers.transaction)
+    indexRouter.route('/transaction/create')
+        .get(controllers.transaction_c)
+        .post(controllers.transaction_c)
+    indexRouter.route('/')
+        .get(controllers.access);
+    indexRouter.route('/validate')
+        .get(controllers.validate);
+    return indexRouter;
+  };
+
+
 exports.indexRouter = function () {
   /**
    * the new Router exposed in express 4
@@ -107,45 +147,5 @@ exports.indexRouterAlexa = function () {
       .get(controllers.stop);
   indexRouter.route('/*')
       .get(controllers.access);
-  return indexRouter;
-};
-
-exports.indexRouterLibrary = function () {
-  /**
-   * the new Router exposed in express 4
-   * the indexRouter handles all requests to the `/` path
-   */
-  var indexRouter = express.Router();
-  indexRouter.route('/stop')
-      .get(controllers.stop);
-  indexRouter.route('/library')
-      .get(controllers.library);
-  indexRouter.route('/init')
-      .get(controllers.init_library);
-  indexRouter.route('/reload')
-      .get(controllers.reload_transactions);
-  indexRouter.route('/config/teacher')
-      .get(controllers.teacher)
-      .post(controllers.teacher)
-  indexRouter.route('/config/class')
-      .get(controllers.class)
-      .post(controllers.class)
-  indexRouter.route('/config/subject')
-      .get(controllers.subject)
-      .post(controllers.subject)
-  indexRouter.route('/config/trantype')
-      .get(controllers.trantype)
-      .post(controllers.trantype)
-
-  indexRouter.route('/transaction')
-      .get(controllers.transaction)
-      .post(controllers.transaction)
-  indexRouter.route('/transaction/create')
-      .get(controllers.transaction_c)
-      .post(controllers.transaction_c)
-  indexRouter.route('/')
-      .get(controllers.access);
-  indexRouter.route('/validate')
-      .get(controllers.validate);
   return indexRouter;
 };

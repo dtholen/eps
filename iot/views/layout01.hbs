@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" >
 
-
 <head>
   <title>{{title}}</title>
   <meta charset="utf-8">
@@ -12,10 +11,74 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+
+<style>
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+nav li {
+  list-style: none;
+  margin: 0.5em;
+  padding: 0;
+  font-size: 1.5em;
+}
+
+@media (min-width: 45em) {
+  nav ul {
+    flex-direction: row;
+  }
+  nav li {
+    font-size: 1em;
+  }
+}
+
+
+/* Modal Header */
+.modal-header {
+ padding: 2px 16px;
+ background-color: #5cb85c;
+ color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+ padding: 2px 16px;
+ background-color: #5cb85c;
+ color: white;
+}
+
+/* Modal Content */
+.modal-content {
+ position: relative;
+ background-color: #fefefe;
+ margin: auto;
+ padding: 0;
+ border: 1px solid #888;
+ width: 80%;
+ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+ animation-name: animatetop;
+ animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+ from {top: -300px; opacity: 0}
+ to {top: 0; opacity: 1}
+} 
+
+</style>
 
 
 </head>
+
+
 
 <body>
   <nav class="navbar navbar-default">
@@ -44,22 +107,28 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Config<span class="caret glyphicon glyphicon-cog"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="/config/entity">Tabellen</a></li>
               <li><a href="/config/teacher">Lehrer</a></li>
-              <li><a href="/config/class">Klasse</a></li>
+              <li><a href="/config/book">Bücher</a></li>
               <li><a href="/config/subject">Schulfach</a></li>
               <li><a href="/config/trantype">Vorgänge</a></li>
               <li><a href="#">...</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="/stop">Stop&Restart Service</a></li>
-              <li><a href="/init">Init Data</a></li>
-              <li><a href="/reload">reload</a></li>
               <li><a href="#">...</a></li>
             </ul>
          </li>
-
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/reset">Reset</a></li>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maintain<span class="caret glyphicon glyphicon-wrench"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/maintain/teacher">Export</a></li>
+              <li><a href="/maintain/import">Import</a></li>
+              <li><a href="/reload">reload</a></li>
+              <li><a href="/init">Init Data</a></li>
+            </ul>
+         </li>
       </ul>
 
     </div>

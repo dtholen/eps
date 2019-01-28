@@ -89,9 +89,9 @@
       {"ID": "EB1", "name": "Erlebnis Biologie 1","class":	"5/6", "SID": "BIO" }
       {"ID": "EB2", "name": "Erlebnis Biologie 2","class":	"7/8", "SID": "BIO" }
       {"ID": "EB3", "name": "Erlebnis Biologie 3","class":	"9/10", "SID": "BIO" }
-      {"ID": "xx", "name": "CVK Chemie (1992)","class": "7-10", "SID": "CH" }
-      {"ID": "xx", "name": "Chemie, Gesamtband,Cornelsen","class": "7-10", "SID": "CH" }
-      {"ID": "xx", "name": "Umwelt: Chemie","class": "7-10", "SID": "CH" }
+      {"ID": "CVK92", "name": "CVK Chemie (1992)","class": "7-10", "SID": "CH" }
+      {"ID": "CGC7", "name": "Chemie, Gesamtband,Cornelsen","class": "7-10", "SID": "CH" }
+      {"ID": "CUC7", "name": "Umwelt: Chemie","class": "7-10", "SID": "CH" }
       {"ID": "EK1N", "name": "Seydlitz, Erdkunde 1,Realschule,NEU","class":	"5/6", "SID": "EK" }
       {"ID": "EK2N", "name": "Seydlitz, Erdkunde 2, Realschule, NEU","class":	"7/8", "SID": "EK" }
       {"ID": "EKR", "name": "Seydlitz, Erdkunde,Realschule (rot)","class":	"5/6", "SID": "EK" }

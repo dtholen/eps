@@ -41,7 +41,10 @@ var express = require('express'),
     indexRouter.route('/transaction/create')
         .get(controllers.transaction_c)
         .post(controllers.transaction_c)
-    indexRouter.route('/')
+    indexRouter.route('/maintain/export')
+        .get(controllers.export)
+        .post(controllers.export)
+    indexRouter.route('/*')
         .get(controllers.access);
     indexRouter.route('/validate')
         .get(controllers.validate);

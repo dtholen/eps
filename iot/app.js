@@ -123,9 +123,7 @@ app
   .use(express.static(path.join(__dirname, 'public')))
   .use(flash()) // use connect-flash for flash messages stored in session
   .use(routes.indexRouter())
-  .use(function (req, res) {
-    res.status(404).render('404', {title: 'Not Found :('});
-  });
+
 
   var sess;
   function logErrors(err, req, res, next) {

@@ -1,0 +1,109 @@
+{{!< layout01}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+<script>
+
+function myBID(x,i) {
+        self.location.href="{{link}}";
+    }
+
+function deleteClass(_id) {
+     $.post("{{link}}", {"_id" : _id, "action":"d" }, function(result){
+    });
+  };
+
+
+function createClass() {
+      var modal = document.getElementById('myModal');
+      var span = document.getElementsByClassName("close")[0];
+      modal.style.display = "block";
+      span.onclick = function() {modal.style.display = "none";}
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none"; }
+      }
+      $.post("{{link}}", {"_id" : _id, "action":"c" }, function(result){
+      });
+    };
+
+</script>
+
+<style>
+    th { background-color: #aaaaaa }
+}
+
+
+</style>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Eingabe {{title}} Daten</h2>
+    </div>
+    <div class="modal-body">
+    <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action={{link}} method="post" >
+      <input  value="c" type="hidden"   name="action" id="action">
+       {{#each fields}}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="class">{{this.lable}}</label>
+            <div class="col-sm-2">
+              <input  autofocus type="text"  class="form-control" name="{{this.field}}" id="{{this.field}}" autocomplete="off" onchange="check_field(2)" placeholder="{{this.field}}" required>
+            </div>
+          </div>
+       {{/each}}
+
+        <div id="divTime" class="form-group" style="display: none;" >
+          <div class="col-sm-2">
+            <input id="time" type="time" class="form-control"  >
+            <script>
+                document.getElementById("time").value = Date();
+            </script>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary" >OK</button>
+            <a href="{{cancel}}" id="cancel" name="cancel" class="btn btn-default">Cancel</a>
+        </div>
+      </div>
+
+    </form>
+    </div>
+    <div class="modal-footer">
+      <h3>...</h3>
+    </div>
+  </div>
+
+</div>
+
+<div style="border-radius: 10px; background-color:"{{form.bg}}"; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+    <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
+     <tr>
+      {{#each fields}} <th>{{this.lable}}</th> {{/each}}
+       <th width=15%>
+         <button class="glyphicon glyphicon-plus" onclick='createClass()'></button>
+       </th>
+     </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}" id="myTabler" name="myTabler"  onclick="myBID(this,1)" >
+        <td id="id">{{this.ID}}</td>
+        <td>{{this.name}}</td>
+        <td width=10%>
+          <button class="glyphicon glyphicon-copy" onclick='copyClass("{{this.ID}}","{{this.name}}")'></button>
+          <button class="glyphicon glyphicon-pencil" onclick='editClass("{{this.ID}}")'></button>
+          <button class="glyphicon glyphicon-trash" onclick='deleteClass("{{this.ID}}")'></button>
+        </td>
+      </tr>
+     {{/each}}
+    </table>
+  </div>
+</div>

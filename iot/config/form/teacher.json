@@ -1,0 +1,9 @@
+{ "title":"Lehrer",
+  "entity": "teacher",
+  "link": "/config/teacher",
+ "fields": [
+   { "field":"ID",        "lable": "ID"},
+   { "field":"name",      "lable": "Vorname"},
+   { "field":"surename",  "lable": "Name"}
+ ]
+}

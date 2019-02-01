@@ -1,0 +1,10 @@
+{ "title":"Tabellen Exportieren/Importieren",
+  "entity": "entity",
+  "link": "/maintain/export",
+  "view": "export",
+  "bg"  : "BurlyWood",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"}
+ ]
+}

@@ -1,0 +1,10 @@
+{ "title":"Bücher",
+  "entity": "book",
+  "link": "/config/book",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"},
+   { "field":"SID",      "lable": "Fach"},
+   { "field":"class",   "lable": "Schuhljahr"}
+ ]
+}

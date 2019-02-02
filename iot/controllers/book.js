@@ -6,33 +6,35 @@ var title = 'Buecher';
 var link = '/config/book';
 var lable = title;
 var query;
-function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split("=");
-        if (pair[0] == variable) {
-            return pair[1];
-        }
-    }
-    return (false);
-}
 
 module.exports = function (req, res) {
   collection = global.db.get(entity);
   if (req.method=="POST") {
-  var newvalues = {name: req.body.md_name, SID: req.body.md_SID, class: req.body.md_class}
-     console.log(req.body);
-     collection.update({ID: req.body.ID}, newvalues, function(err, res) {
-       if (err) throw err;
-       console.log("document updated");
-     });
-
+    var newvalues = {ID: req.body.md_ID, name: req.body.md_name, SID: req.body.md_SID, class: req.body.md_class}
+       console.log("Values: "+req.body.md_id);
+       console.log(newvalues)
+       switch (req.body.action) {
+         case 'x':
+           console.log("copy");
+           collection.insert(newvalues, function(err, res) { if (err) throw err; });
+           break;
+         case 'u':
+           console.log("update");
+           collection.update({"_id": req.body.md_id}, newvalues, function(err, res) { if (err) throw err; });
+           break;
+         case 'd':
+           console.log("delete");
+           collection.remove({"_id": req.body.md_id}, function(err, res) { if (err) throw err; });
+           break;
+         default:
+           alert( "I don't know such values" );
+       }
   }
   query={};
   if (req.query.SID) query={SID: req.query.SID};
   collection.find(query,{'limit':200 , sort : { _id: 1 }  },function(e,docs){
   res.render('book', {
+      SID: req.query.SID,
       title: form.title,
       refresh: false,
       obj: docs,

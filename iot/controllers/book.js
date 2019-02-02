@@ -35,12 +35,10 @@ module.exports = function (req, res) {
   collection.find(query,{'limit':200 , sort : { _id: 1 }  },function(e,docs){
   res.render('book', {
       SID: req.query.SID,
-      title: form.title,
       refresh: false,
       obj: docs,
-      link: form.entity,
       sid: global.sid,
-      fields: form.fields
+      form: form
     });
 })
 

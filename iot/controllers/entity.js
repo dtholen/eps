@@ -12,15 +12,12 @@ module.exports = function (req, res) {
        console.log(newvalues)
        switch (req.body.action) {
          case 'x':
-           console.log("copy");
            collection.insert(newvalues, function(err, res) { if (err) throw err; });
            break;
          case 'u':
-           console.log("update");
            collection.update({"_id": req.body.md_id}, newvalues, function(err, res) { if (err) throw err; });
            break;
          case 'd':
-           console.log("delete");
            collection.remove({"_id": req.body.md_id}, function(err, res) { if (err) throw err; });
            break;
          default:
@@ -30,11 +27,9 @@ module.exports = function (req, res) {
   query={};
   collection.find(query,{'limit':200 , sort : { _id: 1 }  },function(e,docs){
   res.render(form.entity, {
-      title: form.title,
       refresh: false,
       obj: docs,
-      link: form.entity,
-      fields: form.fields
+      form: form
     });
 })
 

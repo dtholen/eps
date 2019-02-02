@@ -1,9 +1,10 @@
 { "title":"Lehrer",
-  "entity": "teacher",
+  "entity": "Teacher",
   "link": "/config/teacher",
+  "bg": "DeepSkyBlue",
  "fields": [
-   { "field":"ID",        "lable": "ID"},
-   { "field":"name",      "lable": "Vorname"},
-   { "field":"surename",  "lable": "Name"}
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Vorname"},
+   { "field":"name",    "lable": "Name"}
  ]
 }

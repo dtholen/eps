@@ -26,11 +26,9 @@ module.exports = function (req, res) {
   query={};
   collection.find(query,{'limit':200 , sort : { _id: 1 }  },function(e,docs){
   res.render(form.entity, {
-      title: form.title,
       refresh: false,
       obj: docs,
-      link: form.entity,
-      fields: form.fields
+      form: form
     });
 })
 

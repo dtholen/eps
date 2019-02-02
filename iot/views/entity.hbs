@@ -72,17 +72,17 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>{{title}}</h2>
+      <h2>{{form.title}}</h2>
       <div id=md_style style="background-color:grey" >
       <h3 id="md_mode" ></h2>
       </div>
     </div>
     <div class="modal-body" >
 
-    <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action={{link}} method="post" >
+    <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action={{form.link}} method="post" >
       <input  type="hidden"  name="action" id="action" value='u'>
       <input  type="hidden"  name="md_id" id="md_id">
-       {{#each fields}}
+       {{#each form.fields}}
         <div class="form-group">
             <label class="control-label col-sm-2" for="class">{{this.lable}}</label>
             <div class="col-sm-2">
@@ -117,13 +117,13 @@
 </div>
 
 
-<div style="border-radius: 10px; background-color:BurlyWood; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
-  <h1>{{title}}</h1>
+<div style="border-radius: 10px; background-color:{{form.bg}}; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+  <h1>{{form.title}}</h1>
   <div class="entry">
     <input  type=hidden value="c"   name="mode_s" id="mode_s">
     <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
       <tr>
-       {{#each fields}} <th>{{this.lable}}</th> {{/each}}
+       {{#each form.fields}} <th>{{this.lable}}</th> {{/each}}
         <th width=15%>
           <button class="glyphicon glyphicon-plus" onclick='createClass()'></button>
         </th>

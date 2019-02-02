@@ -24,9 +24,10 @@ function deleteClass(_id) {
 
 
 
-  function editClass(ID,name,SID,cc) {
+  function editClass(_id, ID,name,SID,cc) {
         var modal = document.getElementById('myModal');
         var span = document.getElementsByClassName("close")[0];
+        $('#md_id').val(_id);
         $('#md_ID').val(ID);
         $('#md_SID').val(SID);
         $('#md_name').val(name);
@@ -58,7 +59,8 @@ function deleteClass(_id) {
     <div class="modal-body" >
 
     <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action={{link}} method="post" >
-      <input  type="hidden"  name="action" id="action">
+      <input  type="hidden"  name="action" id="action" value='u'>
+      <input  type="text"  name="md_id" id="md_id">
        {{#each fields}}
         <div class="form-group">
             <label class="control-label col-sm-2" for="class">{{this.lable}}</label>
@@ -116,12 +118,13 @@ function deleteClass(_id) {
       </tr>
      {{#each obj}}
       <tr bgcolor="{{this.bg}}" id="myTabler" name="myTabler"  >
+        <input  type=hidden name="_id" id="_id value={{this._id}}">
         <td id="ID">{{this.ID}}<input type="hidden" id="_id" name="_id" value="{{this._id}}" /></td>
         <td id="SID">{{this.SID}}</td>
         <td id="name" name="name">{{this.name}}</td>
         <td id="class">{{this.class}}</td>
         <td width=10%>
-          <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.class}}")'></button>
+          <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.class}}")'></button>
           <button id="btn2" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this.ID}}")'></button>
         </td>
       </tr>

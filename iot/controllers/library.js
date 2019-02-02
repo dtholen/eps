@@ -7,8 +7,17 @@ var query;
 module.exports = function (req, res) {
   collection = global.db.get(form.entity);
   if (req.method=="POST") {
-     collection.remove({"ID": req.body._id});
-     global.valid=false;
+    var newvalues = {ID: req.body.md_ID, name: req.body.md_name, SID: req.body.md_SID, class: req.body.md_class}
+       console.log("Values: "+req.body.md_id);
+       console.log(newvalues)
+       switch (req.body.action) {
+         case 'd':
+           console.log("delete");
+           collection.remove({"_id": req.body.md_id}, function(err, res) { if (err) throw err; });
+           break;
+         default:
+           alert( "I don't know such values" );
+       }
   }
   query={};
   if (req.query.SID) query={SID: req.query.SID};

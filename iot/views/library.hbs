@@ -137,6 +137,7 @@
         <td id="v3" name="v3">{{this.v3}}</td>
         <td width=10%>
             <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.class}}","{{this.v1}}","{{this.v3}}","{{this.v3}}")'></button>
+            <button id="btn1" class="glyphicon glyphicon-pencil" onclick="window.location.href='/transaction/create?BID={{this.ID}}'" type="button" </button>
         </td>
       </tr>
      {{/each}}

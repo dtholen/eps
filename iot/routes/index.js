@@ -44,10 +44,13 @@ var express = require('express'),
     indexRouter.route('/maintain/export')
         .get(controllers.export)
         .post(controllers.export)
-    indexRouter.route('/*')
-        .get(controllers.access);
     indexRouter.route('/validate')
         .get(controllers.validate);
+    indexRouter.route('/log')
+        .get(controllers.log);
+    indexRouter.route('/*')
+        .get(controllers.access);
+
     return indexRouter;
   };
 

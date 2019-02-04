@@ -35,7 +35,6 @@ module.exports = function(req, res) {
         var teacher = global.teacher[req.body.teacher];
         var book = global.book[req.body.book];
         var etype = global.trantype[req.body.eType];
-        var count = 10;
 /*
             console.log("Transaction c");
             console.log(teacher);
@@ -70,12 +69,8 @@ module.exports = function(req, res) {
               console.log('The "data to append" was appended to file!');
             });
             console.log(obj)
-
-            collection.insert(obj, function(err, res) {
-                if (err) throw err;
-                global.valid = false;
-                global.config.showTransaction(entity, 'i', '');
-            });
+            collection.insert(obj, function(err, res) {if (err) throw err; });
+            global.valid=false;
 
         }
 

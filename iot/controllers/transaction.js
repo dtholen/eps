@@ -13,11 +13,10 @@ module.exports = function (req, res) {
   var hour=60*60;
   collection = global.db.get(form.entity);
   if (req.method=="POST" & req.body.action=="d") {
-     collection.remove({"ID": req.body._id});
+     collection.remove({"_id": req.body.md_id});
      global.valid=false;
   }
 
-  global.config.showTransaction(form.entity,req.body.action,req.body._id);
   var today = dateMath.startOf(new Date, 'day');
   var week = dateMath.subtract(today,7, 'day');
   var month = dateMath.subtract(today,30, 'day');

@@ -30,6 +30,31 @@ function log_msg(msg,id) {
     return true;
     }
 
+function EnableFields() {
+
+  var etype = $("#etype").val();
+  switch (etype) {
+    case 'INVENTORY':
+      $("#teacher").val('INV');
+      $("#divTeacher").fadeOut();
+      $("#divClass").fadeOut();
+      break;
+    case 'ISSUE':
+      $("#divTeacher").fadeIn();
+      $("#divClass").fadeIn();
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
+    case 5:
+      break;
+  }
+}
+
+
 function check_field(eID) {
   var name={};
   var check=false;
@@ -50,6 +75,7 @@ function check_field(eID) {
       break;
     case 4:
       name='trantype';
+      EnableFields();
       break;
     case 5:
       name='trantype';
@@ -115,7 +141,7 @@ function validateForm() {
       </div>
 
 
-      <div class="form-group">
+      <div id="divTeacher" class="form-group">
         <label class="control-label col-sm-2" for="teacher">Lehrer:</label>
         <div class="col-sm-2">
           <input autofocus type="text"  class="form-control" name="teacher" id="teacher" list=teacher_list autocomplete="off" onchange="check_field(0)" placeholder="Names des Lehrers" required>
@@ -157,7 +183,7 @@ function validateForm() {
         </div>
       </div>
 
-      <div class="form-group">
+      <div id="divClass" class="form-group">
         <label class="control-label col-sm-2" for="class">Klasse:</label>
         <div class="col-sm-2">
           <input  nchange="check_field(5)" autofocus type="text"  class="form-control" nchange="check_field(3)" name="class" id="class" autocomplete="off" placeholder="Klasse">

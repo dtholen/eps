@@ -1,0 +1,10 @@
+{ "title":"Vorgänge",
+  "entity": "trantype",
+  "link": "/config/trantype",
+  "bg": "Bisque",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"},
+   { "field":"value",    "lable": "Wert"}
+ ]
+}

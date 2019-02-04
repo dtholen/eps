@@ -1,5 +1,5 @@
 { "title":"Lehrer",
-  "entity": "Teacher",
+  "entity": "teacher",
   "link": "/config/teacher",
   "bg": "DeepSkyBlue",
  "fields": [

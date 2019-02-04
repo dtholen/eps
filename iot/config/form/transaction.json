@@ -1,0 +1,21 @@
+{ "title":"Vorgänge",
+  "entity": "transaction",
+  "link": "/transaction",
+  "bg": "MediumAquaMarine",
+ "selector": [
+   { "TAG":"m", "lable": "Letzten 10 Minuten", "class": "btn btn-success" },
+   { "TAG":"H", "lable": "Letzte Stunde", "class": "btn btn-info"},
+   { "TAG":"D", "lable": "Heute", "class": "btn btn-info"},
+   { "TAG":"W", "lable": "Woche", "class": "btn btn-info"},
+   { "TAG":"M", "lable": "Monat", "class": "btn btn-info"},
+   { "TAG":"A", "lable": "Alle", "class": "btn btn-info"}
+ ],
+ "fields": [
+   { "field":"LID",      "lable": "Lehrer"},
+   { "field":"BID",    "lable": "Buch"},
+   { "field":"TID",    "lable": "Vorgang"},
+   { "field":"value",    "lable": "Anzahl"},
+   { "field":"CID",    "lable": "Klasse"},
+   { "field":"timestamp",    "lable": "Zeit"}
+ ]
+}

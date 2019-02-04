@@ -1,0 +1,14 @@
+{ "title":"Buch Bestand",
+  "entity": "book",
+  "link": "/library",
+  "bg": "LightSalmon",
+ "fields": [
+   { "field":"ID",        "lable": "ID"},
+   { "field":"name",      "lable": "Bezeichnung"},
+   { "field":"SID",   "lable": "Fach"},
+   { "field":"class",     "lable": "Klasse"},
+   { "field":"v1",   "lable": "Bestand"},
+   { "field":"v2",   "lable": "Verliehen"},
+   { "field":"v3",   "lable": "Vorhanden"}
+  ]
+}

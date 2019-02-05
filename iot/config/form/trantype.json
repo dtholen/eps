@@ -5,6 +5,7 @@
  "fields": [
    { "field":"ID",      "lable": "ID"},
    { "field":"name",    "lable": "Name"},
-   { "field":"value",    "lable": "Wert"}
+   { "field":"value",    "lable": "Wert"},
+   { "field":"icon",    "lable": "Icon"}
  ]
 }

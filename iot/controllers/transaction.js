@@ -5,12 +5,7 @@ var dateMath = require('date-arithmetic');
 var dateFormat = require('dateformat');
 
 module.exports = function (req, res) {
-  var ux = new Date();
-  var start;
-  var midnight = new Date();
-  midnight.setHours(0,0,0,0);
-  var day = 86400;
-  var hour=60*60;
+
   collection = global.db.get(form.entity);
   if (req.method=="POST" & req.body.action=="d") {
      collection.remove({"_id": req.body.md_id});
@@ -22,7 +17,6 @@ module.exports = function (req, res) {
   var month = dateMath.subtract(today,30, 'day');
   var year = dateMath.subtract(today,365, 'day');
   var query={timestamp: {$gte: dateMath.startOf(new Date, 'day')} };
-//  console.log(dateFormat(today, "dd.mm HH:MM"));
     if (req.query.range)
     {
       switch(req.query.range) {
@@ -42,7 +36,7 @@ module.exports = function (req, res) {
            query={timestamp: {$gte: dateMath.subtract(today,365, 'day')} };
            break;
         case "H":
-           query={timestamp: {$gte: dateMath.subtract(ux,1, 'hours')} };
+           query={timestamp: {$gte: dateMath.subtract(Date.now(),1, 'hours')} };
            break;
         case "m":
            query={timestamp: {$gte: dateMath.subtract(ux,10, 'minutes')} };
@@ -55,9 +49,8 @@ module.exports = function (req, res) {
     docs[i].teacher = global.teacher[docs[i].LID];
     docs[i].book = global.book[docs[i].BID];
     docs[i].transaction = global.trantype[docs[i].TID];
-    docs[i].gi = global.keyval[docs[i].TID];
+    docs[i].gi = global.tticon[docs[i].TID];
     docs[i].ti = dateFormat(docs[i].timestamp, "dd.mm HH:MM");
-//    docs[i].ti = dateFormat(docs[i].timestamp, "h:MM:ss TT");
   }
 
   res.render(form.entity, {

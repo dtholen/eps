@@ -27,8 +27,6 @@ var config = {
 };
 
 
-var keyval = {};
-var desc = {};
 var bg = {};
 var teacher = {};
 var book = {};
@@ -36,28 +34,26 @@ var entity = {};
 var trantype = {};
 var sid = {};
 var subject = {};
+var icon = {};
 var ttsign = {};
-var device_lable = {};
-var collection = db.get('keyval');
+var tticon = {};
 var query;
+var collection;
 query = {};
 
-collection.find(query, function(e, docs) {
-  for (var i = 0, len = docs.length; i < len; i++) {
-    keyval[docs[i]._id] = docs[i].value;
-    desc[docs[i]._id] = docs[i].desc;
-  }
-})
 
 collection = db.get('background');
 collection.find(query, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) bg[docs[i]._id] = docs[i].value;
 })
 
-collection = db.get('device');
+collection = db.get('icon');
 collection.find(query, function(e, docs) {
-  for (var i = 0, len = docs.length; i < len; i++) device_lable[docs[i]._id] = docs[i].lable;
+  for (var i = 0, len = docs.length; i < len; i++) {
+    icon[docs[i].ID] = docs[i].icon;
+  }
 })
+
 collection = db.get('teacher');
 collection.find(query, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
@@ -93,6 +89,7 @@ collection.find(query, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
     trantype[docs[i].ID] = docs[i].name;
     ttsign[[docs[i].ID]] = docs[i].value;
+    tticon[[docs[i].ID]] = docs[i].icon;
   }
 })
 
@@ -112,9 +109,8 @@ var globals = {
   },
   valid: false,
   config: config,
-  keyval: keyval,
-  desc: desc,
   bg: bg,
+  icon : icon,
   entity: entity,
   subject: subject,
   sid: sid,
@@ -122,7 +118,7 @@ var globals = {
   book: book,
   trantype: trantype,
   ttsign: ttsign,
-  device_lable: device_lable,
+  tticon: tticon,
   showConfig: function() {
     console.log(global.message + ' Version: ' + this.version);
   },

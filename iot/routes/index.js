@@ -37,7 +37,7 @@ var express = require('express'),
         .post(controllers.trantype)
     indexRouter.route('/config/entry')
         .get(controllers.entry)
-        .post(controllers.entry)    
+        .post(controllers.entry)
     indexRouter.route('/transaction')
         .get(controllers.transaction)
         .post(controllers.transaction)
@@ -51,6 +51,8 @@ var express = require('express'),
         .get(controllers.validate);
     indexRouter.route('/log')
         .get(controllers.log);
+    indexRouter.route('/')
+        .get(controllers.home);
     indexRouter.route('/*')
         .get(controllers.access);
 

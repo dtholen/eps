@@ -1,0 +1,12 @@
+{ "title":"Home",
+  "entity": "entry",
+  "link": "/config/entry",
+  "bg": "lightgrey",
+ "fields": [
+     { "field":"nr",     "lable": "Nr."},
+     { "field":"ID",      "lable": "ID"},
+     { "field":"name",    "lable": "Name"},
+     { "field":"link",    "lable": "Link"},
+     { "field":"attr",    "lable": "Attribut"}
+   ]
+}

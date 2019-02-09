@@ -1,0 +1,10 @@
+{ "title":"Home",
+  "entity": "entry",
+  "view": "home",
+  "link": "/config/home",
+  "bg": "BurlyWood",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"}
+ ]
+}

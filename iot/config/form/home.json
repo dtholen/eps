@@ -1,7 +1,6 @@
 { "title":"Home",
   "entity": "entry",
   "view": "home",
-  "link": "/config/home",
   "bg": "DarkSeaGreen",
  "fields": [
    { "field":"ID",      "lable": "ID"},

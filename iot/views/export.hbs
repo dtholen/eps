@@ -7,11 +7,11 @@
 <script>
 
 function myBID(x,i) {
-        self.location.href="{{link}}";
+        self.location.href="{{form.link}}";
     }
 
 function exportClass(name,action) {
-     $.post("{{link}}", {"name" : name, "action": action }, function(result){
+     $.post("{{form.link}}", {"name" : name, "action": action }, function(result){
     });
   };
 
@@ -22,8 +22,8 @@ function exportClass(name,action) {
 
 </style>
 
-<div style="border-radius: 10px; background-color:BurlyWood; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
-  <h1>{{form.title}}</h1>
+<div style="border-radius: 10px; background-color:{{form.bg}}; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+  <h3>{{form.title}}</h3>
   <div class="entry">
     <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
      <tr>

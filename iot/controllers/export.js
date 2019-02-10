@@ -41,7 +41,7 @@ function importTable(name) {
 
 module.exports = function(req, res) {
   var fs = require('fs');
-  console.log(form.entity + "  method:" + req.method + " action:" + req.body.action);
+  console.log(form.title + "  method:" + req.method );
   collection = global.db.get(form.entity);
 
 
@@ -83,13 +83,15 @@ module.exports = function(req, res) {
       ID: 1
     }
   }, function(e, docs) {
+    if (req.query.mode == 'A')
+    {
+      res.redirect('/');
+    } else {
+    console.log(form);
     res.render(form.view, {
-      title: form.title,
       refresh: false,
       obj: docs,
-      link: form.link,
-      entity: form.entity,
-      fields: form.fields
+      form: form
     });
-  })
+  }})
 }

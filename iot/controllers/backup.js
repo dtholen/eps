@@ -41,14 +41,7 @@ tar.c(
 //  res.send(response);
 
 
-collection = global.db.get(form.entity);
-query={};
-collection.find(query,{'limit':200 , sort : { nr: 1 }  },function(e,docs){
-res.render(form.view, {
-    refresh: false,
-    obj: docs,
-    form: form
-  });
-});
+
+res.redirect('/');
 
   }

@@ -39,7 +39,7 @@ module.exports = function (req, res) {
            query={timestamp: {$gte: dateMath.subtract(Date.now(),1, 'hours')} };
            break;
         case "m":
-           query={timestamp: {$gte: dateMath.subtract(ux,10, 'minutes')} };
+           query={timestamp: {$gte: dateMath.subtract(new Date,10, 'minutes')} };
            break;
          }
   }

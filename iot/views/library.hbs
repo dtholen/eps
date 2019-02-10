@@ -55,7 +55,6 @@
 </script>
 
 <style>
-    th { background-color: #aaaaaa }
 
 </style>
 
@@ -65,7 +64,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>{{form.title}}</h2>
+      <h3>{{form.title}}</h3>
       <div id=md_style style="background-color:grey" >
       <h3 id="md_mode" ></h2>
       </div>
@@ -110,15 +109,14 @@
 </div>
 
 <div style="border-radius: 10px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
-
+     <button onclick="window.location.href='{{form.link}}?SID=A'" type="button" class="btn btn-success">alle</button>
      {{#each sid}}
         <button onclick="window.location.href='{{form.link}}?SID={{this.ID}}'" type="button" class="btn btn-info">{{this.ID}}</button>
      {{/each}}
-
 </div>
 
 <div style="border-radius: 10px; background-color:{{form.bg}}; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
-  <h1>{{form.title}}</h1>
+  <h3>{{form.title}} ({{form.query}})</h3>
   <div class="entry">
     <input  type=hidden value="c"   name="mode_s" id="mode_s">
     <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >

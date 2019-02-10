@@ -33,7 +33,20 @@ module.exports = function (req, res) {
   }
   global.valid=true;
 
-  if (req.query.SID) query={SID: req.query.SID};
+  query={};
+  if (req.query.SID) {
+    req.session.SID = req.query.SID
+    query={SID: req.query.SID};
+    if (req.query.SID=='A') {
+      query={};
+      req.session.SID = 'A'
+    }
+  } else {
+    if (req.session.SID != 'A') query={SID: req.session.SID};
+  }
+  form.query=JSON.stringify(query);
+
+
   collection = global.db.get('book');
   collection.find(query,{'limit':200 , sort : { _id: 1 }  },function(e,docs){
   for (var i = 0, len = docs.length; i < len; i++) {

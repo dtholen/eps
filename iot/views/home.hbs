@@ -1,21 +1,17 @@
 {{!< layout01}}
 <script>
 
-
 </script>
 
 <style>
-    th { background-color: #aaaaaa }
-}
-
 
 </style>
 
-<div style="border-radius: 10px; background-color:BurlyWood; padding-left:20px; padding-top:10px; padding-bottom: 20px" class="container">
-  <h2>{{form.title}}</h2>
-  <div class="entry">
+<div style="border-radius: 10px; background-color:{{form.bg}}; padding-left:20px; padding-top:10px; padding-bottom: 20px" class="container">
+  <h2 id="drag1" draggable="true" ondragstart="drag(event)"> {{form.title}}</h2>
+  <div class="entry" >
      {{#each obj}}
-        <button type="button" onclick="window.location.href='{{this.link}}'" class="btn {{this.attr}}">{{this.name}}</button>
+        <button  type="button" onclick="window.location.href='{{this.link}}'" class="btn {{this.attr}}"><p>{{this.name}}</p></button>
      {{/each}}
   </div>
 </div>

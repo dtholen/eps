@@ -22,7 +22,6 @@ var express = require('express'),
   expressValidator = require('express-validator'),
   fs = require('fs'),
   https = require('https'),
-  mqtt = require('mqtt'),
   sprintf = require("sprintf-js").sprintf,
   helmet = require('helmet'),
   basicAuth = require('express-basic-auth'),
@@ -31,7 +30,6 @@ var express = require('express'),
   // all global definitions including Database connects
 global = require('./config/globals');
 var env = global.config.demo;
-env.mqtt.client=mqtt.connect(env.mqtt.url);
 var app = express();
 var sess;
 
@@ -69,9 +67,6 @@ hbs.registerHelper('json', function (content) {
 
 module.exports = app; // for testing
 
-function topicSubscribe(element, index, array) {
-    env.mqtt.client.subscribe(element)
-}
 
 function logErrors(err) {
   console.log(err);
@@ -85,11 +80,6 @@ function DisplayTime(timestamp) {
 }
 
 
-  env.mqtt.client.on('connect', function () {
-  env.mqtt.topics.forEach(topicSubscribe);
-  var d = new Date();
-  var uxt = d/1000 | 0;
-  })
 
 
 global.showConfig();

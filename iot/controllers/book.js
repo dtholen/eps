@@ -7,6 +7,7 @@ var link = '/config/book';
 var lable = title;
 var query;
 
+
 module.exports = function (req, res) {
   collection = global.db.get(entity);
   if (req.method=="POST") {
@@ -31,7 +32,18 @@ module.exports = function (req, res) {
        }
   }
   query={};
-  if (req.query.SID) query={SID: req.query.SID};
+  if (req.query.SID) {
+    req.session.SID = req.query.SID
+    query={SID: req.query.SID};
+    if (req.query.SID=='A') {
+      query={};
+      req.session.SID = 'A'
+    }
+  } else {
+    if (req.session.SID != 'A') query={SID: req.session.SID};
+  }
+  form.query=JSON.stringify(query);
+
   collection.find(query,{'limit':200 , sort : { _id: 1 }  },function(e,docs){
   res.render('book', {
       SID: req.query.SID,

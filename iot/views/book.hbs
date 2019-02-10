@@ -17,40 +17,41 @@
         }
       }
 
-    function deleteClass(_id, ID,name,SID,cc) {
+    function deleteClass(_id, ID,name,SID,value,cc) {
         $('#md_mode').text("Daten Löschen");
         $('#md_style').attr('style','background-color:red');
         $('#action').val('d');
-        updateClass(_id, ID,name,SID,cc);
+        updateClass(_id, ID,name,SID,value,cc);
       };
-    function duplicateClass(_id, ID,name,SID,cc) {
+    function duplicateClass(_id, ID,name,SID,value,cc) {
           $('#md_mode').text("Daten koppieren");
           $('#md_style').attr('style','background-color:blue');
           $('#action').val("x");
-          updateClass(_id, ID,name,SID,cc);
+          updateClass(_id, ID,name,SID,value,cc);
         };
 
-  function editClass(_id, ID,name,SID,cc) {
+  function editClass(_id, ID,name,SID,value,cc) {
               $('#md_mode').text("Daten ändern");
               $('#md_style').attr('style','background-color:grey');
               $('#action').val("u");
-              updateClass(_id, ID,name,SID,cc);
+              updateClass(_id, ID,name,SID,value,cc);
     };
 
     function createClass() {
                 $('#md_mode').text("Daten einfügen");
                 $('#md_style').attr('style','background-color:grey');
                 $('#action').val("x");
-                updateClass('', '','','','');
+                updateClass('', '','','','','');
       };
 
-  function updateClass(_id, ID,name,SID,cc) {
+  function updateClass(_id, ID,name,SID,value,cc) {
               var modal = document.getElementById('myModal');
               var span = document.getElementsByClassName("close")[0];
               $('#md_id').val(_id);
               $('#md_ID').val(ID);
               $('#md_name').val(name);
               $('#md_SID').val(SID);
+              $('#md_value').val(value);
               $('#md_class').val(cc);
               modal.style.display = "block";
               span.onclick = function() {modal.style.display = "none";}
@@ -121,13 +122,14 @@
 
 
 <div style="border-radius: 10px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+     <button onclick="window.location.href='{{form.link}}?SID=A'" type="button" class="btn btn-success">alle</button>
      {{#each sid}}
         <button onclick="window.location.href='{{form.link}}?SID={{this.ID}}'" type="button" class="btn btn-info">{{this.ID}}</button>
      {{/each}}
 </div>
 
 <div style="border-radius: 10px; background-color:{{form.bg}}; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
-  <h1>{{title}}</h1>
+  <h3>{{form.title}} ({{form.query}})</h3>
   <div class="entry">
     <input  type=hidden value="c"   name="mode_s" id="mode_s">
     <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
@@ -147,9 +149,9 @@
         <td id="class">{{this.class}}</td>
         <td width=10%>
 
-        <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.class}}")'></button>
-        <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.class}}")'></button>
-        <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.class}}")'></button>
+        <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.value}}","{{this.class}}")'></button>
+        <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.value}}","{{this.class}}")'></button>
+        <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.value}}","{{this.class}}")'></button>
         </td>
       </tr>
      {{/each}}

@@ -19,6 +19,9 @@
 *  Position the #infoi element in the top-right
 *  of the .wrapper element
 */
+
+th { background-color: #aaaaaa }
+
 #infoi {
   position: absolute;
   top: 100px;
@@ -91,12 +94,11 @@ nav li {
 </head>
 
 
-
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/library">Home</a>
+        <a class="navbar-brand" href="/">Home</a>
       </div>
       <ul class="nav navbar-nav">
         <li class="dropdown">
@@ -124,6 +126,7 @@ nav li {
               <li><a href="/config/book">Bücher</a></li>
               <li><a href="/config/subject">Schulfach</a></li>
               <li><a href="/config/trantype">Vorgänge</a></li>
+              <li><a href="/config/entry">Einstiegsseite</a></li>
               <li><a href="#">...</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="/stop">Stop&Restart Service</a></li>
@@ -136,8 +139,7 @@ nav li {
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maintain<span class="caret glyphicon glyphicon-wrench"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/maintain/export">Export/Import</a></li>
-              <li><a href="/reload">reload</a></li>
-              <li><a href="/init">Init Data</a></li>
+              <li><a href="/maintain/backup">Daten Sichern</a></li>
             </ul>
          </li>
       </ul>

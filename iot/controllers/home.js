@@ -5,7 +5,6 @@ var form = require('../config/form/home');
 var query;
 
 module.exports = function (req, res) {
-  console.log("Hallo");
   collection = global.db.get(form.entity);
   query={};
   collection.find(query,{'limit':200 , sort : { nr: 1 }  },function(e,docs){

@@ -8,7 +8,8 @@ module.exports = function (req, res) {
   collection = global.db.get(form.entity);
   if (req.method=="POST") {
     console.log(req.body);
-    var newvalues = {nr:req.body.md_nr, ID: req.body.md_ID, name: req.body.md_name, link: req.body.md_link, attr: req.body.md_attr}
+    if (!req.body.md_enabled ) req.body.md_enabled = false;
+    var newvalues = {nr:req.body.md_nr, ID: req.body.md_ID, name: req.body.md_name, link: req.body.md_link, attr: req.body.md_attr, enabled: req.body.md_enabled }
        console.log("Values: "+req.body.md_id);
        console.log(newvalues)
        switch (req.body.action) {
@@ -26,12 +27,20 @@ module.exports = function (req, res) {
        }
   }
   query={};
-  collection.find(query,{'limit':200 , sort : {nr: 1 }  },function(e,docs){
-  res.render(form.entity, {
-      refresh: false,
-      obj: docs,
-      form: form
-    });
-})
+
+  setTimeout(function() {
+    collection.find(query,{'limit':200 , sort : {nr: 1 }  },function(e,docs){
+    for (var i = 0, len = docs.length; i < len; i++) console.log(docs[i].enabled);
+    res.render(form.entity, {
+        refresh: false,
+        obj: docs,
+        form: form
+      });
+  })
+
+}, 100);
+
+
+
 
 }

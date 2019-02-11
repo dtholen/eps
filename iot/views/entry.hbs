@@ -17,34 +17,36 @@
         }
       }
 
-    function deleteClass(nr,_id, ID,name,link,attr) {
+    function deleteClass(nr,_id, ID,name,link,attr,enabled) {
         $('#md_mode').text("Daten Löschen");
         $('#md_style').attr('style','background-color:red');
         $('#action').val('d');
-        updateClass(nr,_id, ID,name,link,attr);
+        updateClass(nr,_id, ID,name,link,attr,enabled);
       };
-    function duplicateClass(nr,_id, ID,name,link,attr) {
+    function duplicateClass(nr,_id, ID,name,link,attr,enabled) {
           $('#md_mode').text("Daten koppieren");
           $('#md_style').attr('style','background-color:blue');
           $('#action').val("x");
-          updateClass(nr,_id, ID,name,link,attr);
+          alert(anabled)
+          updateClass(nr,_id, ID,name,link,attr,enabled);
         };
 
-  function editClass(nr, _id, ID,name,link,attr){
+  function editClass(nr, _id, ID,name,link,attr,enabled){
+              alert(enabled);
               $('#md_mode').text("Daten ändern");
               $('#md_style').attr('style','background-color:grey');
               $('#action').val("u");
-              updateClass(nr,_id, ID,name,link,attr);
+              updateClass(nr,_id, ID,name,link,attr,enabled);
     };
 
     function createClass() {
                 $('#md_mode').text("Daten einfügen");
                 $('#md_style').attr('style','background-color:grey');
                 $('#action').val("x");
-                updateClass('','','','','','');
+                updateClass('','','','','','','');
       };
 
-  function updateClass(nr, _id,ID,name,link,attr) {
+  function updateClass(nr,_id, ID,name,link,attr,enabled) {
               var modal = document.getElementById('myModal');
               var span = document.getElementsByClassName("close")[0];
               $('#md_id').val(_id);
@@ -53,6 +55,7 @@
               $('#md_name').val(name);
               $('#md_link').val(link);
               $('#md_attr').val(attr);
+              $('#md_enabled').val(true);
               modal.style.display = "block";
               span.onclick = function() {modal.style.display = "none";}
               window.onclick = function(event) {
@@ -88,11 +91,10 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="class">{{this.lable}}</label>
             <div class="col-sm-2">
-              <input  autofocus type="text"  class="form-control" name="md_{{this.field}}" id="md_{{this.field}}" autocomplete="off" placeholder="{{this.field}}" required>
+              <input  autofocus type={{#if this.type}}"{{this.type}}"{{else}}"text"{{/if}}  class="form-control" name="md_{{this.field}}" id="md_{{this.field}}" autocomplete="off" placeholder="{{this.field}}" {{#if this.tag}} {{this.tag}} {{/if}} >
             </div>
           </div>
-       {{/each}}
-
+        {{/each}}
         <div id="divTime" class="form-group" style="display: none;" >
           <div class="col-sm-2">
             <input id="time" type="time" class="form-control"  >
@@ -138,10 +140,11 @@
         <td id="name" name="name">{{this.name}}</td>
         <td id="lnk" name="link">{{this.link}}</td>
         <td id="attr" name="attr">{{this.attr}}</td>
+        <td> <input id="enabled" name="enabled" {{#if this.enabled}}checked{{else}}unchecked{{/if}} data-toggle="toggle" type="checkbox" data-toggle="toggle"></td>
         <td width=10%>
-            <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this.nr}}","{{this._id}}","{{this.ID}}","{{this.name}}","{{this.link}}","{{this.attr}}")'></button>
-            <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this.nr}}","{{this._id}}","{{this.ID}}","{{this.name}}","{{this.link}}","{{this.attr}}")'></button>
-            <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this.nr}}","{{this._id}}","{{this.ID}}","{{this.name}}","{{this.link}}","{{this.attr}}")'></button>
+            <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this.nr}}","{{this._id}}","{{this.ID}}","{{this.name}}","{{this.link}}","{{this.attr}}","{{this.enabled}}")'></button>
+            <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this.nr}}","{{this._id}}","{{this.ID}}","{{this.name}}","{{this.link}}","{{this.attr}},"{{this.enabled}}")'></button>
+            <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this.nr}}","{{this._id}}","{{this.ID}}","{{this.name}}","{{this.link}}","{{this.attr}},"{{this.enabled}}")'></button>
         </td>
       </tr>
      {{/each}}

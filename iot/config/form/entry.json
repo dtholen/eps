@@ -3,10 +3,11 @@
   "link": "/config/entry",
   "bg": "lightgrey",
  "fields": [
-     { "field":"nr",     "lable": "Nr."},
-     { "field":"ID",      "lable": "ID"},
-     { "field":"name",    "lable": "Name"},
-     { "field":"link",    "lable": "Link"},
-     { "field":"attr",    "lable": "Attribut"}
+     { "field":"nr",     "lable": "Nr.", "tag": "required"},
+     { "field":"ID",      "lable": "ID", "tag": "required"},
+     { "field":"name",    "lable": "Name", "tag": "required"},
+     { "field":"link",    "lable": "Link", "tag": "required"},
+     { "field":"attr",    "lable": "Attribut", "tag": "required"},
+     { "field":"enabled", "lable": "aktiv", "type":"checkbox"}
    ]
 }

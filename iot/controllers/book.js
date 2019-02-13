@@ -23,6 +23,10 @@ module.exports = function (req, res) {
            console.log("update");
            collection.update({"_id": req.body.md_id}, newvalues, function(err, res) { if (err) throw err; });
            break;
+        case 'e':
+            newvalues = { $set: {enabled: req.body.enabled }};
+            collection.update({"_id": req.body._id}, newvalues, function(err, res) { if (err) throw err; });
+            break;
          case 'd':
            console.log("delete");
            collection.remove({"_id": req.body.md_id}, function(err, res) { if (err) throw err; });
@@ -45,6 +49,10 @@ module.exports = function (req, res) {
   form.query=JSON.stringify(query);
 
   collection.find(query,{'limit':200 , sort : { _id: 1 }  },function(e,docs){
+  for (var i = 0, len = docs.length; i < len; i++) {
+      if (docs[i].enabled=='true') docs[i].checked='checked'; else docs[i].checked = 'unchecked';
+    }
+
   res.render('book', {
       SID: req.query.SID,
       refresh: false,

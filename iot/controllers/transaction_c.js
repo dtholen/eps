@@ -8,13 +8,13 @@ module.exports = function(req, res) {
         c1 = global.db.get('teacher');
         c2 = global.db.get('book');
         c1.find({}, {
-            'limit': 100,
+            'limit': 200,
             sort: {
                 ID: 1
             }
         }, function(e, doc1) {
             c2.find({}, {
-                'limit': 100,
+                'limit': 500,
                 sort: {
                     ID: 1
                 }

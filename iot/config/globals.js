@@ -62,7 +62,7 @@ collection.find(query, function(e, docs) {
 })
 
 collection = db.get('book');
-collection.find(query, function(e, docs) {
+collection.find({enabled: 'true'}, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
     book[docs[i].ID] = docs[i].ID + ": " + docs[i].name;
   }
@@ -70,7 +70,7 @@ collection.find(query, function(e, docs) {
 
 
 collection = db.get('subject');
-collection.find(query, function(e, docs) {
+collection.find({}, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
     subject[docs[i].ID] = docs[i].name;
     sid[i] = docs[i];
@@ -78,21 +78,20 @@ collection.find(query, function(e, docs) {
 })
 
 collection = db.get('entity');
-collection.find(query, function(e, docs) {
+collection.find({}, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
     entity[i] = docs[i].name
   }
 })
 
 collection = db.get('trantype');
-collection.find(query, function(e, docs) {
+collection.find({}, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
     trantype[docs[i].ID] = docs[i].name;
     ttsign[[docs[i].ID]] = docs[i].value;
     tticon[[docs[i].ID]] = docs[i].icon;
   }
 })
-
 
 var globals = {
   'message': 'Configuration',

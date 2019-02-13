@@ -7,7 +7,6 @@
      { "field":"ID",      "lable": "ID", "tag": "required"},
      { "field":"name",    "lable": "Name", "tag": "required"},
      { "field":"link",    "lable": "Link", "tag": "required"},
-     { "field":"attr",    "lable": "Attribut", "tag": "required"},
-     { "field":"enabled", "lable": "aktiv", "type":"checkbox"}
+     { "field":"attr",    "lable": "Attribut", "tag": "required"}
    ]
 }

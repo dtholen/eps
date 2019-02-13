@@ -17,6 +17,15 @@
         }
       }
 
+      function onSwitch(nr,_id) {
+         cbName = "SwitchOptionSuccess"+nr;
+         var checkBox = document.getElementById(cbName,_id);
+         $.post("{{form.entity}}",{ action:'e', _id: _id, enabled: checkBox.checked } , function( data ) {
+           $( ".result" ).html( data );
+         });
+       };
+
+
     function deleteClass(_id, ID,name,SID,value,cc) {
         $('#md_mode').text("Daten Löschen");
         $('#md_style').attr('style','background-color:red');
@@ -141,17 +150,20 @@
       </tr>
      {{#each obj}}
       <tr bgcolor="{{this.bg}}" id="myTabler" name="myTabler"  >
-        <input  type=hidden name="_id" id="_id value={{this._id}}">
         <td id="ID">{{this.ID}}<input type="hidden" id="_id" name="_id" value="{{this._id}}" /></td>
         <td id="name" name="name">{{this.name}}</td>
         <td id="SID">{{this.SID}}</td>
         <td id="value">{{this.value}}</td>
         <td id="class">{{this.class}}</td>
         <td width=10%>
-
         <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.value}}","{{this.class}}")'></button>
         <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.value}}","{{this.class}}")'></button>
         <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.SID}}","{{this.value}}","{{this.class}}")'></button>
+        <div class="material-switch pull-right">
+            <input id="SwitchOptionSuccess{{this.ID}}" onchange='onSwitch("{{this.ID}}","{{this._id}}")'  name="SwitchOption{{this.ID}}" type="checkbox" {{this.checked}} data-toggle="toggle" />
+            <label for="SwitchOptionSuccess{{this.ID}}" class="label-success"></label>
+        </div>
+
         </td>
       </tr>
      {{/each}}

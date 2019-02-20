@@ -31,12 +31,9 @@ var bg = {};
 var teacher = {};
 var book = {};
 var entity = {};
-var trantype = {};
 var sid = {};
 var subject = {};
-var icon = {};
-var ttsign = {};
-var tticon = {};
+var tx={};
 var query;
 var collection;
 query = {};
@@ -47,24 +44,18 @@ collection.find(query, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) bg[docs[i]._id] = docs[i].value;
 })
 
-collection = db.get('icon');
-collection.find(query, function(e, docs) {
-  for (var i = 0, len = docs.length; i < len; i++) {
-    icon[docs[i].ID] = docs[i].icon;
-  }
-})
 
 collection = db.get('teacher');
 collection.find(query, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
-    teacher[docs[i].ID] = docs[i].ID + ":" + docs[i].name + " " + docs[i].surename;
+    teacher[docs[i].ID] = docs[i].name + " " + docs[i].surename;
   }
 })
 
 collection = db.get('book');
 collection.find({enabled: 'true'}, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
-    book[docs[i].ID] = docs[i].ID + ": " + docs[i].name;
+    book[docs[i].ID] = docs[i].name;
   }
 })
 
@@ -72,8 +63,7 @@ collection.find({enabled: 'true'}, function(e, docs) {
 collection = db.get('subject');
 collection.find({}, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
-    subject[docs[i].ID] = docs[i].name;
-    sid[i] = docs[i];
+    subject[docs[i].ID] = {ID: docs[i].ID, name: docs[i].name };
   }
 })
 
@@ -87,9 +77,7 @@ collection.find({}, function(e, docs) {
 collection = db.get('trantype');
 collection.find({}, function(e, docs) {
   for (var i = 0, len = docs.length; i < len; i++) {
-    trantype[docs[i].ID] = docs[i].name;
-    ttsign[[docs[i].ID]] = docs[i].value;
-    tticon[[docs[i].ID]] = docs[i].icon;
+    tx[docs[i].ID] = {ID:docs[i].ID, name: docs[i].name, value:docs[i].value , icon: docs[i].icon };
   }
 })
 
@@ -109,15 +97,11 @@ var globals = {
   valid: false,
   config: config,
   bg: bg,
-  icon : icon,
   entity: entity,
   subject: subject,
-  sid: sid,
   teacher: teacher,
   book: book,
-  trantype: trantype,
-  ttsign: ttsign,
-  tticon: tticon,
+  tx: tx,
   showConfig: function() {
     console.log(global.message + ' Version: ' + this.version);
   },

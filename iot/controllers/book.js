@@ -57,7 +57,7 @@ module.exports = function (req, res) {
       SID: req.query.SID,
       refresh: false,
       obj: docs,
-      sid: global.sid,
+      subject: global.subject,
       form: form
     });
 })

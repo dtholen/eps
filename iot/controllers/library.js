@@ -57,7 +57,7 @@ module.exports = function (req, res) {
   res.render('library', {
       refresh: false,
       obj: docs,
-      sid: global.sid,
+      subject: global.subject,
       form: form
     });
 })

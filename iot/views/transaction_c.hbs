@@ -1,6 +1,61 @@
 {{!< layout01}}
 
+<style>
+
+table{
+    width: 70%;
+}
+
+th, td {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+</style>
+
+
+
 <script>
+
+function onSwitch(nr,_id) {
+   cbName = "SwitchOptionSuccess"+nr;
+   var checkBox = document.getElementById(cbName,_id);
+   $.post("transaction_c",{ action:'e', _id: _id, enabled: checkBox.checked } , function( data ) {
+     $( ".result" ).html( data );
+   });
+ };
+
+function createClass() {
+    updateClass();
+  };
+
+  function myFunction() {
+    alert("Hallo");
+  }
+
+function addevent() {
+              var table = document.getElementById('MyTable');
+              for(var i = 1; i < table.rows.length; i++)
+              {
+                  table.rows[i].onclick = function()
+                  {
+                       document.getElementById("eRef").value = this.cells[0].innerHTML;
+                       document.getElementById("book").value = this.cells[2].innerHTML;
+                       document.getElementById("value").value = -this.cells[4].innerHTML;
+                  };
+              }
+  };
+
+  function updateClass() {
+              var modal = document.getElementById('myModal');
+              var span = document.getElementsByClassName("close")[0];
+              modal.style.display = "block";
+              span.onclick = function() {modal.style.display = "none";}
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none"; }
+              }
+      };
 
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
@@ -14,13 +69,10 @@ function getQueryVariable(variable) {
     return (false);
 }
 
-
 $(function() {
     if (getQueryVariable('LID')) $('#teacher').val(getQueryVariable('LID'));
     if (getQueryVariable('BID')) $('#book').val(getQueryVariable('BID'));
 })
-
-
 
 
 function log_msg(msg,id) {
@@ -30,20 +82,82 @@ function log_msg(msg,id) {
     return true;
     }
 
-function EnableFields() {
+function gname(s,ID) {
+    var url="/validate?eID="+s+"&ID="+ID;
+    var ret;
+  $.ajax({ url: url,
+           async: false,
+           dataType: 'json',
+           success: function(data) {
+                ret = data.value;
+              }
+          });
+  return ret;
+  }
 
-  var etype = $("#etype").val();
-  switch (etype) {
-    case 'INVENTORY':
+
+
+function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+function json2table(json, header) {
+  var cols = Object.keys(json[0]);
+  var headerRow = '';
+  var bodyRows = '';
+  cols.map(function(col) {
+  if(header) headerRow += '<th>' + capitalizeFirstLetter(col) + '</th>';
+});
+
+json.map(function(row) {
+  bodyRows += '<tr>';
+
+  cols.map(function(colName) {
+    if (colName=='_id') bodyRows += '<td id=s_id style="display:none";>' + row[colName] + '</td>';
+    else
+
+    if (colName=='btn') bodyRows +=  '<td><button onclick="myFunction()" class="btn btn-default btn-sm"><span class="glyphicon glyphicon glyphicon-ok"></span></button></td>'
+    else bodyRows += '<td>' + row[colName] + '</td>';
+  });
+
+  bodyRows += '</tr>';
+}
+);
+return ('<table id="MyTable" class="table-hover"><th><tr>' + headerRow +'</tr></th><tbody>' + bodyRows +'</tbody></table>');
+ }
+
+function populateBooks() {
+      var url="/tra?LID="+$("#teacher").val()+"&TID=ISSUE";
+      var doc=[{}];
+      $.get(url, function(data, status){
+        if (data.length > 0) {
+          for (var i = 0, len = data.length; i < len; i++) {
+            doc[i] = { _id: data[i]._id, teacher:gname(0,data[i].LID), BID:data[i].BID, book:gname(1,data[i].BID), value:data[i].value, transaction:gname(4,data[i].TID)};
+          }
+//          alert(json2table(doc));
+          document.getElementById('tableGoesHere').innerHTML = json2table(doc);
+          addevent();
+          createClass();
+          return true;
+
+      }
+  })
+}
+
+function EnableFields(e) {
+
+  switch (e) {
+    case 0:
       $("#teacher").val('INV');
       $("#divTeacher").fadeOut();
       $("#divClass").fadeOut();
       break;
-    case 'ISSUE':
+    case 1:
       $("#divTeacher").fadeIn();
       $("#divClass").fadeIn();
       break;
     case 2:
+      $("#divClass").fadeOut();
       break;
     case 3:
       break;
@@ -61,6 +175,9 @@ function check_field(eID) {
   switch (eID) {
     case 0:
       name='teacher';
+      if ($("#eRETURN").is(":checked")) {
+        populateBooks();
+      };
       check=true;
       break;
     case 1:
@@ -75,13 +192,17 @@ function check_field(eID) {
       break;
     case 4:
       name='trantype';
-      EnableFields();
+      if ($("#eRETURN").is(":checked") )
+      {
+        $("#eType").val("RETURN");
+        EnableFields(1);
+        populateBooks();
+      }
       break;
     case 5:
       name='trantype';
       break;
   }
-    log_msg(name,eID);
     if (check) {
       var val = $("#" + name).val();
       var url="/validate?eID="+eID+"&ID="+val;
@@ -100,6 +221,7 @@ function check_field(eID) {
     return false;
 }
 
+
 function validateForm() {
   if (!check_field(0)) return false;
   if (!check_field(1)) return false;
@@ -107,9 +229,28 @@ function validateForm() {
   return true;
 }
 
+
 </script>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<div class="modal-dialog" style="width:1000px;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>{{form.title}}</h2>
+    </div>
+    <div id="tableGoesHere" class="modal-body"></div>
+    <div class="modal-footer">
+      <h3>...</h3>
+    </div>
+  </div>
+</div>
+
+</div>
+
   <div id="infoi">
-    <p ID=inf_title></p>
     <p ID=inf_0></p>
     <p ID=inf_1></p>
     <p ID=inf_2></p>
@@ -122,21 +263,15 @@ function validateForm() {
   <div class="entry"} >
     <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action="/transaction/create" onsubmit="return validateForm()" method="post" >
       <input  value="c" type="hidden"   name="mode_s" id="mode_s">
-
+      <input  value="ISSUE" type="hidden"   name="eType" id="eType">
+      <input  value="" type="hidden"   name="eRef" id="eRef">
       <div class="form-group">
-        <label class="control-label col-sm-2" for="type">Vorgang:</label>
-          <div class="col-sm-6">
-            <select onchange="check_field(4)" id=etype name=eType class="selectpicker col-sm-4" data-live-search="true" data-size="8" required>
-              <optgroup label="Ausleihen">
-                <option value="ISSUE" >Ausleien</option>
-                <option value="RETURN" >Rückgabe</option>
-              </optgroup>
-              <optgroup label="Zu/Abgang">
-                <option value="LOST">Verlust</option>
-                <option value="NEW">Neu Beschaffung</option>
-              </optgroup>
-          </select>
-        </div>
+          <div style ="background-color: lightblue; border: 1px solid black; padding-left: 10%; padding-top: 10px; padding-bottom: 10px;">
+            <label class="radio-inline"><input id=eISSUE type="radio" value="ISSUE" name="optradio" checked>Ausleihen</label>
+            <label class="radio-inline"><input onclick="check_field(4)"; id=eRETURN type="radio" value="RETURN" name="optradio">Rückgabe</label>
+            <label class="radio-inline"><input id=eLOST type="radio" value="LOST" name="optradio">Verlust</label>
+            <label class="radio-inline"><input id=eNEW type="radio" value="NEW" name="optradio">Neu</label>
+          </div>
       </div>
 
 

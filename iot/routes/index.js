@@ -53,6 +53,8 @@ var express = require('express'),
         .get(controllers.backup);
     indexRouter.route('/log')
         .get(controllers.log)
+    indexRouter.route('/tra')
+        .get(controllers.tra)
     indexRouter.route('/test')
         .get(controllers.test)
         .post(controllers.test)

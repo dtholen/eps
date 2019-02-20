@@ -132,7 +132,7 @@
 
 <div style="border-radius: 10px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
      <button onclick="window.location.href='{{form.link}}?SID=A'" type="button" class="btn btn-success">alle</button>
-     {{#each sid}}
+     {{#each subject}}
         <button onclick="window.location.href='{{form.link}}?SID={{this.ID}}'" type="button" class="btn btn-info">{{this.ID}}</button>
      {{/each}}
 </div>

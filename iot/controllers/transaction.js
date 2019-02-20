@@ -43,13 +43,13 @@ module.exports = function (req, res) {
            break;
          }
   }
-  console.log(query);
+//  console.log(query);
   collection.find(query,{'limit':100 , sort : { timestamp : -1 }  },function(e,docs){
   for (var i = 0, len = docs.length; i < len; i++) {
     docs[i].teacher = global.teacher[docs[i].LID];
     docs[i].book = global.book[docs[i].BID];
-    docs[i].transaction = global.trantype[docs[i].TID];
-    docs[i].gi = global.tticon[docs[i].TID];
+    docs[i].transaction = global.tx[docs[i].TID].name;
+    docs[i].gi = global.tx[docs[i].TID].icon;
     docs[i].ti = dateFormat(docs[i].timestamp, "dd.mm HH:MM");
   }
 

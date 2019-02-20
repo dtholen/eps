@@ -4,6 +4,30 @@ var dateFormat = require('dateformat');
 module.exports = function(req, res) {
     var fs = require('fs');
     var env = global.config.demo
+
+    collection = global.db.get("transaction");
+    if (req.method=="POST") {
+      console.log(req.body);
+        var newvalues = {nr:req.body.md_nr, ID: req.body.md_ID, name: req.body.md_name, link: req.body.md_link, attr: req.body.md_attr, enabled: req.body.md_enabled }
+         switch (req.body.action) {
+           case 'x':
+             collection.insert(newvalues, function(err, res) { if (err) throw err; });
+             break;
+           case 'u':
+             collection.update({"_id": req.body.md_id}, newvalues, function(err, res) { if (err) throw err; });
+             break;
+           case 'e':
+               newvalues = { $set: {enabled: req.body.enabled }};
+               collection.update({"_id": req.body._id}, newvalues, function(err, res) { if (err) throw err; });
+               break;
+           case 'd':
+             collection.remove({"_id": req.body.md_id}, function(err, res) { if (err) throw err; });
+             break;
+           default:
+             alert( "I don't know such values" );
+         }
+    }
+
     function render_c() {
         c1 = global.db.get('teacher');
         c2 = global.db.get('book');
@@ -34,7 +58,8 @@ module.exports = function(req, res) {
     if (req.method == "POST") {
         var teacher = global.teacher[req.body.teacher];
         var book = global.book[req.body.book];
-        var etype = global.trantype[req.body.eType];
+        var etype = global.tx[req.body.eType].name;
+
 /*
             console.log("Transaction c");
             console.log(teacher);
@@ -51,8 +76,9 @@ module.exports = function(req, res) {
             var book_id = req.body.book.split(":");
             var entity = 'transacton';
             var collection = global.db.get('transaction');
-            var value = parseInt(req.body.value) * global.ttsign[req.body.eType];
+            var value = parseInt(req.body.value) * global.tx[req.body.eType].value;
             var obj = {
+                eRef: req.body.eRef,
                 LID: teacher_id[0],
                 TID: req.body.eType,
                 CID: req.body.class,

@@ -2,6 +2,71 @@
 
 <style>
 
+.avatar {
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.flip-txt {
+  text-align:left;
+  margin-left:2em
+}
+
+.flip-info {
+  background-color:white;
+  position: relativ;
+  border-radius: 10px;
+  margin-top: 30%;
+  margin-left: 5%;
+  margin-right: 5%;
+  align="left";
+}
+
+.flip-card {
+  background-color: transparent;
+  position: absolute;
+  margin-left :40%;
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  z-index: 2;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: black;
+  transform: rotateY(180deg);
+  z-index: 1;
+  }
+
+
 table{
     width: 70%;
 }
@@ -20,7 +85,7 @@ th, td {
 function onSwitch(nr,_id) {
    cbName = "SwitchOptionSuccess"+nr;
    var checkBox = document.getElementById(cbName,_id);
-   $.post("transaction_c",{ action:'e', _id: _id, enabled: checkBox.checked } , function( data ) {
+   $.post("transaction",{ action:'e', _id: _id, enabled: checkBox.checke } , function( data ) {
      $( ".result" ).html( data );
    });
  };
@@ -35,13 +100,22 @@ function createClass() {
 
 function addevent() {
               var table = document.getElementById('MyTable');
+              var modal = document.getElementById('myModal');
               for(var i = 1; i < table.rows.length; i++)
               {
                   table.rows[i].onclick = function()
                   {
+                      var BID= this.cells[2].innerHTML;
+                      var count= -this.cells[4].innerHTML;
                        document.getElementById("eRef").value = this.cells[0].innerHTML;
-                       document.getElementById("book").value = this.cells[2].innerHTML;
+                       document.getElementById("book").value = BID;
+                       $("#inf_1").text(gname(1,BID));
                        document.getElementById("value").value = -this.cells[4].innerHTML;
+                       $("#inf_2").text(count);
+                       $.post("/transaction",{ action:'e', _id: this.cells[0].innerHTML, enabled: "false" } , function( data ) {
+                         $( ".result" ).html( data );
+                       });
+                       modal.style.display = "none";
                   };
               }
   };
@@ -127,7 +201,7 @@ return ('<table id="MyTable" class="table-hover"><th><tr>' + headerRow +'</tr></
  }
 
 function populateBooks() {
-      var url="/tra?LID="+$("#teacher").val()+"&TID=ISSUE";
+      var url="/tra?LID="+$("#teacher").val()+"&TID=ISSUE&enabled=true";
       var doc=[{}];
       $.get(url, function(data, status){
         if (data.length > 0) {
@@ -186,17 +260,26 @@ function check_field(eID) {
       break;
     case 2:
       name='value';
+      $("#inf_"+eID).text("Anzahl:"+$("#value").val());
       break;
     case 3:
       name='class';
+      $("#inf_"+eID).text("Info:"+$("#class").val());
       break;
     case 4:
       name='trantype';
-      if ($("#eRETURN").is(":checked") )
-      {
+      $("#radio").css("background-color","lightblue");
+      if ($("#eRETURN").is(":checked") ){
+        $("#radio").css("background-color","lightgreen");
         $("#eType").val("RETURN");
         EnableFields(1);
         populateBooks();
+      }
+      if ($("#eLOST").is(":checked") ){
+        $("#radio").css("background-color","orange");
+      }
+      if ($("#eNEW").is(":checked") ){
+        $("#radio").css("background-color","yellow");
       }
       break;
     case 5:
@@ -225,7 +308,6 @@ function check_field(eID) {
 function validateForm() {
   if (!check_field(0)) return false;
   if (!check_field(1)) return false;
-//  if (!check_field(2)) return false;
   return true;
 }
 
@@ -250,12 +332,6 @@ function validateForm() {
 
 </div>
 
-  <div id="infoi">
-    <p ID=inf_0></p>
-    <p ID=inf_1></p>
-    <p ID=inf_2></p>
-    <p ID=inf_3></p>
-  </div>
 
   <div style="border-radius: 20px; background-color:lightgrey; padding-top:10px; padding-bottom:20px" class="container">
   <h1>{{title}}</h1>
@@ -266,12 +342,29 @@ function validateForm() {
       <input  value="ISSUE" type="hidden"   name="eType" id="eType">
       <input  value="" type="hidden"   name="eRef" id="eRef">
       <div class="form-group">
-          <div style ="background-color: lightblue; border: 1px solid black; padding-left: 10%; padding-top: 10px; padding-bottom: 10px;">
-            <label class="radio-inline"><input id=eISSUE type="radio" value="ISSUE" name="optradio" checked>Ausleihen</label>
+          <div id=radio style ="background-color: lightblue; border: 1px solid black; padding-left: 10%; padding-top: 10px; padding-bottom: 10px;">
+            <label class="radio-inline"><input onclick="check_field(4)"; id=eISSUE type="radio" value="ISSUE" name="optradio" checked>Ausleihen</label>
             <label class="radio-inline"><input onclick="check_field(4)"; id=eRETURN type="radio" value="RETURN" name="optradio">Rückgabe</label>
-            <label class="radio-inline"><input id=eLOST type="radio" value="LOST" name="optradio">Verlust</label>
-            <label class="radio-inline"><input id=eNEW type="radio" value="NEW" name="optradio">Neu</label>
+            <label class="radio-inline"><input onclick="check_field(4)"; id=eLOST type="radio" value="LOST" name="optradio">Verlust</label>
+            <label class="radio-inline"><input onclick="check_field(4)"; id=eNEW type="radio" value="NEW" name="optradio">Neu</label>
           </div>
+      </div>
+
+      <div id="card" class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="/avatar/avatar3.svg" alt="Avatar" class="avatar">
+
+          </div>
+          <div class="flip-card-back">
+            <div class="flip-info" >
+            <h4 ID=inf_0>Name</h3>
+            <p class="flip-txt" ID=inf_1>Buch</p>
+            <p class="flip-txt" ID=inf_2>Anzahl</p>
+            <p class="flip-txt"  ID=inf_3>Info</p>
+            </div>
+          </div>
+        </div>
       </div>
 
 
@@ -313,23 +406,22 @@ function validateForm() {
       <div class="form-group">
         <label class="control-label col-sm-2" for="type">Anzahl:</label>
           <div class="col-sm-1">
-         <input id=value name=value type="text" pattern="[0-9]{1,3}" class="form-control" onchange="check_field(2)" placeholder="Anzahl" required>
+         <input id=value name=value type="text" pattern="[0-9]{1,3}" class="form-control" onkeyup="check_field(2)" placeholder="Anzahl" required>
         </div>
       </div>
 
       <div id="divClass" class="form-group">
-        <label class="control-label col-sm-2" for="class">Klasse:</label>
+        <label class="control-label col-sm-2" for="class">Info:</label>
         <div class="col-sm-2">
-          <input  nchange="check_field(5)" autofocus type="text"  class="form-control" nchange="check_field(3)" name="class" id="class" autocomplete="off" placeholder="Klasse">
+          <input  onkeyup="check_field(3)" autofocus type="text"  class="form-control" name="class" id="class" autocomplete="off" placeholder="Info">
         </div>
         </div>
-
-
 
     <div class="form-group">
-      <div class="col-sm-10">
+      <div class="col-sm-8">
           <button type="submit" class="btn btn-primary" >OK</button>
           <a href="{{cancel}}" id="cancel" name="cancel" class="btn btn-default">Cancel</a>
+          <a style="margin-left: 20px;" href="{{cancel}}"  id="ue" name="ue" class="btn btn-success"><span class="glyphicon glyphicon-list"></span> Vorgänge</a>
       </div>
     </div>
 

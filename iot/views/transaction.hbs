@@ -6,6 +6,14 @@
 {{/if}}
 <script>
 
+function onSwitch(_id) {
+   cbName = "SwitchOptionSuccess"+_id;
+   var checkBox = document.getElementById(cbName,_id);
+   $.post("transaction",{ action:'e', _id: _id, enabled: checkBox.checked } , function( data ) {
+     $( ".result" ).html( data );
+   });
+ };
+
     function deleteClass(_id,LID,teacher,BID,book,TID,value,CID,ti) {
         $('#md_mode').text("Daten Löschen");
         $('#md_style').attr('style','background-color:red');
@@ -127,6 +135,10 @@
         <td>{{this.ti}}</td>
         <td width=10%>
             <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.LID}}","{{this.teacher}}","{{this.BID}}","{{this.book}}","{{this.TID}}","{{this.value}}","{{this.CID}}","{{this.ti}}")'></button>
+            <div class="material-switch pull-right">
+                <input id="SwitchOptionSuccess{{this._id}}" onchange='onSwitch("{{this._id}}")'  name="SwitchOption{{this._id}}" type="checkbox" {{this.checked}} data-toggle="toggle" />
+                <label for="SwitchOptionSuccess{{this._id}}" class="label-success"></label>
+            </div>
         </td>
       </tr>
      {{/each}}

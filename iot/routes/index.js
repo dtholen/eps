@@ -58,6 +58,8 @@ var express = require('express'),
     indexRouter.route('/test')
         .get(controllers.test)
         .post(controllers.test)
+    indexRouter.route('/avatar/*')
+        .get(controllers.img)
     indexRouter.route('/')
         .get(controllers.home)
     indexRouter.route('/*')

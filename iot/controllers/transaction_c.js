@@ -4,30 +4,6 @@ var dateFormat = require('dateformat');
 module.exports = function(req, res) {
     var fs = require('fs');
     var env = global.config.demo
-
-    collection = global.db.get("transaction");
-    if (req.method=="POST") {
-      console.log(req.body);
-        var newvalues = {nr:req.body.md_nr, ID: req.body.md_ID, name: req.body.md_name, link: req.body.md_link, attr: req.body.md_attr, enabled: req.body.md_enabled }
-         switch (req.body.action) {
-           case 'x':
-             collection.insert(newvalues, function(err, res) { if (err) throw err; });
-             break;
-           case 'u':
-             collection.update({"_id": req.body.md_id}, newvalues, function(err, res) { if (err) throw err; });
-             break;
-           case 'e':
-               newvalues = { $set: {enabled: req.body.enabled }};
-               collection.update({"_id": req.body._id}, newvalues, function(err, res) { if (err) throw err; });
-               break;
-           case 'd':
-             collection.remove({"_id": req.body.md_id}, function(err, res) { if (err) throw err; });
-             break;
-           default:
-             alert( "I don't know such values" );
-         }
-    }
-
     function render_c() {
         c1 = global.db.get('teacher');
         c2 = global.db.get('book');
@@ -84,6 +60,7 @@ module.exports = function(req, res) {
                 CID: req.body.class,
                 BID: book_id[0],
                 value: value,
+                enabled: "true",
                 timestamp: new Date()
             };
             var element='logfile'

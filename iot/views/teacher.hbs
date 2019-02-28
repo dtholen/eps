@@ -16,24 +16,24 @@
         }
       }
 
-    function deleteClass(_id, ID,name,surename) {
+    function deleteClass(_id, ID,name,surename,gender) {
         $('#md_mode').text("Daten Löschen");
         $('#md_style').attr('style','background-color:red');
         $('#action').val('d');
         updateClass(_id, ID,name,surename);
       };
-    function duplicateClass(_id, ID,name,surename) {
+    function duplicateClass(_id, ID,name,surename,gender) {
           $('#md_mode').text("Daten koppieren");
           $('#md_style').attr('style','background-color:blue');
           $('#action').val("x");
-          updateClass(_id, ID,name,surename);
+          updateClass(_id, ID,name,surename,gender);
         };
 
-  function editClass(_id, ID,name,surename) {
+  function editClass(_id, ID,name,surename,gender) {
               $('#md_mode').text("Daten ändern");
               $('#md_style').attr('style','background-color:grey');
               $('#action').val("u");
-              updateClass(_id, ID,name,surename);
+              updateClass(_id, ID,name,surename,gender);
     };
 
     function createClass() {
@@ -43,7 +43,7 @@
                 updateClass('', '','','');
       };
 
-  function updateClass(_id, ID,name,surename) {
+  function updateClass(_id, ID,name,surename,gender) {
               var modal = document.getElementById('myModal');
               var span = document.getElementsByClassName("close")[0];
   //            var obj = {_id: _id, ID:ID, name: name, surename:surename};
@@ -53,6 +53,7 @@
               $('#md_ID').val(ID);
               $('#md_name').val(name);
               $('#md_surename').val(surename);
+              $('#md_gender').val(gender);
               modal.style.display = "block";
               span.onclick = function() {modal.style.display = "none";}
               window.onclick = function(event) {
@@ -138,6 +139,7 @@
         <td id="ID">{{this.ID}}<input type="hidden" id="_id" name="_id" value="{{this._id}}" /></td>
         <td id="name" name="name">{{this.name}}</td>
         <td id="surename" name="surename">{{this.surename}}</td>
+        <td id="gender" name="gender">{{this.gender}}</td>
         <td width=10%>
 
         <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surename}}")'></button>

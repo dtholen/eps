@@ -6,7 +6,7 @@ var query;
 module.exports = function (req, res) {
   collection = global.db.get(form.entity);
   if (req.method=="POST") {
-    var newvalues = {ID: req.body.md_ID, name: req.body.md_name, surename: req.body.md_surename}
+    var newvalues = {ID: req.body.md_ID, name: req.body.md_name, surename: req.body.md_surename, gender: req.body.md_gender }
        console.log("Values: "+req.body.md_id);
        console.log(newvalues)
        switch (req.body.action) {

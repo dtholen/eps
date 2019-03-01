@@ -11,6 +11,7 @@ var dateFormat = require('dateformat');
 module.exports = function (req, res) {
   var now = new Date();
   var ti = dateFormat(now, "yymmdd");
+  /
   var list = '[';
   const directoryFiles = fs.readdirSync('./config/backup/export/');
   Promise.all(directoryFiles.map(filename => {
@@ -26,14 +27,6 @@ module.exports = function (req, res) {
   })
 }))
 .then(console.log('done'));
-tar.c(
-  {
-    gzip: true,
-    file: `./config/backup/archive/${ti}_backup.tgz`
-  },
-  ['./config/backup/export/']
-).then(_ => { console.log("backup done"); })
-
 
   list = list +'\'eof\']';
   console.log(list);
@@ -44,7 +37,7 @@ tar.c(
 
  targz.compress({
     src: './config/backup/export/',
-    dest: './config/backup/archive/xx_backup.tgz'
+    dest: './config/backup/archive/?(ti)_backup.tgz'
 }, function(err){
     if(err) {
         console.log(err);

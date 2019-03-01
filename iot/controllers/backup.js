@@ -1,9 +1,11 @@
 sprintf = require("sprintf-js").sprintf;
 global = require('../config/globals');
 var form = require('../config/form/home');
+var targz = require('targz');
 const fs = require('fs');
 const zlib = require('zlib');
 const tar = require('tar');
+
 var dateFormat = require('dateformat');
 
 module.exports = function (req, res) {
@@ -40,6 +42,17 @@ tar.c(
 //  var obj=JSON.parse(response);
 //  res.send(response);
 
+ targz.compress({
+    src: './config/backup/export/',
+    dest: './config/backup/archive/xx_backup.tgz'
+}, function(err){
+    if(err) {
+        console.log(err);
+    } else {
+        console.log("Done!");
+    }
+}); 
+  
 
 
 res.redirect('/');

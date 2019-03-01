@@ -11,7 +11,6 @@ var dateFormat = require('dateformat');
 module.exports = function (req, res) {
   var now = new Date();
   var ti = dateFormat(now, "yymmdd");
-  /
   var list = '[';
   const directoryFiles = fs.readdirSync('./config/backup/export/');
   Promise.all(directoryFiles.map(filename => {

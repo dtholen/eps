@@ -36,7 +36,7 @@ module.exports = function (req, res) {
 
  targz.compress({
     src: './config/backup/export/',
-    dest: './config/backup/archive/?(ti)_backup.tgz'
+    dest: './config/backup/archive/${ti}_backup.tgz'
 }, function(err){
     if(err) {
         console.log(err);

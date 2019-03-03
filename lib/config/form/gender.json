@@ -1,0 +1,10 @@
+{ "title":"Gender",
+  "entity": "gender",
+  "link": "/config/gender",
+  "bg": "Bisque",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"},
+   { "field":"value",    "lable": "value"}
+ ]
+}

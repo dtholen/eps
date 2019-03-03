@@ -1,0 +1,90 @@
+
+
+Restart Service :Sa 2. Mär 17:49:26 CET 2019
+Configuration Version: 0.2
+Express server listening on port 80
+Express server listening on port 443
+[0mGET /library [33m401 [0m4.635 ms - 0[0m
+[0mGET /library [36m304 [0m48.612 ms - -[0m
+[0mGET /library [36m304 [0m25.414 ms - -[0m
+[0mGET / [36m304 [0m10.783 ms - -[0m
+[0mGET /transaction [32m200 [0m19.057 ms - -[0m
+[0mGET /transaction?range=A [32m200 [0m11.586 ms - -[0m
+Tabelle exportieren/importieren  method:GET
+{ title: 'Tabelle exportieren/importieren',
+  entity: 'entity',
+  link: '/maintain/export',
+  view: 'export',
+  bg: 'BurlyWood',
+  fields: 
+   [ { field: 'ID', lable: 'ID' },
+     { field: 'name', lable: 'Name' } ] }
+[0mGET /maintain/export [32m200 [0m11.987 ms - -[0m
+[0mGET /config/entry [32m200 [0m116.539 ms - -[0m
+{ action: 'e', _id: '5c5ed0bdcddddb622182e841', enabled: 'true' }
+[0mPOST /config/entry [32m200 [0m159.388 ms - -[0m
+{ action: 'e',
+  _id: '5c5ed0bdcddddb622182e841',
+  enabled: 'false' }
+[0mPOST /config/entry [32m200 [0m113.679 ms - -[0m
+{ action: 'e', _id: '5c5ed0bdcddddb622182e841', enabled: 'true' }
+[0mPOST /config/entry [32m200 [0m116.452 ms - -[0m
+[0mGET / [32m200 [0m6.009 ms - -[0m
+Tabelle exportieren/importieren  method:GET
+Export All
+Export(teacher)--> config/backup/export/teacher.json
+Export(book)--> config/backup/export/book.json
+Export(class)--> config/backup/export/class.json
+Export(transaction)--> config/backup/export/transaction.json
+Export(entity)--> config/backup/export/entity.json
+Export(subject)--> config/backup/export/subject.json
+Export(entry)--> config/backup/export/entry.json
+Export(gender)--> config/backup/export/gender.json
+[0mGET /maintain/export?mode=A [36m302 [0m14.273 ms - 46[0m
+[0mGET / [36m304 [0m61.609 ms - -[0m
+done
+['book.json','class.json','entity.json','entry.json','gender.json','subject.json','teacher.json','transaction.json','eof']
+Done!
+[0mGET /maintain/backup [36m302 [0m5.387 ms - 46[0m
+[0mGET / [36m304 [0m27.845 ms - -[0m
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+./startlibrary: Zeile 7: 17447 Aufgelegt               node library.js
+
+
+Restart Service :Sa 2. Mär 23:06:16 CET 2019
+Configuration Version: 0.2
+Express server listening on port 80
+Express server listening on port 443
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[0mGET /a2billing/customer/templates/default/footer.tpl [33m401 [0m2.764 ms - 0[0m
+[session-file-store] Deleting expired sessions
+[0mGET /recordings/ [33m401 [0m0.490 ms - 0[0m
+[0mGET /vtigercrm/vtigerservice.php [33m401 [0m0.266 ms - 0[0m
+[session-file-store] Deleting expired sessions
+[0mGET / [33m401 [0m0.418 ms - 0[0m
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[0mGET / [33m401 [0m0.312 ms - 0[0m
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+[0mGET / [33m401 [0m0.465 ms - 0[0m
+[session-file-store] Deleting expired sessions
+[session-file-store] Deleting expired sessions
+./startlibrary: Zeile 7:  4403 Beendet                 node library.js
+
+
+Restart Service :So 3. Mär 21:14:57 CET 2019
+Configuration Version: 0.2
+Express server listening on port 80
+Express server listening on port 443

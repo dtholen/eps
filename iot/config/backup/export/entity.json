@@ -1,0 +1,9 @@
+[{"_id":"5c56f1aab1b5662af62ebe83","ID":"BID","name":"book","timestamp":1549388877}
+,{"_id":"5c56f1f8b1b5662af62ebe86","ID":"TRA","name":"transaction","timestamp":1549388877}
+,{"_id":"5c56f230b1b5662af62ebe87","ID":"ENT","name":"entity","timestamp":1549388877}
+,{"_id":"5c56f1aab1b5662af62ebe84","ID":"CID","name":"class","timestamp":1549388877}
+,{"_id":"5c56f1aab1b5662af62ebe82","ID":"TID","name":"teacher","timestamp":1549388877}
+,{"_id":"5c5dbe5e9358fb6f6c52464c","ID":"SUB","name":"subject"}
+,{"_id":"5c61dfec52b7c5153c50405c","ID":"ETY","name":"entry"}
+,{"_id":"5c72b9f9318dc56c0dd83166","ID":"GEN","name":"gender"}
+]

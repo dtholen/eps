@@ -1,0 +1,161 @@
+      {"ID": "DA1", "class": "x", "name":  "Delfin, Arbeitsbuch 1","SID":"DAZ", "value": "0"}
+      {"ID": "DL1C2", "class": "x", "name":  "Delfin, Lehrbuch 1 m.2CD´s"	,"SID":"DAZ", "value": "0"}
+      {"ID": "DL", "class": "x", "name":  "Delfin, Lehrerhandbuch","SID":"DAZ", "value": "0"}
+      {"ID": "DL2C1", "class": "x", "name":  "Delfin , Lehrbuch 2 m. 1CD"	,"SID":"DAZ", "value": "0"}
+      {"ID": "DA2", "class": "x", "name":  "Delfin, Arbeitsbuch 2","SID":"DAZ", "value": "0"}
+      {"ID": "GKA1O", "class": "x", "name":  "Genial Klick A1 (orange)"	,"SID":"DAZ", "value": "0"}
+      {"ID": "GKA2G", "class": "x", "name":  "Genial Klick A2 (gelb)"	,"SID":"DAZ", "value": "0"}
+      {"ID": "GKA2G2C", "class": "x", "name":  "Genial Klick A2 (gelb), m.2CD","SID":"DAZ", "value": "0"}
+      {"ID": "GKB1L", "class": "x", "name":  "Genial Klick B1 (lila)","SID":"DAZ", "value": "0"}
+      {"ID": "GKB2L1C", "class": "x", "name":  "Genial Klick B1 (lila), m.1CD","SID":"DAZ", "value": "0"}
+      {"ID": "GKB1L2C", "class": "x", "name":  "Genial Klick B1 (lila), m.2CD","SID":"DAZ", "value": "0"}
+      {"ID": "TDK1", "class": "x", "name":  "Team Deutsch Kursbuch 1","SID":"DAZ", "value": "0"}
+      {"ID": "PTUE", "class": "x", "name":  "PONS - Tuerkisch","SID":"DAZ", "value": "0"}
+      {"ID": "PPOL", "class": "x", "name":  "PONS - Polnisch","SID":"DAZ", "value": "0"}
+      {"ID": "PPOR", "class": "x", "name":  "PONS - Portugiesisch","SID":"DAZ", "value": "0"}
+      {"ID": "PSL", "class": "x", "name":  "PONS - Slowanisch","SID":"DAZ", "value": "0"}
+      {"ID": "PAR", "class": "x", "name":  "PONS- Arabisch"	,"SID":"DAZ", "value": "0"}
+      {"ID": "PRU", "class": "x", "name":  "PONS - Russisch","SID":"DAZ", "value": "0"}
+      {"ID": "KT5", "name": "Klartext 5", "class": "5","SID" : "DEU", "value": "0"}
+      {"ID": "KT3", "name": "Klartext 6", "class": "6","SID" : "DEU", "value": "0"}
+      {"ID": "KT7", "name": "Klartext 7", "class": "7","SID" : "DEU", "value": "0"}
+      {"ID": "KT8", "name": "Klartext 8", "class": "8","SID" : "DEU", "value": "0"}
+      {"ID": "KT9", "name": "Klartext 9", "class": "9","SID" : "DEU", "value": "0"}
+      {"ID": "KT10", "name": "Klartext 10"	, "class": "10","SID" : "DEU", "value": "0"}
+      {"ID": "WS5", "name": "Wortstark,erw.Ausgabe 5", "class": "5","SID" : "DEU", "value": "0"}
+      {"ID": "WS6", "name": "Wortstark,erw.Ausgabe 6", "class": "6","SID" : "DEU", "value": "0"}
+      {"ID": "WS7", "name": "Wortstark,erw.Ausgabe 7", "class": "7","SID" : "DEU", "value": "0"}
+      {"ID": "WS8", "name": "Wortstark,erw.Ausgabe 8", "class": "8","SID" : "DEU", "value": "0"}
+      {"ID": "WS9", "name": "Wortstark,erw.Ausgabe 9", "class": "9","SID" : "DEU", "value": "0"}
+      {"ID": "WS10", "name": "Wortstark,erw.Ausgabe 10"	, "class": "10","SID" : "DEU", "value": "0"}
+      {"ID": "WPO5", "name": "WORTPROFI, Oldenbourg 5", "class": "10","SID" : "DEU", "value": "0"}
+      {"ID": "WSA5", "name": "Wortstark 5, alt", "class": "5","SID" : "DEU", "value": "0"}
+      {"ID": "WSA6", "name": "Wortstark 6, alt", "class": "6","SID" : "DEU", "value": "0"}
+      {"ID": "WSA7", "name": "Wortstark 7, alt", "class": "7","SID" : "DEU", "value": "0"}
+      {"ID": "WSA8", "name": "Wortstark 8, alt", "class": "8","SID" : "DEU", "value": "0"}
+      {"ID": "WSA9", "name": "Wortstark 9, alt", "class": "9","SID" : "DEU", "value": "0"}
+      {"ID": "WSA10", "name": "Wortstark 10, alt"	, "class": "10","SID" : "DEU", "value": "0"}
+      {"ID": "DGDA", "name": "Das Gold des Allchemisten", "class": "x","SID" : "DEU", "value": "0"}
+      {"ID": "KLLZ5", "name": "Klett Lesezeichen A/B 5", "class": "5","SID" : "DEU", "value": "0"}
+      {"ID": "KLLZ6", "name": "Klett Lesezeichen A/B 6", "class": "6","SID" : "DEU", "value": "0"}
+      {"ID": "KLLZ7", "name": "Klett Lesezeichen A/B 7", "class": "7","SID" : "DEU", "value": "0"}
+      {"ID": "KLLZ8", "name": "Klett Lesezeichen A/B 8", "class": "8","SID" : "DEU", "value": "0"}
+      {"ID": "KLLZ9", "name": "Klett Lesezeichen A/B 9", "class": "9","SID" : "DEU", "value": "0"}
+      {"ID": "KLLZ10", "name": "Klett Lesezeichen A/B 10"	, "class": "10","SID" : "DEU", "value": "0"}
+      {"ID": "TE1N", "name": "Tous Ensemble 1, NEU","SID" : "FRA",	"class": "6/7", "value": "0"}
+      {"ID": "TE1", "name": "Tous Ensemble 1",	"class": "6/7","SID" : "FRA", "value": "0"}
+      {"ID": "TE2", "name": "Tous Ensemble 2",	"class": "8/9","SID" : "FRA", "value": "0"}
+      {"ID": "TE3", "name": "Tous Ensemble 3",	"class": "9/10","SID" : "FRA", "value": "0"}
+      {"ID": "TE4", "name": "Tous Ensemble 4",	"class": "10","SID" : "FRA", "value": "0"}
+      {"ID": "TE5", "name": "Tous Ensemble 5",	"class": "10","SID" : "FRA", "value": "0"}
+      {"ID": "EM1", "name": "Ensemble 1",	"class": "6/7","SID" : "FRA", "value": "0"}
+      {"ID": "EM2", "name": "Ensemble 2",	"class": "7/8","SID" : "FRA", "value": "0"}
+      {"ID": "EM3", "name": "Ensemble 3",	"class": "8/9","SID" : "FRA", "value": "0"}
+      {"ID": "EM4", "name": "Ensemble 4",	"class": "9/10","SID" : "FRA", "value": "0"}
+      {"ID": "EMG1", "name": "Ensemble, Gramm.Beiheft 1",	"class": "6/7","SID" : "FRA", "value": "0"}
+      {"ID": "EMG2", "name": "Ensemble, Gramm.Beiheft 2",	"class": "7/8","SID" : "FRA", "value": "0"}
+      {"ID": "EMG3", "name": "Ensemble, Gramm.Beiheft 3",	"class": "8/9","SID" : "FRA", "value": "0"}
+      {"ID": "NTV", "name": "Taal vitaal","class": "8", "SID": "NL" , "value": "0"}
+      {"ID": "NTV1", "name": "Taal vitaal op school 1","class":	"8", "SID": "NL" , "value": "0"}
+      {"ID": "NTV2", "name": "Taal vitaal op school 2","class":	"9/10", "SID": "NL" , "value": "0"}
+      {"ID": "NUL", "name": "Die NL unter der Lupe","class":	"x", "SID": "NL" , "value": "0"}
+      {"ID": "NULV", "name": "Die NL unter der Lupe (Video)","class": "x"	, "SID": "NL" , "value": "0"}
+      {"ID": "NULZ", "name": "Die NL unter der Lupe (Zusatzinfo)","class": "x", "SID": "NL" , "value": "0"}
+      {"ID": "IAK", "name": "Allegro-Klett","class": "x", "SID": "IT" , "value": "0"}
+      {"ID": "MR5", "name": "Mathematik real 5","class":	"5", "SID": "MAT" , "value": "0"}
+      {"ID": "MR6", "name": "Mathematik real 6","class":	"6", "SID": "MAT" , "value": "0"}
+      {"ID": "MR7", "name": "Mathematik real 7","class":	"7", "SID": "MAT" , "value": "0"}
+      {"ID": "MR8", "name": "Mathematik real 8","class":	"8", "SID": "MAT" , "value": "0"}
+      {"ID": "MR9", "name": "Mathematik real 9","class":	"9", "SID": "MAT" , "value": "0"}
+      {"ID": "MR10", "name": "Mathematik real 10","class": "10", "SID": "MAT" , "value": "0"}
+      {"ID": "SP5", "name": "Schnittpunkt 5, Klett","class":	"5", "SID": "MAT" , "value": "0"}
+      {"ID": "SP6", "name": "Schnittpunkt 6, Klett","class":	"6", "SID": "MAT" , "value": "0"}
+      {"ID": "SP7", "name": "Schnittpunkt 7, Klett","class":	"7", "SID": "MAT" , "value": "0"}
+      {"ID": "SP8", "name": "Schnittpunkt 8, Klett","class":	"8", "SID": "MAT" , "value": "0"}
+      {"ID": "SP9", "name": "Schnittpunkt 9, Klett","class":	"9", "SID": "MAT" , "value": "0"}
+      {"ID": "SP10", "name": "Schnittpunkt 10, Klett","class": "10", "SID": "MAT" , "value": "0"}
+      {"ID": "MH5", "name": "Mathematik Heute 5","class": "5", "SID": "MAT" , "value": "0"}
+      {"ID": "MH6", "name": "Mathematik Heute 6","class": "6", "SID": "MAT" , "value": "0"}
+      {"ID": "MH7", "name": "Mathematik Heute 7","class": "7", "SID": "MAT" , "value": "0"}
+      {"ID": "MH8", "name": "Mathematik Heute 8","class": "8", "SID": "MAT" , "value": "0"}
+      {"ID": "MH9", "name": "Mathematik Heute 9","class": "9", "SID": "MAT" , "value": "0"}
+      {"ID": "MH10", "name": "Mathematik Heute 10","class": "10", "SID": "MAT" , "value": "0"}
+      {"ID": "MR7L", "name": "Mathematik real 7,Lehrerband","class": "7", "SID": "MAT" , "value": "0"}
+      {"ID": "MH10", "name": "PHYSIK 5/6 - Cornelsen","class": "5/6", "SID": "PHY" , "value": "0"}
+      {"ID": "MR7L", "name": "KUHN - PHYSIK 1","class": "7-10", "SID": "PHY" , "value": "0"}
+      {"ID": "FB1", "name": "Fachwerk Biologie 1","class":	"5/6", "SID": "BIO" , "value": "0"}
+      {"ID": "FB1A", "name": "Fachwerk Biologie 2A","class": "7/8", "SID": "BIO" , "value": "0"}
+      {"ID": "FB2B", "name": "Fachwerk Biologie 2B","class": "9/10", "SID": "BIO" , "value": "0"}
+      {"ID": "EB1", "name": "Erlebnis Biologie 1","class":	"5/6", "SID": "BIO" , "value": "0"}
+      {"ID": "EB2", "name": "Erlebnis Biologie 2","class":	"7/8", "SID": "BIO" , "value": "0"}
+      {"ID": "EB3", "name": "Erlebnis Biologie 3","class":	"9/10", "SID": "BIO" , "value": "0"}
+      {"ID": "CVK92", "name": "CVK Chemie (1992)","class": "7-10", "SID": "CH" , "value": "0"}
+      {"ID": "CGC7", "name": "Chemie, Gesamtband,Cornelsen","class": "7-10", "SID": "CH" , "value": "0"}
+      {"ID": "CUC7", "name": "Umwelt: Chemie","class": "7-10", "SID": "CH" , "value": "0"}
+      {"ID": "EK1N", "name": "Seydlitz, Erdkunde 1,Realschule,NEU","class":	"5/6", "SID": "EK" , "value": "0"}
+      {"ID": "EK2N", "name": "Seydlitz, Erdkunde 2, Realschule, NEU","class":	"7/8", "SID": "EK" , "value": "0"}
+      {"ID": "EKR", "name": "Seydlitz, Erdkunde,Realschule (rot)","class":	"5/6", "SID": "EK" , "value": "0"}
+      {"ID": "EK1B", "name": "Seydlitz, Erdkunde,Realschule (blau)","class":	"7/8", "SID": "EK" , "value": "0"}
+      {"ID": "EK1G", "name": "Seydlitz, Erdkunde,Realschule (gruen)","class":	"9/10", "SID": "EK" , "value": "0"}
+      {"ID": "TER1", "name": "TERRA 1","class":	"5/6", "SID": "EK" , "value": "0"}
+      {"ID": "TER2", "name": "TERRA 2","class":	"7/8", "SID": "EK" , "value": "0"}
+      {"ID": "TER3", "name": "TERRA 3","class":	"9/10", "SID": "EK" , "value": "0"}
+      {"ID": "GE56", "name": "Geographie, 5/6, cornelsen","class": "5/6", "SID": "EK" , "value": "0"}
+      {"ID": "GE78", "name": "Geographie, 7/8, cornelsen","class": "7/8", "SID": "EK" , "value": "0"}
+      {"ID": "GE91", "name": "Geographie, 9/10, cornelsen","class":	"9/10", "SID": "EK" , "value": "0"}
+      {"ID": "HA", "name": "Haack-Atlas","class": "x"	, "SID": "EK" , "value": "0"}
+      {"ID": "ETA", "name": "TRIO - Atlas","class": "x", "SID": "EK" , "value": "0"}
+      {"ID": "EAA", "name": "Atlas Alexander","class": "x"	, "SID": "EK" , "value": "0"}
+      {"ID": "EDWA", "name": "Diercke Weltatlas","class": "x" 	, "SID": "EK" , "value": "0"}
+      {"ID": "EWWA", "name": "Westermann Weltatlas","class": "x"	, "SID": "EK" , "value": "0"}
+      {"ID": "GR1", "name": "Geschichte Real 1, Cornelsen","class":	"6/7", "SID": "GE" , "value": "0"}
+      {"ID": "GR2", "name": "Geschichte Real 2, Cornelsen","class":	"7/8", "SID": "GE" , "value": "0"}
+      {"ID": "GR3", "name": "Geschichte Real 3, Cornelsen","class":	"9/10", "SID": "GE" , "value": "0"}
+      {"ID": "RIV1", "name": "Reise in die Vergangenheit 1","class":	"6/7", "SID": "GE" , "value": "0"}
+      {"ID": "RIV2", "name": "Reise in die Vergangenheit 2","class":	"7/8", "SID": "GE" , "value": "0"}
+      {"ID": "RIV3", "name": "Reise in die Vergangenheit 3","class":	"9/10", "SID": "GE" , "value": "0"}
+      {"ID": "PHW68", "name": "Putzger, Hist. Weltatlas (1968)","class":	"x", "SID": "GE" , "value": "0"}
+      {"ID": "PHW97", "name": "Putzger, Hist. Weltatlas (1997)","class": "x", "SID": "GE" , "value": "0"}
+      {"ID": "T111", "name": "TEAM 1, 2011"	,"class":	"5/6", "SID": "POL" , "value": "0"}
+      {"ID": "T212", "name": "TEAM 2, 2012 (Bundestag)"	,"class":	"7/8", "SID": "POL" , "value": "0"}
+      {"ID": "T312", "name": "TEAM 3, 2012 (Europaparlament)"	,"class":	"9/10", "SID": "POL" , "value": "0"}
+      {"ID": "T29", "name": "TEAM 2,  2009 (Windrad)"	,"class":	"7/8", "SID": "POL" , "value": "0"}
+      {"ID": "T310", "name": "TEAM 3,  2010 (Regenbogen)"	,"class":	"9/10", "SID": "POL" , "value": "0"}
+      {"ID": "T12G", "name": "TEAM 1, 2002 Gelb"	,"class":	"5/6", "SID": "POL" , "value": "0"}
+      {"ID": "T12W", "name": "TEAM 1, 2002 Weiß"	,"class":	"5/6", "SID": "POL" , "value": "0"}
+      {"ID": "T2N18", "name": "TEAM 2, Neuanschaffung 2018, 978-3-14-023728-4"	,"class":	"7/8", "SID": "POL" , "value": "0"}
+      {"ID": "T3N18", "name": "Team 3, Neuanschaffung 2018, 978-3-14-023730-7"	,"class":	"9/10", "SID": "POL" , "value": "0"}
+      {"ID": "UT7", "name": "Umwelt:Technik, 7-10, Klett","class":	"7-10", "SID": "TECH" , "value": "0"}
+      {"ID": "MTU1A", "name": "Mensch-Technik-Umwelt, 1.Aufl.","class":	"7/8", "SID": "TECH" , "value": "0"}
+      {"ID": "MUT2A", "name": "Mensch-Technik-Umwelt, 2.Aufl.","class":	"7/8", "SID": "TECH" , "value": "0"}
+      {"ID": "MUTU", "name": "Mensch-Technik-Umwelt","class":	"9/10", "SID": "TECH" , "value": "0"}
+      {"ID": "EA81", "name": "Energie aktuell (1981)","class": "x", "SID": "TECH" , "value": "0"}
+      {"ID": "BK1", "name": "Bildende Kunst  1","class": "x", "SID": "KUN" , "value": "0"}
+      {"ID": "BK2", "name": "Bildende Kunst  2","class": "x", "SID": "KUN" , "value": "0"}
+      {"ID": "BK3", "name": "Bildende Kunst  3","class": "x", "SID": "KUN" , "value": "0"}
+      {"ID": "TRKN5", "name": "Treffpunkt RU, Koesel, NEU","class":	"5/6", "SID": "RELK" , "value": "0"}
+      {"ID": "TRKN7", "name": "Treffpunkt RU, Koesel, NEU","class":	"7/8", "SID": "RELK" , "value": "0"}
+      {"ID": "TRKN9", "name": "Treffpunkt RU, Koesel, NEU","class":	"9/10", "SID": "RELK" , "value": "0"}
+      {"ID": "TRK5", "name": "Treffpunkt RU, Koesel","class":	"5/6", "SID": "RELK" , "value": "0"}
+      {"ID": "TRK7", "name": "Treffpunkt RU, Koesel","class":	"7/8", "SID": "RELK" , "value": "0"}
+      {"ID": "TRK9", "name": "Treffpunkt RU, Koesel","class":	"9/10", "SID": "RELK" , "value": "0"}
+      {"ID": "BIN", "name": "Bibeln, neu","class":	"x", "SID": "RELK" , "value": "0"}
+      {"ID": "BIA", "name": "Bibeln, alt","class":	"x", "SID": "RELK" , "value": "0"}
+      {"ID": "DNTZ", "name": "Das Neue Testament, J.Zink","class":	"x", "SID": "RELK" , "value": "0"}
+      {"ID": "BDK", "name": "Brennpunkte der Kirche","class": "x", "SID": "RELK" , "value": "0"}
+      {"ID": "DBH", "name": "Die Bibel heute","class":	"x", "SID": "RELK" , "value": "0"}
+      {"ID": "PASY", "name": "Patmos Synapse","class": "x", "SID": "RELK" , "value": "0"}
+      {"ID": "KR00", "name": "Kursbuch Religion 2000","class":	"5/6", "SID": "RELE" , "value": "0"}
+      {"ID": "DNK7", "name": "Das neue Kursbuch","class":	"7/8", "SID": "RELE" , "value": "0"}
+      {"ID": "DNK9", "name": "Das neue Kursbuch","class":	"9/10", "SID": "RELE" , "value": "0"}
+      {"ID": "KB7", "name": "Kursbuch Religion 7/8","class":	"7/8", "SID": "RELE" , "value": "0"}
+      {"ID": "KB9", "name": "Kursbuch Religion 9/10","class":	"9/10", "SID": "RELE" , "value": "0"}
+      {"ID": "KE5", "name": "Kursbuch elementar 5/6","class":	"5/6", "SID": "RELE" , "value": "0"}
+      {"ID": "KE7", "name": "Kursbuch elementar 7/8","class":	"7/8", "SID": "RELE" , "value": "0"}
+      {"ID": "KE9", "name": "Kursbuch elementar 9/10","class":	"9/10", "SID": "RELE" , "value": "0"}
+      {"ID": "ETI7", "name": "Ethik 7/8, cornelsen","class":	"7/8", "SID": "PP" , "value": "0"}
+      {"ID": "ETI9", "name": "Ethik 9/10, cornelsen","class":	"9/10", "SID": "PP" , "value": "0"}
+      {"ID": "FPPP7", "name": "Fair Play. Praktische Philosophie 7/8, Neuanschaffung 2019 25,95 Euro","class":	"7/8", "SID": "PP" , "value": "0"}
+      {"ID": "PPLF", "name": "Lebensfragen an uns Menschen. Lehrbuch PP 9/10. Militzke-Verl. 22.80 €","class": "9/10", "SID": "PP" , "value": "0"}
+      {"ID": "SPM1", "name": "Spielplaene Musik 1","class": "x", "SID": "MUS" , "value": "0"}
+      {"ID": "SPM2", "name": "Spielplaene Musik 2","class": "x", "SID": "MUS" , "value": "0"}

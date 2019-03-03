@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+
+<style>
+
+/*
+*  Position the #infoi element in the top-right
+*  of the .wrapper element
+*/
+
+th { background-color: #aaaaaa }
+
+
+.material-switch > input[type="checkbox"] {
+    display: none;
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative;
+    width: 40px;
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+
+
+#infoi {
+  position: absolute;
+  top: 100px;
+  right: 40%;
+  height: 40%;
+  padding: 10px 10px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+nav li {
+  list-style: none;
+  margin: 0.5em;
+  padding: 0;
+  font-size: 1.5em;
+}
+
+@media (min-width: 45em) {
+  nav ul {
+    flex-direction: row;
+  }
+  nav li {
+    font-size: 1em;
+  }
+}
+
+
+/* Modal Header */
+.modal-header {
+ padding: 2px 16px;
+ background-color: #5cb85c;
+ color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+ padding: 2px 16px;
+ background-color: #5cb85c;
+ color: white;
+}
+
+/* Modal Content */
+.modal-content {
+ position: relative;
+ background-color: #fefefe;
+ margin: auto;
+ padding: 0;
+ border: 1px solid #888;
+ width: 80%;
+ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+ animation-name: animatetop;
+ animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+ from {top: -300px; opacity: 0}
+ to {top: 0; opacity: 1}
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Home</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Liste<span class="caret glyphicon glyphicon-plane"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/library">Bestand</a></li>
+              <li><a href="/transaction">Vorgänge</a></li>
+              <li><a href="/transaction/create">Vorgang Anlegen</a></li>
+              <li><a href="#">...</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">...</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/stop">Drop all events</a></li>
+              <li><a href="#">...</a></li>
+            </ul>
+         </li>
+
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Config<span class="caret glyphicon glyphicon-cog"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/config/entity">Tabellen</a></li>
+              <li><a href="/config/teacher">Lehrer</a></li>
+              <li><a href="/config/book">Bücher</a></li>
+              <li><a href="/config/subject">Schulfach</a></li>
+              <li><a href="/config/trantype">Vorgänge</a></li>
+              <li><a href="/config/entry">Einstiegsseite</a></li>
+              <li><a href="#">...</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/stop">Stop&Restart Service</a></li>
+              <li><a href="#">...</a></li>
+            </ul>
+         </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maintain<span class="caret glyphicon glyphicon-wrench"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/maintain/export">Export/Import</a></li>
+              <li><a href="/maintain/backup">Daten Sichern</a></li>
+            </ul>
+         </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  {{#if errorMessage}}
+    <div class="alert alert-danger fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{errorMessage}}
+    </div>
+  {{/if}}
+
+  <div class="container">
+    {{{body}}}
+  </div>
+
+</body>
+</html>

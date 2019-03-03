@@ -1,0 +1,154 @@
+{{!< layout01}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+<script>
+
+function onSwitch(_id) {
+   cbName = "SwitchOptionSuccess"+_id;
+   var checkBox = document.getElementById(cbName,_id);
+   $.post("transaction",{ action:'e', _id: _id, enabled: checkBox.checked } , function( data ) {
+     $( ".result" ).html( data );
+   });
+ };
+
+    function deleteClass(_id,LID,teacher,BID,book,TID,value,CID,ti) {
+        $('#md_mode').text("Daten Löschen");
+        $('#md_style').attr('style','background-color:red');
+        $('#action').val('d');
+        updateClass(_id, LID,teacher,BID,book,TID,value,CID,ti);
+      };
+    function duplicateClass(_id, LID) {
+          $('#md_mode').text("Daten koppieren");
+          $('#md_style').attr('style','background-color:blue');
+          $('#action').val("x");
+          updateClass(_id, ID,name);
+        };
+
+  function editClass(_id, LID) {
+              $('#md_mode').text("Daten ändern");
+              $('#md_style').attr('style','background-color:grey');
+              $('#action').val("u");
+              updateClass(_id, ID,name);
+    };
+
+
+  function updateClass(_id,LID,teacher,BID,book,TID,value,CID,ti) {
+              var modal = document.getElementById('myModal');
+              var span = document.getElementsByClassName("close")[0];
+              $('#md_id').val(_id);
+              $('#md_LID').val(teacher);
+              $('#md_BID').val(book);
+              $('#md_TID').val(TID);
+              $('#md_value').val(value);
+              $('#md_CID').val(CID);
+              $('#md_timestamp').val(ti);
+              modal.style.display = "block";
+              span.onclick = function() {modal.style.display = "none";}
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none"; }
+              }
+      };
+
+</script>
+
+<style>
+
+</style>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>{{form.title}}</h2>
+      <div id=md_style style="background-color:grey" >
+      <h3 id="md_mode" ></h2>
+      </div>
+    </div>
+    <div class="modal-body" >
+
+    <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action={{form.link}} method="post" >
+      <input  type="hidden"  name="action" id="action" value='u'>
+      <input  type="hidden"  name="md_id" id="md_id">
+       {{#each form.fields}}
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="class">{{this.lable}}</label>
+            <div class="col-sm-2">
+              <input  autofocus type="text"  class="form-control" name="md_{{this.field}}" id="md_{{this.field}}" autocomplete="off" placeholder="{{this.field}}">
+            </div>
+          </div>
+       {{/each}}
+
+        <div id="divTime" class="form-group" style="display: none;" >
+          <div class="col-sm-2">
+            <input id="time" type="time" class="form-control"  >
+            <script>
+                document.getElementById("time").value = Date();
+            </script>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary" >OK</button>
+            <a href="{{cancel}}" id="cancel" name="cancel" class="btn btn-default">Cancel</a>
+        </div>
+      </div>
+
+    </form>
+    </div>
+    <div class="modal-footer">
+      <h3>...</h3>
+    </div>
+  </div>
+
+</div>
+
+<div style="border-radius: 10px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+     {{#each form.selector}}
+        <button class= '{{this.class}}' onclick="window.location.href='{{form.link}}?range={{this.TAG}}'" type="button">{{this.lable}}</button>
+     {{/each}}
+</div>
+
+<div style="border-radius: 10px; background-color:{{form.bg}}; padding-left:10px; padding-top:5px; padding-bottom: 5px; class="container">
+  <h1>{{form.title}}</h1>
+  <div class="entry">
+    <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed" >
+     <tr>
+       {{#each form.fields}} <th>{{this.lable}}</th> {{/each}}
+        <th width=15%>
+          <button class="glyphicon glyphicon-plus" onClick="self.location.href='/transaction/create'"></button>
+        </th>
+    </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}" >
+        <td value= this.TID>{{this.teacher}}</td>
+        <td value=this.BID>{{this.book}}</td>
+        <td data-toggle="tooltip" title="{{this.transaction}}"> <i class="{{this.gi}}"></i> {{this.alt}}</td>
+        <td>{{this.value}}</td>
+        <td>{{this.CID}}</td>
+        <td>{{this.ti}}</td>
+        <td width=10%>
+            <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.LID}}","{{this.teacher}}","{{this.BID}}","{{this.book}}","{{this.TID}}","{{this.value}}","{{this.CID}}","{{this.ti}}")'></button>
+            <div class="material-switch pull-right">
+                <input id="SwitchOptionSuccess{{this._id}}" onchange='onSwitch("{{this._id}}")'  name="SwitchOption{{this._id}}" type="checkbox" {{this.checked}} data-toggle="toggle" />
+                <label for="SwitchOptionSuccess{{this._id}}" class="label-success"></label>
+            </div>
+        </td>
+      </tr>
+     {{/each}}
+    </table>
+
+    <form action="input_button.htm">
+    <p>
+    <input type="button" name="Ausleihen" value="Buch ausleihen"
+    onClick="self.location.href='/transaction/create'">
+    </p>
+    </form>
+  </div>
+</div>

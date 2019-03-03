@@ -1,0 +1,9 @@
+{ "title":"Tabellen",
+  "entity": "entity",
+  "link": "/config/entity",
+  "bg": "DeepSkyBlue",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"}
+ ]
+}

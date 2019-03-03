@@ -1,0 +1,9 @@
+{ "title":"Fächer",
+  "entity": "subject",
+  "link": "/config/subject",
+  "bg": "PeachPuff",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"}
+ ]
+}

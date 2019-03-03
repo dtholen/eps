@@ -1,0 +1,5 @@
+{"_id": "sonoff","mesure":["STATE","ACT","TIME","TIMER","TEMP","HUM","TIME","STATE","VAR"],"lable":"Power Switch"}
+{"_id": "FHT","mesure":["TEMP","BAT"],"lable":"Home Automation (Temp&Status)"}
+{"_id": "ENV","mesure":["TEMP","BARO","HUM","TIME"],"lable":"Multy Sensor"}
+{"_id": "DHT","mesure":["TEMP","HUM","TIME","STATE","VAR"],"lable":"DHT Sensor"}
+{"_id": "PIR","mesure":["STATE","TIME"],"lable":"Movment Sensor"}

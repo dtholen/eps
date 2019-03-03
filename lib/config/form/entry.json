@@ -1,0 +1,12 @@
+{ "title":"Home",
+  "entity": "entry",
+  "link": "/config/entry",
+  "bg": "lightgrey",
+ "fields": [
+     { "field":"nr",     "lable": "Nr.", "tag": "required"},
+     { "field":"ID",      "lable": "ID", "tag": "required"},
+     { "field":"name",    "lable": "Name", "tag": "required"},
+     { "field":"link",    "lable": "Link", "tag": "required"},
+     { "field":"attr",    "lable": "Attribut", "tag": "required"}
+   ]
+}

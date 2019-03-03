@@ -1,0 +1,57 @@
+{{!< layout}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+
+<script>
+
+var currentRow;
+function deleteEvent(_id) {
+        alert('Hallo');
+        $.post("/device_status", {"_id" : _id, "action":"d" }, function(result){
+        });
+    };
+
+function hallo(text) {
+            alert(text);
+        };
+
+</script>
+
+<style>
+  th { background-color: #aaaaaa }
+}
+</style>
+<div style="border-radius: 20px; background-color:Bisque; padding-top:10px; padding-bottom:20px" class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+    <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed " >
+     <tr>
+       <th>Room</th>
+       <th>Device</th>
+       <th>upd</th>
+       <th>Type</th>
+       <th>Value</th>
+       <th></th>
+     </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}" onclick="location.href='/state?ID={{this.ID}}'"  style="cursor:pointer;" >
+        <td> {{this.lable}}</td>
+        <td>{{this.ID}}</td>
+         <td>{{this.ti}}</td>
+         <td>{{this.type}}</td>
+         <td>{{this.value}}</td>
+{{#if this.trash }}
+        <td> <button class="glyphicon glyphicon-trash" onclick='deleteEvent("{{this.ID}}")'></button> </td>
+{{else}}
+      <td></td>
+{{/if}}
+      </tr>
+     {{/each}}
+    </table>
+
+  </div>
+</div>

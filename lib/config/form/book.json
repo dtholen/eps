@@ -1,0 +1,12 @@
+{ "title":"Bücher",
+  "entity": "book",
+  "link": "/config/book",
+  "bg": "BurlyWood",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"},
+   { "field":"SID",     "lable": "Fach"},
+   { "field":"value",   "lable": "Stück"},
+   { "field":"class",   "lable": "Schuhljahr"}
+ ]
+}

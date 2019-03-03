@@ -1,0 +1,8 @@
+[{"_id":"5c5b2d077c590228e0246cea","nr":"2","ID":"TRA","name":"Vorgang Eingeben","link":"/transaction","attr":"btn-primary btn-lg btn-block","enabled":"true"}
+,{"_id":"5c5c8b573d8acb6eb9db622a","nr":"3","ID":"BOOK","name":"Bücher/Inventar","link":"/config/book","attr":"btn-secondary btn-lg btn-block","enabled":"true"}
+,{"_id":"5c5b2d377c590228e0246ceb","nr":"1","ID":"LIB","name":"Buch Bestand","link":"/library","attr":"btn-primary btn-lg btn-block","enabled":"true"}
+,{"_id":"5c5ed0bdcddddb622182e841","nr":"5","ID":"EXP","name":"Daten exportieren","link":"/maintain/export?mode=A","attr":"btn-danger btn-lg btn-block","enabled":"true"}
+,{"_id":"5c5c8a253d8acb6eb9db6229","nr":"4","ID":"TEA","name":"Lehrer","link":"/config/teacher","attr":"btn-secondary btn-lg btn-block","enabled":"true"}
+,{"_id":"5c5fdb4b42417f22a4c29b70","nr":"6","ID":"EXP","name":"Daten Sichern","link":"/maintain/backup","attr":"btn-danger btn-lg btn-block","enabled":"true"}
+,{"_id":"5c5fe1e4ff673325c4f61df7","nr":"7","ID":"CFG","name":"Einstigsseite Konfigurieren","link":"/config/entry","attr":"btn-warning btn-lg btn-block","enabled":"false"}
+]

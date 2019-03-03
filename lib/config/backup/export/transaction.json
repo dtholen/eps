@@ -1,0 +1,4 @@
+[{"_id":"5c72316990701d4c0ea7a1a8","eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"false","timestamp":"2019-02-24T05:53:45.873Z"}
+,{"_id":"5c73c4c39b715e7238dbca3d","eRef":"5c72316990701d4c0ea7a1a8","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-02-25T10:34:43.977Z"}
+,{"_id":"5c73c4e49b715e7238dbca3e","eRef":"","LID":"ATH","TID":"ISSUE","CID":"Klasse 8","BID":"KB7","value":-20,"enabled":"true","timestamp":"2019-02-25T10:35:16.052Z"}
+]

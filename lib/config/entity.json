@@ -1,0 +1,7 @@
+[
+{"_id":"5c56f1aab1b5662af62ebe84","ID":"CID","name":"class","timestamp":1549201834}
+{"_id":"5c56f1aab1b5662af62ebe83","ID":"BID","name":"book","timestamp":1549201834}
+{"_id":"5c56f1aab1b5662af62ebe82","ID":"TID","name":"teacher","timestamp":1549201834}
+{"_id":"5c56f1f8b1b5662af62ebe86","ID":"TRA","name":"transaction"}
+{"_id":"5c56f230b1b5662af62ebe87","ID":"ENT","name":"entity"}
+]

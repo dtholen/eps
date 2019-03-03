@@ -1,0 +1,9 @@
+{ "title":"Home",
+  "entity": "entry",
+  "view": "home",
+  "bg": "DarkSeaGreen",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"}
+ ]
+}

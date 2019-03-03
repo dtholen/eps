@@ -1,0 +1,82 @@
+{{!< layout}}
+
+
+{{#if refresh}}
+    <meta http-equiv="refresh" content="30"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+<style>
+  th { background-color: #aaaaaa }
+</style>
+
+<div style="border-radius: 20px; background-color:Bisque; padding-top:10px; padding-bottom:20px" class="container">
+<h3>{{title}}</h3>
+<div class="container">
+        <div class="col-lg-10" >
+          <div class="form-group">
+            <label class="control-label col-sm-2">Name:</label>
+            <div class="col-sm-10">
+              <p>{{obj.name}} / ({{obj.email}}) </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2">Arival:</label>
+            <div class="col-sm-10">
+              <p>{{obj.eta}}</p>
+            </div>
+          </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2">Registration:</label>
+              <div class="col-sm-10">
+                <p>{{obj.registration}}</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2">Type:</label>
+              <div class="col-sm-10">
+                <p>{{obj.value}}</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2">MTOW:</label>
+              <div class="col-sm-10">
+                <p>{{obj.mtow}}</p>
+              </div>
+            </div>
+        </div>
+  </div>
+
+<div class="container">
+
+<div style="padding-top:10px; padding-bottom:20px; border-radius: 20px;" class="container">
+
+
+  <div class="entry">
+  <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed" style="width:50%" >
+   <tr>
+     <th>time</th>
+     <th>Service</th>
+     <th>amount</th>
+     <th></th>
+   </tr>
+   {{#each events}}
+    <tr>
+       <tr onclick="location.href='/pilots/myticket?ref={{this._id}}'"  style="cursor:pointer;">
+       <td title={{this._id}}>{{this.ti}}</td>
+       <td>{{this.eventType}}</td>
+      <td>{{this.data.amount}}</td>
+      <td>{{this.data.value}}</td>
+    </tr>
+   {{/each}}
+  </table>
+  <div class="form-group">
+      <div class="col-sm-10">
+          <button class="btn btn-primary" value="1">OK</button>
+          <a href="/pilots/home" id="cancel" name="cancel" class="btn btn-default">Cancel</a>
+      </div>
+  </div>
+  </div>
+</div>
+</div>

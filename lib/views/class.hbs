@@ -1,0 +1,49 @@
+{{!< layout01}}
+{{#if refresh}}
+    <meta http-equiv="refresh" content="10"/>
+{{else}}
+      <meta http-equiv="refresh" content="600"/>
+{{/if}}
+
+
+<script>
+
+function myFunction(x,i) {
+      rows = document.getElementById('tableData').getElementsByTagName('TR');
+      col = rows[x.rowIndex].getElementsByTagName('TD');
+      self.location.href='/transaction/create?SID='+col[i].innerHTML;
+    }
+
+</script>
+
+<style>
+    th { background-color: #aaaaaa }
+    table tr:nth-child(2){ counter-reset: rowNumber;}
+    table tr { counter-increment: rowNumber;}
+    table tr td:first-child::before {
+    content: counter(rowNumber);
+
+  }
+</style>
+
+<div style="border-radius: 10px; background-color:MediumAquaMarine; padding-left:10px; padding-top:5px; padding-bottom: 5px; class="container">
+  <h1>{{title}}</h1>
+  <div class="entry">
+    <table id="tableData"  name="tableData"  class="table table-bordered table-hover table-condensed " >
+     <tr>
+       <th>No</th>
+       <th>ID</th>
+       <th>{{lable}}</th>
+       <th></th>
+     </tr>
+     {{#each obj}}
+      <tr bgcolor="{{this.bg}}"  onclick="myFunction(this,1)" style="cursor:pointer;" >
+        <td></td>
+        <td>{{this.ID}}</td>
+        <td>{{this.name}} </td>
+      </tr>
+     {{/each}}
+    </table>
+
+  </div>
+</div>

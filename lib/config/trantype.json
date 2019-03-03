@@ -1,0 +1,4 @@
+      {"ID": "INVENTORY", "name": "Inventar", "value": 1}
+      {"ID": "LOST", "name": "Verloren", "value": -1 }
+      {"ID": "ISSUE", "name": "Ausleihen", "value": -1}
+      {"ID": "RETURN", "name": "Zurückgeben","value": 1}

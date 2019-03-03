@@ -1,0 +1,17 @@
+      {"ID": "GE", "name": "Geschichte"}
+      {"ID": "FRA", "name": "Französich"}
+      {"ID": "DEU", "name": "Deutsch"}
+      {"ID": "RELK", "name": "Religion Katholisch"}
+      {"ID": "RELE", "name": "Religion Evangelisch"}
+      {"ID": "DAZ", "name": "Deutsch als Fremdsprache"}
+      {"ID": "IT", "name": "Italiänisch"}
+      {"ID": "NL", "name": "Niederländisch"}
+      {"ID": "MAT", "name": "Mathematik"}
+      {"ID": "PHY", "name": "Physik"}
+      {"ID": "BIO", "name": "Biologie"}
+      {"ID": "CH", "name": "Chemie"}
+      {"ID": "EK", "name": "Erdkunde"}
+      {"ID": "POL", "name": "Politik"}
+      {"ID": "TECH", "name": "Technik"}
+      {"ID": "PP", "name": "Praktische Philosophie"}
+      {"ID": "MUS", "name": "Musik"}

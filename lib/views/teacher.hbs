@@ -16,24 +16,34 @@
         }
       }
 
-    function deleteClass(_id, ID,name,surename,gender) {
+      function onSwitch(mode,nr,_id) {
+         cbName = "SwitchOptionSuccess"+nr;
+         if (mode=="g") cbName=cbName+"G";
+         var checkBox = document.getElementById(cbName,_id);
+         $.post("{{form.entity}}",{ action:mode, _id: _id, enabled: checkBox.checked } , function( data ) {
+           $( ".result" ).html( data );
+         });
+       };
+
+
+    function deleteClass(_id, ID,name,surname) {
         $('#md_mode').text("Daten Löschen");
         $('#md_style').attr('style','background-color:red');
         $('#action').val('d');
-        updateClass(_id, ID,name,surename);
+        updateClass(_id, ID,name,surname);
       };
-    function duplicateClass(_id, ID,name,surename,gender) {
+    function duplicateClass(_id, ID,name,surname) {
           $('#md_mode').text("Daten koppieren");
           $('#md_style').attr('style','background-color:blue');
           $('#action').val("x");
-          updateClass(_id, ID,name,surename,gender);
+          updateClass(_id, ID,name,surname);
         };
 
-  function editClass(_id, ID,name,surename,gender) {
+  function editClass(_id, ID,name,surname,gender,enabled) {
               $('#md_mode').text("Daten ändern");
               $('#md_style').attr('style','background-color:grey');
               $('#action').val("u");
-              updateClass(_id, ID,name,surename,gender);
+              updateClass(_id, ID,name,surname,gender,enabled);
     };
 
     function createClass() {
@@ -43,17 +53,16 @@
                 updateClass('', '','','');
       };
 
-  function updateClass(_id, ID,name,surename,gender) {
+  function updateClass(_id, ID,name,surname) {
               var modal = document.getElementById('myModal');
               var span = document.getElementsByClassName("close")[0];
-  //            var obj = {_id: _id, ID:ID, name: name, surename:surename};
+  //            var obj = {_id: _id, ID:ID, name: name, surname:surname};
   //            alert(JSON.stringify(obj));
 
               $('#md_id').val(_id);
               $('#md_ID').val(ID);
               $('#md_name').val(name);
-              $('#md_surename').val(surename);
-              $('#md_gender').val(gender);
+              $('#md_surname').val(surname);
               modal.style.display = "block";
               span.onclick = function() {modal.style.display = "none";}
               window.onclick = function(event) {
@@ -86,6 +95,8 @@
       <input  type="hidden"  name="action" id="action" value='u'>
       <input  type="hidden"  name="md_id" id="md_id">
       <input  type="hidden"  name="md_qsid" id="md_qsid">
+      <input  type="hidden"  name="md_gender" id="md_gender">
+      <input  type="hidden"  name="md_enabled" id="md_enabled">
        {{#each form.fields}}
         <div class="form-group">
             <label class="control-label col-sm-2" for="class">{{this.lable}}</label>
@@ -129,6 +140,9 @@
     <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
       <tr>
        {{#each form.fields}} <th>{{this.lable}}</th> {{/each}}
+       <th width=10%>upd</th>
+       <th width=5%><span class="glyphicon glyphicon-queen"><span class="glyphicon glyphicon-resize-horizontal"></span><span class="glyphicon glyphicon-king"></span></th>
+       <th width=5%><span class="glyphicon glyphicon-ok"></th>
         <th width=15%>
           <button class="glyphicon glyphicon-plus" onclick='createClass()'></button>
         </th>
@@ -138,13 +152,25 @@
         <input  type=hidden name="_id" id="_id value={{this._id}}">
         <td id="ID">{{this.ID}}<input type="hidden" id="_id" name="_id" value="{{this._id}}" /></td>
         <td id="name" name="name">{{this.name}}</td>
-        <td id="surename" name="surename">{{this.surename}}</td>
-        <td id="gender" name="gender">{{this.gender}}</td>
+        <td id="surname" name="surname">{{this.surname}}</td>
+        <td id="ti" name="ti">{{this.ti}}</td>
+        <td>
+          <div class="material-switch pull-right">
+              <input id="SwitchOptionSuccess{{this.ID}}G" onchange='onSwitch("g","{{this.ID}}","{{this._id}}")'  name="SwitchOption{{this.ID}}" type="checkbox" {{this.gender}} data-toggle="toggle" />
+              <label for="SwitchOptionSuccess{{this.ID}}G" class="label-success"></label>
+          </div>
+        </td>
+        <td>
+        <div class="material-switch pull-right">
+            <input id="SwitchOptionSuccess{{this.ID}}" onchange='onSwitch("e","{{this.ID}}","{{this._id}}")'  name="SwitchOption{{this.ID}}" type="checkbox" {{this.checked}} data-toggle="toggle" />
+            <label for="SwitchOptionSuccess{{this.ID}}" class="label-success"></label>
+        </div>
+        </td>
         <td width=10%>
 
-        <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surename}}")'></button>
-        <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surename}}")'></button>
-        <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surename}}")'></button>
+        <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.gender}}","{{this.enabled}}")'></button>
+        <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.gender}},"{{this.enabled}}"")'></button>
+        <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.gender}},"{{this.enabled}}"")'></button>
         </td>
       </tr>
      {{/each}}

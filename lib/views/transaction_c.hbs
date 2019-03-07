@@ -8,64 +8,32 @@
   height: 50px;
 }
 
-.flip-txt {
-  text-align:left;
-  margin-left:2em
-}
-
-.flip-info {
-  background-color:white;
-  position: relativ;
-  border-radius: 10px;
-  margin-top: 30%;
-  margin-left: 5%;
-  margin-right: 5%;
-  align="left";
-}
-
-.flip-card {
-  background-color: transparent;
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
   position: absolute;
   margin-left :40%;
   width: 250px;
   height: 250px;
-  perspective: 1000px;
 }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.card:hover {
+  box-shadow: 0 8px 26px 0 rgba(0,0,0,0.2);
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+.card-txt {
+  text-align:left;
+  margin-left:1em
 }
 
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+
+img {
+  border-radius: 5px 5px 0 0;
 }
 
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-  z-index: 2;
+.container {
+  padding: 2px 16px;
 }
-
-.flip-card-back {
-  background-color: #2980b9;
-  color: black;
-  transform: rotateY(180deg);
-  z-index: 1;
-  }
-
 
 table{
     width: 70%;
@@ -97,6 +65,7 @@ function createClass() {
   function myFunction() {
     alert("Hallo");
   }
+
 
 function addevent() {
               var table = document.getElementById('MyTable');
@@ -249,8 +218,10 @@ function check_field(eID) {
   switch (eID) {
     case 0:
       name='teacher';
+      alert("Hallo");
+      $('#avatar').attr('src','/img?id=2');
       if ($("#eRETURN").is(":checked")) {
-        populateBooks();
+         populateBooks();
       };
       check=true;
       break;
@@ -350,20 +321,14 @@ function validateForm() {
           </div>
       </div>
 
-      <div id="card" class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="/avatar/avatar3.svg" alt="Avatar" class="avatar">
 
-          </div>
-          <div class="flip-card-back">
-            <div class="flip-info" >
-            <h4 ID=inf_0>Name</h3>
-            <p class="flip-txt" ID=inf_1>Buch</p>
-            <p class="flip-txt" ID=inf_2>Anzahl</p>
-            <p class="flip-txt"  ID=inf_3>Info</p>
-            </div>
-          </div>
+      <div class="card">
+        <img id="avatar" name="avatar" src="/img?id=1" alt="Avatar" class="avatar">
+        <div class="container">
+          <h4 class="card-txt" ID=inf_0>Name</h3>
+          <p class="card-txt" ID=inf_1>Buch</p>
+          <p class="card-txt" ID=inf_2>Anzahl</p>
+          <p class="card-txt" ID=inf_3>Info</p>
         </div>
       </div>
 
@@ -374,7 +339,7 @@ function validateForm() {
           <input autofocus type="text"  class="form-control" name="teacher" id="teacher" list=teacher_list autocomplete="off" onchange="check_field(0)" placeholder="Names des Lehrers" required>
           <datalist id="teacher_list">
              {{#each teacher_list}}
-                    <option value="{{this.ID}}" label="{{this.name}}  {{this.surename}}" />
+                    <option value="{{this.ID}}" label="{{this.name}}  {{this.surname}}" />
              {{/each}}
           </datalist>
         </div>

@@ -1,3 +1,0 @@
-[{"_id":"5c856b78fcf2b1379f379895","eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"false","timestamp":"2019-03-10T19:54:32.789Z"}
-,{"_id":"5c856b81fcf2b1379f379896","eRef":"5c856b78fcf2b1379f379895","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-10T19:54:41.352Z"}
-]

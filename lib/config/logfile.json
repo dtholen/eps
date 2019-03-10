@@ -102,3 +102,11 @@
 {"eRef":"5c8163903c301d1439cd6cee","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-07T18:34:13.678Z"}
 {"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"true","timestamp":"2019-03-07T18:34:30.874Z"}
 {"eRef":"5c816436ba433f1549552430","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-07T18:47:51.626Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"true","timestamp":"2019-03-08T16:24:03.471Z"}
+{"eRef":"5c8297230437f525ced8e786","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-08T16:24:16.864Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"true","timestamp":"2019-03-10T06:24:13.838Z"}
+{"eRef":"5c84ad8d95537f6ce91e621a","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-10T06:24:26.971Z"}
+{"eRef":"","LID":"DUS","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"true","timestamp":"2019-03-10T19:53:35.152Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"true","timestamp":"2019-03-10T19:53:51.579Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"true","timestamp":"2019-03-10T19:54:32.789Z"}
+{"eRef":"5c856b78fcf2b1379f379895","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-10T19:54:41.352Z"}

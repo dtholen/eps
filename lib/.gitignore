@@ -3,6 +3,8 @@
 
 # Logs
 logs
+*/backup*
+*.gz
 *.log
 *.tgz
 *.log

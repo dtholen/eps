@@ -4,8 +4,8 @@
 
 .avatar {
   margin-top: 10px;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 }
 
 .card {
@@ -61,10 +61,6 @@ function onSwitch(nr,_id) {
 function createClass() {
     updateClass();
   };
-
-  function myFunction() {
-    alert("Hallo");
-  }
 
 
 function addevent() {
@@ -137,6 +133,19 @@ function gname(s,ID) {
           });
   return ret;
   }
+
+  function avatar(ID) {
+      var url="/validate?eID="+8+"&ID="+ID;
+      var ret;
+    $.ajax({ url: url,
+             async: false,
+             dataType: 'json',
+             success: function(data) {
+                  ret = data.value;
+                }
+            });
+    return ret;
+    }
 
 
 
@@ -218,8 +227,10 @@ function check_field(eID) {
   switch (eID) {
     case 0:
       name='teacher';
-      alert("Hallo");
-      $('#avatar').attr('src','/img?id=2');
+      var val = $("#" + name).val();
+      var flg = gname(7,val);
+      var q=avatar(flg);
+      $('#avatar').attr('src',q);
       if ($("#eRETURN").is(":checked")) {
          populateBooks();
       };
@@ -287,7 +298,6 @@ function validateForm() {
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
-
 <div class="modal-dialog" style="width:1000px;">
   <div class="modal-content">
     <div class="modal-header">
@@ -300,7 +310,6 @@ function validateForm() {
     </div>
   </div>
 </div>
-
 </div>
 
 
@@ -323,7 +332,7 @@ function validateForm() {
 
 
       <div class="card">
-        <img id="avatar" name="avatar" src="/img?id=1" alt="Avatar" class="avatar">
+        <img id="avatar" name="avatar" src="" alt="Avatar" class="avatar">
         <div class="container">
           <h4 class="card-txt" ID=inf_0>Name</h3>
           <p class="card-txt" ID=inf_1>Buch</p>

@@ -26,43 +26,43 @@
        };
 
 
-    function deleteClass(_id, ID,name,surname) {
+    function deleteClass(_id, ID,name,surname,avatar) {
         $('#md_mode').text("Daten Löschen");
         $('#md_style').attr('style','background-color:red');
         $('#action').val('d');
-        updateClass(_id, ID,name,surname);
+        updateClass(_id, ID,name,surname,avatar);
       };
-    function duplicateClass(_id, ID,name,surname) {
+    function duplicateClass(_id, ID,name,surname,avatar) {
           $('#md_mode').text("Daten koppieren");
           $('#md_style').attr('style','background-color:blue');
           $('#action').val("x");
-          updateClass(_id, ID,name,surname);
+          updateClass(_id, ID,name,surname,avatar);
         };
 
-  function editClass(_id, ID,name,surname,gender,enabled) {
+  function editClass(_id, ID,name,surname,avatar) {
               $('#md_mode').text("Daten ändern");
               $('#md_style').attr('style','background-color:grey');
               $('#action').val("u");
-              updateClass(_id, ID,name,surname,gender,enabled);
+              updateClass(_id, ID,name,surname,avatar);
     };
 
     function createClass() {
                 $('#md_mode').text("Daten einfügen");
                 $('#md_style').attr('style','background-color:grey');
                 $('#action').val("x");
-                updateClass('', '','','');
+                updateClass('', '','','','');
       };
 
-  function updateClass(_id, ID,name,surname) {
+  function updateClass(_id, ID,name,surname,avatar) {
               var modal = document.getElementById('myModal');
               var span = document.getElementsByClassName("close")[0];
-  //            var obj = {_id: _id, ID:ID, name: name, surname:surname};
-  //            alert(JSON.stringify(obj));
-
               $('#md_id').val(_id);
               $('#md_ID').val(ID);
               $('#md_name').val(name);
               $('#md_surname').val(surname);
+              $('#md_avatar').val(avatar);
+              var q='/img?id='+avatar;
+              $('#avatar').attr('src',q);
               modal.style.display = "block";
               span.onclick = function() {modal.style.display = "none";}
               window.onclick = function(event) {
@@ -71,11 +71,40 @@
               }
       };
 
+      function togle_avt(_id,ID,nr) {
+        var i=1;
+        var md_id=_id;
+        if (!ID) {
+          i = $('#md_avatar').val();
+          md_id = $('#md_id').val();
+        } else i=parseInt(nr,10);
+        if (i==1) i=2; else i=1;
+        var q='/img?id='+i;
+        $('#md_avatar').val(i);
+        $('#avatar'+ID).attr('src',q);
+        $.post("{{form.entity}}",{ action:'g', _id: md_id, value:i} , function( data ) {
+          $( ".result" ).html( data );
+        });
+
+        };
 
 </script>
 
 <style>
+.avatar {
+  width: 25px;
+  height: 25px;
+}
 
+.avatar_large {
+  width: 130px;
+  height: 130px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transition: 0.5s;
+  position: relativ;
+  margin-top :2em;
+  margin-left :auto;
+}
 </style>
 
 <!-- The Modal -->
@@ -92,11 +121,12 @@
     <div class="modal-body" >
 
     <form id="ItemEditForm" name="ItemEditForm" class="form-horizontal" action={{form.link}} method="post" >
+      <input  type="hidden"  name="md_avatar" id="md_avatar">
       <input  type="hidden"  name="action" id="action" value='u'>
       <input  type="hidden"  name="md_id" id="md_id">
       <input  type="hidden"  name="md_qsid" id="md_qsid">
-      <input  type="hidden"  name="md_gender" id="md_gender">
       <input  type="hidden"  name="md_enabled" id="md_enabled">
+      <img id=avatar name="avatar" onclick='togle_avt("", "","")' src="/img?id=1" alt="Avatar" class="avatar_large">
        {{#each form.fields}}
         <div class="form-group">
             <label class="control-label col-sm-2" for="class">{{this.lable}}</label>
@@ -139,9 +169,9 @@
     <input  type=hidden value="c"   name="mode_s" id="mode_s">
     <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
       <tr>
-       {{#each form.fields}} <th>{{this.lable}}</th> {{/each}}
+       {{#each form.fields}} <th width={{this.width}}>{{this.lable}}</th> {{/each}}
+       <th width=3%></th>
        <th width=10%>upd</th>
-       <th width=5%><span class="glyphicon glyphicon-queen"><span class="glyphicon glyphicon-resize-horizontal"></span><span class="glyphicon glyphicon-king"></span></th>
        <th width=5%><span class="glyphicon glyphicon-ok"></th>
         <th width=15%>
           <button class="glyphicon glyphicon-plus" onclick='createClass()'></button>
@@ -153,13 +183,9 @@
         <td id="ID">{{this.ID}}<input type="hidden" id="_id" name="_id" value="{{this._id}}" /></td>
         <td id="name" name="name">{{this.name}}</td>
         <td id="surname" name="surname">{{this.surname}}</td>
-        <td id="ti" name="ti">{{this.ti}}</td>
-        <td>
-          <div class="material-switch pull-right">
-              <input id="SwitchOptionSuccess{{this.ID}}G" onchange='onSwitch("g","{{this.ID}}","{{this._id}}")'  name="SwitchOption{{this.ID}}" type="checkbox" {{this.gender}} data-toggle="toggle" />
-              <label for="SwitchOptionSuccess{{this.ID}}G" class="label-success"></label>
-          </div>
-        </td>
+        <td style = "display:none" id="avatarNR" name="avatarNR">{{this.avatar}}</td>
+        <td><img id=avatar{{this.ID}} name="avatar" onclick='togle_avt("{{this._id}}", "{{this.ID}}","{{this.avatar}}")' src="/img?id={{this.avatar}}" alt="Avatar" class="avatar"></td>
+        <td width=5% id="ti" name="ti">{{this.ti}}</td>
         <td>
         <div class="material-switch pull-right">
             <input id="SwitchOptionSuccess{{this.ID}}" onchange='onSwitch("e","{{this.ID}}","{{this._id}}")'  name="SwitchOption{{this.ID}}" type="checkbox" {{this.checked}} data-toggle="toggle" />
@@ -168,9 +194,9 @@
         </td>
         <td width=10%>
 
-        <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.gender}}","{{this.enabled}}")'></button>
-        <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.gender}},"{{this.enabled}}"")'></button>
-        <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.gender}},"{{this.enabled}}"")'></button>
+        <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.avatar}}")'></button>
+        <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.avatar}}")'></button>
+        <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.name}}","{{this.surname}}","{{this.avatar}}")'></button>
         </td>
       </tr>
      {{/each}}

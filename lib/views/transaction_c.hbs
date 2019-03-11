@@ -17,6 +17,26 @@
   height: 250px;
 }
 
+.cardheader {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-top :3%;
+  transition: 0.3s;
+  margin-left :25%;
+  margin-right :25%;
+  width: 50%;
+  height: 40%;
+}
+
+.cardheader:hover {
+  box-shadow: 0 16px 35px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 .card:hover {
   box-shadow: 0 8px 26px 0 rgba(0,0,0,0.2);
 }
@@ -24,11 +44,6 @@
 .card-txt {
   text-align:left;
   margin-left:1em
-}
-
-
-img {
-  border-radius: 5px 5px 0 0;
 }
 
 .container {
@@ -332,7 +347,9 @@ function validateForm() {
 
 
       <div class="card">
+        <div class="cardheader">
         <img id="avatar" name="avatar" src="" alt="Avatar" class="avatar">
+        </div>
         <div class="container">
           <h4 class="card-txt" ID=inf_0>Name</h3>
           <p class="card-txt" ID=inf_1>Buch</p>

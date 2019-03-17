@@ -1,0 +1,9 @@
+{ "title":"Gantchart",
+  "entity": "gant",
+  "link": "/gant",
+  "bg": "DeepSkyBlue",
+ "fields": [
+   { "field":"ID",      "lable": "ID"},
+   { "field":"name",    "lable": "Name"}
+ ]
+}

@@ -7,6 +7,7 @@
 
 
 <script>
+
     function data(ID) {
         var url="/validate?eID="+ID;
         var ret;
@@ -20,34 +21,39 @@
       return ret;
       }
 
-    function deleteClass(_id, ID,LID,text,start_date,duration,parent) {
+function onlnk() {
+    var ret='"{{this._id}}","{{this.ID}}","{{this.LID}}","{{this.text}}","{{this.start_date}}","{{this.duration}}","{{this.parent}}","{{this.link}}","{{this.progress}}"';
+    return ret;
+ }
+
+    function deleteClass(_id, ID,LID,text,start_date,duration,parent,link,progress) {
         $('#md_mode').text("Daten Löschen");
         $('#md_style').attr('style','background-color:red');
         $('#action').val('d');
-        updateClass(_id, ID,LID,text,start_date,duration,parent);
+        updateClass(_id, ID,LID,text,start_date,duration,parent,link,progress);
       };
-    function duplicateClass(_id, ID,LID,text,start_date,duration,parent) {
+    function duplicateClass(_id, ID,LID,text,start_date,duration,parent,link,progress) {
           $('#md_mode').text("Daten koppieren");
           $('#md_style').attr('style','background-color:blue');
           $('#action').val("x");
-          updateClass(_id, ID,LID,text,start_date,duration,parent);
+          updateClass(_id, ID,LID,text,start_date,duration,parent,link,progress);
         };
 
-  function editClass(_id, ID,LID,text,start_date,duration,parent) {
+  function editClass(_id, ID,LID,text,start_date,duration,parent,link,progress) {
               $('#md_mode').text("Daten ändern");
               $('#md_style').attr('style','background-color:grey');
               $('#action').val("u");
-              updateClass(_id, ID,LID,text,start_date,duration,parent);
+              updateClass(_id, ID,LID,text,start_date,duration,parent,link,progress);
     };
 
     function createClass() {
                 $('#md_mode').text("Daten einfügen");
                 $('#md_style').attr('style','background-color:grey');
                 $('#action').val("x");
-                updateClass('', '', '');
+                updateClass('', '', '', '', '', '', '', '');
       };
 
-  function updateClass(_id, ID,LID,text,start_date,duration,parent) {
+  function updateClass(_id, ID,LID,text,start_date,duration,parent,link,progress) {
               var modal = document.getElementById('myModal');
               var span = document.getElementsByClassName("close")[0];
               $('#md_id').val(_id);
@@ -57,6 +63,8 @@
               $('#md_start_date').val(start_date);
               $('#md_duration').val(duration);
               $('#md_parent').val(parent);
+              $('#md_link').val(link);
+              $('#md_progress').val(progress);
               modal.style.display = "block";
               span.onclick = function() {modal.style.display = "none";}
               window.onclick = function(event) {
@@ -118,7 +126,6 @@
 
 </div>
 
-
 <div style="border-radius: 10px; background-color:{{form.bg}}; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
   <h1>{{form.title}}</h1>
   <div class="entry">
@@ -139,14 +146,28 @@
         <td id="start_date" name="start_date">{{this.start_date}}</td>
         <td id="duration" name="duration">{{this.duration}}</td>
         <td id="parent" name="parent">{{this.parent}}</td>
+        <td id="link" name="link">{{this.link}}</td>
+        <td id="progress" name="parent">{{this.progress}}</td>
         <td width=10%>
-            <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.LID}}","{{this.text}}","{{this.start_date}}","{{this.duration}}","{{this.parent}}")'></button>
-            <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.LID}}","{{this.text}}","{{this.start_date}}","{{this.duration}}","{{this.parent}}")'></button>
-            <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.LID}}","{{this.text}}","{{this.start_date}}","{{this.duration}}","{{this.parent}}")'></button>
+            <button id="btn1" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.ID}}","{{this.LID}}","{{this.text}}","{{this.start_date}}","{{this.duration}}","{{this.parent}}","{{this.link}}","{{this.progress}}")'></button>
+            <button id="btn2" class="glyphicon glyphicon-duplicate" onclick='duplicateClass("{{this._id}}","{{this.ID}}","{{this.LID}}","{{this.text}}","{{this.start_date}}","{{this.duration}}","{{this.parent}}","{{this.link}}","{{this.progress}}")'></button>
+            <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.ID}}","{{this.LID}}","{{this.text}}","{{this.start_date}}","{{this.duration}}","{{this.parent}}","{{this.link}}","{{this.progress}}")'></button>
         </td>
       </tr>
      {{/each}}
     </table>
+    <div id=link style="background-color:white; border-radius: 10px;" >
+    <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
+     {{#each link}}
+      <tr bgcolor="{{this.bg}}" id="myTabler" name="myTabler"  >
+        <input  type=hidden name="_id" id="_id value={{this._id}}">
+        <td id="source">{{this.source}}<input type="hidden" id="_id" name="_id" value="{{this._id}}" /></td>
+        <td id="target" name="target">{{this.target}}</td>
+        <td id="type" name="type">{{this.type}}</td>
+      </tr>
+     {{/each}}
+    </table>
+  </div>
 <a href="/gant" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Plan</a>
   </div>
 </div>

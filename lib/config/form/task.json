@@ -8,6 +8,8 @@
      { "field":"text",          "lable": "Text", "tag": "required"},
      { "field":"start_date",    "lable": "Start", "tag": "required"},
      { "field":"duration",      "lable": "Dauer", "tag": "required"},
-     { "field":"parent",        "lable": "Parent"}
+     { "field":"parent",        "lable": "Parent"},
+     { "field":"link",          "lable": "Link"},
+     { "field":"progress",      "lable": "%"}
    ]
 }

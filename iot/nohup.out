@@ -88,3 +88,70 @@ Express server listening on port 443
 Configuration Version: 0.2
 Express server listening on port 80
 Express server listening on port 443
+24 Mar 11:20:04 - [info] 
+
+Welcome to Node-RED
+===================
+
+24 Mar 11:20:04 - [info] Node-RED version: v0.17.5
+24 Mar 11:20:04 - [info] Node.js  version: v9.3.0
+24 Mar 11:20:04 - [info] Linux 3.10.0-862.3.3.el7.x86_64 x64 LE
+24 Mar 11:20:04 - [info] Loading palette nodes
+24 Mar 11:20:04 - [info] Dashboard version 2.7.0 started at /ui
+24 Mar 11:20:05 - [warn] ------------------------------------------------------
+24 Mar 11:20:05 - [warn] [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+24 Mar 11:20:05 - [warn] ------------------------------------------------------
+24 Mar 11:20:05 - [info] Settings file  : /root/.node-red/settings.js
+24 Mar 11:20:05 - [info] User directory : /root/.node-red
+24 Mar 11:20:05 - [info] Flows file     : /root/.node-red/flows_NUC-IOT.json
+24 Mar 11:20:05 - [info] Server now running at http://127.0.0.1:1880/
+24 Mar 11:20:05 - [info] Starting flows
+24 Mar 11:20:05 - [info] Started flows
+24 Mar 11:20:05 - [error] [mongodb out:events] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 11:20:05 - [error] [mongodb out:device_status] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 11:20:05 - [error] [mongodb out:device] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 11:20:05 - [error] [mongodb out:device_type] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 11:20:05 - [error] [mongodb out:keyval] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 11:20:05 - [error] [mongodb out:background] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 11:20:05 - [info] [mqtt-broker:f82a6d7c.429b7] Connected to broker: mqtt://localhost:1883
+module.js:557
+    throw err;
+    ^
+
+Error: Cannot find module 'mongoose'
+    at Function.Module._resolveFilename (module.js:555:15)
+    at Function.Module._load (module.js:482:25)
+    at Module.require (module.js:604:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (/home/share/admin/work/library/eps/iot/app.js:10:20)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+    at tryModuleLoad (module.js:513:12)
+    at Function.Module._load (module.js:505:3)
+24 Mar 12:03:12 - [info] 
+
+Welcome to Node-RED
+===================
+
+24 Mar 12:03:12 - [info] Node-RED version: v0.17.5
+24 Mar 12:03:12 - [info] Node.js  version: v9.3.0
+24 Mar 12:03:12 - [info] Linux 3.10.0-862.3.3.el7.x86_64 x64 LE
+24 Mar 12:03:12 - [info] Loading palette nodes
+24 Mar 12:03:12 - [info] Dashboard version 2.7.0 started at /ui
+24 Mar 12:03:12 - [warn] ------------------------------------------------------
+24 Mar 12:03:12 - [warn] [rpi-gpio] Info : Ignoring Raspberry Pi specific node
+24 Mar 12:03:12 - [warn] ------------------------------------------------------
+24 Mar 12:03:12 - [info] Settings file  : /root/.node-red/settings.js
+24 Mar 12:03:12 - [info] User directory : /root/.node-red
+24 Mar 12:03:12 - [info] Flows file     : /root/.node-red/flows_NUC-IOT.json
+24 Mar 12:03:12 - [info] Server now running at http://127.0.0.1:1880/
+24 Mar 12:03:12 - [info] Starting flows
+24 Mar 12:03:12 - [info] Started flows
+24 Mar 12:03:12 - [error] [mongodb out:events] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 12:03:12 - [error] [mongodb out:device_status] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 12:03:12 - [error] [mongodb out:device] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 12:03:12 - [error] [mongodb out:device_type] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 12:03:12 - [error] [mongodb out:keyval] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 12:03:12 - [error] [mongodb out:background] MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+24 Mar 12:03:12 - [info] [mqtt-broker:f82a6d7c.429b7] Connected to broker: mqtt://localhost:1883

@@ -111,3 +111,55 @@
 {"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"true","timestamp":"2019-03-10T19:54:32.789Z"}
 {"eRef":"5c856b78fcf2b1379f379895","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-10T19:54:41.352Z"}
 {"eRef":"5c856b78fcf2b1379f379895","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-10T20:51:24.074Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"ADK","value":-20,"enabled":"true","timestamp":"2019-03-21T11:30:12.269Z"}
+{"eRef":"5c9375c4a6aa1f1f76198710","LID":"AEI","TID":"RETURN","CID":"","BID":"ADK","value":20,"enabled":"true","timestamp":"2019-03-21T11:30:22.120Z"}
+{"eRef":"","LID":"CGU","TID":"ISSUE","CID":"","BID":"TE2","value":-13,"enabled":"true","timestamp":"2019-03-24T12:03:57.227Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"T3N18","value":-11,"enabled":"true","timestamp":"2019-03-24T12:05:42.539Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"T3N18","value":-23,"enabled":"true","timestamp":"2019-03-24T12:07:04.409Z"}
+{"eRef":"","LID":"JHE","TID":"ISSUE","CID":"","BID":"TE3","value":-2,"enabled":"true","timestamp":"2019-03-24T12:10:40.384Z"}
+{"eRef":"","LID":"ASO","TID":"ISSUE","CID":"","BID":"KB7","value":-30,"enabled":"true","timestamp":"2019-03-24T12:25:41.240Z"}
+{"eRef":"","LID":"ASO","TID":"ISSUE","CID":"","BID":"KT7","value":-25,"enabled":"true","timestamp":"2019-03-24T12:26:23.031Z"}
+{"eRef":"","LID":"ASO","TID":"ISSUE","CID":"","BID":"KB9","value":-4,"enabled":"true","timestamp":"2019-03-24T12:28:06.378Z"}
+{"eRef":"","LID":"ASO","TID":"ISSUE","CID":"","BID":"KE5","value":-4,"enabled":"true","timestamp":"2019-03-24T12:35:05.596Z"}
+{"eRef":"","LID":"JHE","TID":"ISSUE","CID":"","BID":"TE3","value":-15,"enabled":"true","timestamp":"2019-03-24T12:38:13.500Z"}
+{"eRef":"","LID":"CLI","TID":"ISSUE","CID":"","BID":"RIV1","value":-21,"enabled":"true","timestamp":"2019-03-24T12:39:17.096Z"}
+{"eRef":"","LID":"HTU","TID":"ISSUE","CID":"","BID":"MR10","value":-25,"enabled":"true","timestamp":"2019-03-24T12:40:36.765Z"}
+{"eRef":"","LID":"HTU","TID":"ISSUE","CID":"","BID":"MR7","value":-7,"enabled":"true","timestamp":"2019-03-24T12:41:09.364Z"}
+{"eRef":"","LID":"ATH","TID":"ISSUE","CID":"","BID":"KT8","value":-31,"enabled":"true","timestamp":"2019-03-24T12:42:24.915Z"}
+{"eRef":"","LID":"ATH","TID":"ISSUE","CID":"","BID":"KT7","value":-24,"enabled":"true","timestamp":"2019-03-24T12:43:21.616Z"}
+{"eRef":"","LID":"ATH","TID":"ISSUE","CID":"","BID":"KE9","value":-28,"enabled":"true","timestamp":"2019-03-24T12:44:18.796Z"}
+{"eRef":"","LID":"ATH","TID":"ISSUE","CID":"","BID":"FPPP7","value":-17,"enabled":"true","timestamp":"2019-03-24T12:45:11.464Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"T312","value":-25,"enabled":"true","timestamp":"2019-03-24T12:49:33.714Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"","BID":"T212","value":-31,"enabled":"true","timestamp":"2019-03-24T12:53:00.764Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"8b","BID":"T212","value":-29,"enabled":"true","timestamp":"2019-03-24T12:54:34.345Z"}
+{"eRef":"","LID":"AEI","TID":"ISSUE","CID":"9b","BID":"T312","value":-30,"enabled":"true","timestamp":"2019-03-24T12:55:42.388Z"}
+{"eRef":"","LID":"CGU","TID":"ISSUE","CID":"7c","BID":"FB2A","value":-20,"enabled":"true","timestamp":"2019-03-24T13:25:14.806Z"}
+{"eRef":"","LID":"CGU","TID":"ISSUE","CID":"8a","BID":"FB2A","value":-31,"enabled":"true","timestamp":"2019-03-24T13:25:58.516Z"}
+{"eRef":"","LID":"CGU","TID":"ISSUE","CID":"10a","BID":"FB2B","value":-26,"enabled":"true","timestamp":"2019-03-24T13:26:32.881Z"}
+{"eRef":"","LID":"CGU","TID":"ISSUE","CID":"10b","BID":"FB2B","value":-28,"enabled":"true","timestamp":"2019-03-24T13:27:12.797Z"}
+{"eRef":"","LID":"CGU","TID":"ISSUE","CID":"8F","BID":"TE1N","value":-18,"enabled":"true","timestamp":"2019-03-24T13:28:43.821Z"}
+{"eRef":"","LID":"CGU","TID":"ISSUE","CID":"10F","BID":"TE3","value":-22,"enabled":"true","timestamp":"2019-03-24T13:29:31.649Z"}
+{"eRef":"","LID":"AHA","TID":"ISSUE","CID":"Für sie selbst","BID":"FB1","value":-2,"enabled":"true","timestamp":"2019-03-24T13:37:15.783Z"}
+{"eRef":"","LID":"AHA","TID":"ISSUE","CID":"Frau Haas selbst","BID":"FB2B","value":-1,"enabled":"true","timestamp":"2019-03-24T13:38:46.206Z"}
+{"eRef":"","LID":"AHA","TID":"ISSUE","CID":"9b Bio","BID":"FB2B","value":-30,"enabled":"true","timestamp":"2019-03-24T13:41:13.740Z"}
+{"eRef":"","LID":"AHA","TID":"ISSUE","CID":"6b Bio","BID":"FB1","value":-20,"enabled":"true","timestamp":"2019-03-24T13:41:58.041Z"}
+{"eRef":"","LID":"JHE","TID":"ISSUE","CID":"7F","BID":"TE1","value":-17,"enabled":"true","timestamp":"2019-03-24T13:43:20.498Z"}
+{"eRef":"","LID":"JHE","TID":"ISSUE","CID":"6Fa","BID":"TE1N","value":-21,"enabled":"true","timestamp":"2019-03-24T13:44:09.485Z"}
+{"eRef":"","LID":"JHE","TID":"ISSUE","CID":"6Fb","BID":"TE1N","value":-20,"enabled":"true","timestamp":"2019-03-24T13:44:49.114Z"}
+{"eRef":"","LID":"AHI","TID":"ISSUE","CID":"6b","BID":"KT6","value":-21,"enabled":"true","timestamp":"2019-03-24T13:48:29.097Z"}
+{"eRef":"","LID":"AHI","TID":"ISSUE","CID":"10","BID":"KT10","value":-23,"enabled":"true","timestamp":"2019-03-24T13:50:31.786Z"}
+{"eRef":"","LID":"AHI","TID":"ISSUE","CID":"5","BID":"KT5","value":-25,"enabled":"true","timestamp":"2019-03-24T13:51:25.289Z"}
+{"eRef":"","LID":"RKO","TID":"ISSUE","CID":"6b","BID":"RIV1","value":-20,"enabled":"true","timestamp":"2019-03-24T13:53:35.616Z"}
+{"eRef":"","LID":"RKO","TID":"ISSUE","CID":"9a","BID":"RIV2","value":-30,"enabled":"true","timestamp":"2019-03-24T13:54:11.561Z"}
+{"eRef":"","LID":"RKO","TID":"ISSUE","CID":"9b","BID":"RIV2","value":-30,"enabled":"true","timestamp":"2019-03-24T13:54:48.047Z"}
+{"eRef":"","LID":"RKO","TID":"ISSUE","CID":"10a","BID":"RIV3","value":-26,"enabled":"true","timestamp":"2019-03-24T13:55:17.979Z"}
+{"eRef":"","LID":"RKO","TID":"ISSUE","CID":"10b","BID":"RIV3","value":-26,"enabled":"true","timestamp":"2019-03-24T13:55:48.449Z"}
+{"eRef":"","LID":"RKO","TID":"ISSUE","CID":"10c","BID":"RIV3","value":-21,"enabled":"true","timestamp":"2019-03-24T13:56:18.956Z"}
+{"eRef":"","LID":"AHA","TID":"ISSUE","CID":"9b Bio","BID":"FB2B","value":-30,"enabled":"true","timestamp":"2019-03-24T14:09:07.254Z"}
+{"eRef":"","LID":"AHA","TID":"ISSUE","CID":"6b Bio","BID":"FB1","value":-20,"enabled":"true","timestamp":"2019-03-24T14:10:00.408Z"}
+{"eRef":"","LID":"JHE","TID":"ISSUE","CID":"7F","BID":"TE1","value":-17,"enabled":"true","timestamp":"2019-03-24T14:11:23.784Z"}
+{"eRef":"","LID":"JHE","TID":"ISSUE","CID":"6Fa","BID":"TE1N","value":-21,"enabled":"true","timestamp":"2019-03-24T14:11:55.521Z"}
+{"eRef":"","LID":"JHE","TID":"ISSUE","CID":"6Fb","BID":"TE1N","value":-20,"enabled":"true","timestamp":"2019-03-24T14:12:37.633Z"}
+{"eRef":"","LID":"AHI","TID":"ISSUE","CID":"6b","BID":"KT6","value":-21,"enabled":"true","timestamp":"2019-03-24T14:13:49.170Z"}
+{"eRef":"","LID":"AHI","TID":"ISSUE","CID":"10","BID":"KT10","value":-23,"enabled":"true","timestamp":"2019-03-24T14:14:34.572Z"}
+{"eRef":"","LID":"AHI","TID":"ISSUE","CID":"5","BID":"KT5","value":-25,"enabled":"true","timestamp":"2019-03-24T14:15:30.527Z"}

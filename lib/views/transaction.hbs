@@ -28,11 +28,12 @@ function onSwitch(_id) {
           updateClass(_id, ID,name);
         };
 
-  function editClass(_id, LID) {
+  function editClass(_id,LID,teacher,BID,book,TID,value,CID,ti) {
+    alert("Hallo");
               $('#md_mode').text("Daten ändern");
               $('#md_style').attr('style','background-color:grey');
               $('#action').val("u");
-              updateClass(_id, ID,name);
+              updateClass(_id,LID,teacher,BID,book,TID,value,CID,ti)
     };
 
 
@@ -110,14 +111,14 @@ function onSwitch(_id) {
 
 </div>
 
-<div style="border-radius: 10px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+<div style="background-color:grey;" class="container-body">
      {{#each form.selector}}
         <button class= '{{this.class}}' onclick="window.location.href='{{form.link}}?range={{this.TAG}}'" type="button">{{this.lable}}</button>
      {{/each}}
 </div>
 
-<div style="border-radius: 10px; background-color:{{form.bg}}; padding-left:10px; padding-top:5px; padding-bottom: 5px; class="container">
-  <h1>{{form.title}}</h1>
+<div style="background-color:{{form.bg}};" class="container-body">
+  <h1>{{form.title}} ({{this.cnt}})</h1>
   <div class="entry">
     <table id="myTable" name="myTable" class="table table-bordered table-hover table-condensed" >
      <tr>
@@ -136,6 +137,7 @@ function onSwitch(_id) {
         <td>{{this.ti}}</td>
         <td width=10%>
             <button id="btn3" class="glyphicon glyphicon-trash" onclick='deleteClass("{{this._id}}","{{this.LID}}","{{this.teacher}}","{{this.BID}}","{{this.book}}","{{this.TID}}","{{this.value}}","{{this.CID}}","{{this.ti}}")'></button>
+            <button id="btn3" class="glyphicon glyphicon-pencil" onclick='editClass("{{this._id}}","{{this.LID}}","{{this.teacher}}","{{this.BID}}","{{this.book}}","{{this.TID}}","{{this.value}}","{{this.CID}}","{{this.ti}}")'></button>
             <div class="material-switch pull-right">
                 <input id="SwitchOptionSuccess{{this._id}}" onchange='onSwitch("{{this._id}}")'  name="SwitchOption{{this._id}}" type="checkbox" {{this.checked}} data-toggle="toggle" />
                 <label for="SwitchOptionSuccess{{this._id}}" class="label-success"></label>

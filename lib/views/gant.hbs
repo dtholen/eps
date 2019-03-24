@@ -37,6 +37,10 @@
         $(function() {
           var tasks = data(9);
           gantt.init("gantt_here");
+          // keep the order of the lines below
+          var dp = new gantt.dataProcessor("api");
+          dp.init(gantt);
+          dp.setTransactionMode("REST");
           gantt.parse(tasks);
         });
 

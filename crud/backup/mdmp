@@ -1,0 +1,1 @@
+mongodump --archive=1606.dump --db=lib

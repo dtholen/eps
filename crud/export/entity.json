@@ -1,0 +1,11 @@
+{ "_id" : { "$oid" : "5c56f1aab1b5662af62ebe82" }, "ID" : "TID", "name" : "teacher", "timestamp" : 1549388877 }
+{ "_id" : { "$oid" : "5c56f1aab1b5662af62ebe83" }, "ID" : "BID", "name" : "book", "timestamp" : 1549388877 }
+{ "_id" : { "$oid" : "5c56f1aab1b5662af62ebe84" }, "ID" : "CID", "name" : "class", "timestamp" : 1549388877 }
+{ "_id" : { "$oid" : "5c56f1f8b1b5662af62ebe86" }, "ID" : "TRA", "name" : "transaction", "timestamp" : 1549388877 }
+{ "_id" : { "$oid" : "5c56f230b1b5662af62ebe87" }, "ID" : "ENT", "name" : "entity", "timestamp" : 1549388877 }
+{ "_id" : { "$oid" : "5c5dbe5e9358fb6f6c52464c" }, "ID" : "SUB", "name" : "subject" }
+{ "_id" : { "$oid" : "5c61dfec52b7c5153c50405c" }, "ID" : "ETY", "name" : "entry" }
+{ "_id" : { "$oid" : "5c72b9f9318dc56c0dd83166" }, "ID" : "GEN", "name" : "gender" }
+{ "_id" : { "$oid" : "5c8e05ee6b0437516d137467" }, "ID" : "TAS", "name" : "task" }
+{ "_id" : { "$oid" : "5db2bc076f26bf076bc8114d" }, "ID" : "REP", "name" : "reports" }
+{ "_id" : { "$oid" : "5db54c897bf1e17e6aff4b75" }, "ID" : "TTY", "name" : "trantype" }

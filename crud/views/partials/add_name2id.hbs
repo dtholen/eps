@@ -1,0 +1,19 @@
+        var lkey = "LID" + $("#" + i + "LID").text();
+        $.get('/lib/redis/get', { key: lkey },
+          function (data, status) {
+            if (data) { $("#" + i + "LID").text(data); }
+          });
+        
+        var bkey = "BID" + $("#" + i + "BID").text();
+        $.get('/lib/redis/get', { key: bkey },
+          function (data, status) {
+            if (data) { $("#" + i + "BID").text(data); }
+          });
+        
+        var tkey = "TID" + $("#" + i + "TID").text();
+        $.get('/lib/redis/get', { key: bkey },
+          function (data, status) {
+            if (data) { $("#" + i + "TID").text(data); }
+          });
+
+

@@ -1,0 +1,17 @@
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f66"},"ID":"BIO","name":"Biologie","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f67"},"ID":"CH","name":"Chemie","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f69"},"ID":"POL","name":"Politik","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f6a"},"ID":"TECH","name":"Technik","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f68"},"ID":"EK","name":"Erdkunde","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f6b"},"ID":"PP","name":"Praktische Philosophie","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f6c"},"ID":"MUS","name":"Musik","timestamp":1549388877}
+{"_id":{"$oid":"5c5ec5277ad37956bf409fa9"},"ID":"KUN","name":"Kunst"}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f5e"},"ID":"DEU","name":"Deutsch","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f61"},"ID":"DAZ","name":"Deutsch als Fremdsprache","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f60"},"ID":"RELE","name":"Religion Evangelisch","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f5f"},"ID":"RELK","name":"Religion Katholisch","timestamp":1549388877}
+{"_id":{"$oid":"5c59cc4d4899295f9c2e3f62"},"ID":"IT","name":"Italiänisch","timestamp":1549388877}
+{"_id":{"$oid":"5ebd88b97e38d80b9189665b"},"ID":"GE","name":"Geschichte","timestamp":{"$date":"2020-05-14T18:06:49.486Z"},"__v":0}
+{"_id":{"$oid":"5ec8b88fc5e76c3e0e8445e0"},"ID":"FRA","name":"Französich","timestamp":{"$date":"2020-05-23T05:45:51.699Z"},"__v":0}
+{"_id":{"$oid":"5ec8c238dddbfe423589eed2"},"ID":"NL","name":"Niederländisch","timestamp":{"$date":"2020-05-23T06:27:04.354Z"},"__v":0}
+{"_id":{"$oid":"5ec8e2c7986e124fe8a30435"},"ID":"PHY","name":"Physik","timestamp":{"$date":"2020-05-23T08:45:59.531Z"},"__v":0}

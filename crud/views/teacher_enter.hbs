@@ -1,0 +1,31 @@
+<script type="text/javascript" language="javascript">
+  
+  $(document).ready(function () {
+    {{> frm_ready_enter_std}}  
+  });
+
+  function replaceClass(url) {window.location.replace(url); };
+
+</script>
+
+
+
+  {{> frm_enter_std}}  
+
+  <form action={{form.link}} method="post">
+
+    <input type="hidden" id="myID" name="id" value={{form.id}}>
+    <input type="hidden" id="myCopy" name="copy" value={{form.copy}}>
+
+    {{#each form.fields}}
+    <div class="form-group">
+      <label for="{{this.lable}}"">{{this.lable}}</label>
+      <input type="{{this.type}}" class="form-control" name={{this.field}} id={{this.field}} value="{{this.value}}">
+    </div>
+    {{/each}}
+    
+    {{> std_footer_dtl}}
+
+    </form>
+
+</div>

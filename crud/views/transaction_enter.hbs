@@ -1,0 +1,84 @@
+<script type="text/javascript" language="javascript">
+
+  $(document).ready(function () {
+    var availableTags =  [{{#each trantype}}"{{this.ID}} {{this.name}}",{{/each}}];
+    var availableTags_BID = [{{#each book}}"{{this.ID}} {{this.name}}",{{/each}}];
+    var availableTags_LID = [{{#each teacher}}"{{this.ID}} {{this.name}} {{this.surname}}",{{/each}}];
+    $("#TID").autocomplete({source: availableTags});
+    $("#BID").autocomplete({source: availableTags_BID});
+    $("#LID").autocomplete({ source: availableTags_LID });
+    $("#CBenabled").change(function () {
+      if (this.checked == true) $("#enabled").val(true); else $("#enabled").val(false);
+    });
+    $("#enabled").val(true);
+
+
+    var key = $("#myID").val();
+    if (key) {
+      var query = { _id: key };
+      $.post('/lib/transaction/getByid',
+        query,
+        function (data, status, xhr) {
+          {{#each form.fields}}
+          $("#{{this.field}}").val(data.{{this.field}});
+          {{/each}}
+        }).done(function () {
+          var bkey = "BID" + $("#BID").val();
+          $.get('/lib/redis/get', { key: bkey },function (data, status) {
+            if (data) { $("#BID").val($("#BID").val()+' '+data); }});
+          var lkey = "LID" + $("#LID").val();
+          $.get('/lib/redis/get', { key: lkey },function (data, status) {
+            if (data) { $("#LID").val($("#LID").val()+' '+data); }});
+          var tkey = "TID" + $("#TID").val();
+          $.get('/lib/redis/get', { key: tkey },function (data, status) {
+            if (data) { $("#TID").val($("#TID").val()+' '+data); }});
+        })
+        .fail(function (jqxhr, settings, ex) { alert('failed, ' + ex); });
+      };
+
+  });
+
+    function replaceClass(url) {window.location.replace(url); };
+
+</script>
+
+
+  {{> frm_enter_std}}  
+
+  <form action={{form.link}} method="post">
+
+
+    {{> frm_mode}} 
+
+<div class="invisible">
+    <input type="text" id="myID" name="id" value={{form.id}}>
+    <input type="boolean" id="myCopy" name="copy" value={{form.copy}}>
+    <input type="boolean" id="myEdit" name="edit" value={{form.edit}}>
+</div>
+
+    {{#each form.fields}}
+    <div class="form-group">
+      <label for="{{this.lable}}"">{{this.lable}}</label>
+          <input type=" {{this.type}}" class="form-control" name={{this.field}} id={{this.field}} value="{{this.value}}">
+    </div>
+
+    {{/each}}
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="CBenabled"  checked>
+      <label class="form-check-label" for="enabled"> aktiv</label>
+    </div>
+       
+
+ <div class="row">
+  <div class="col-sm-2"><input type="submit" value="Submit"></div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="CBNext" checked>
+    <label class="form-check-label" for="CBNext">  nächste Eingabe</label>
+  </div>
+</div> 
+
+
+
+  </form>
+
+</div>

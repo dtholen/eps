@@ -1,0 +1,1 @@
+mongoimport --db lib --collection $1s </home/db/export/$1.json

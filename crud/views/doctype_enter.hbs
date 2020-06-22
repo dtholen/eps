@@ -1,0 +1,43 @@
+<script type="text/javascript" language="javascript">
+  
+      $(document).ready(function () {
+        var key = $("#myID").val();
+        var query = { _id: key };
+        $.post('/lib/doctype/getByid',
+          query,
+          function (data, status, xhr) {
+    
+          {{#each form.fields}}
+                  $("#{{this.field}}").val(data.{{this.field}});          
+          {{/each}}
+
+          }).done(function () {
+          })
+          .fail(function (jqxhr, settings, ex) { alert('failed, ' + ex); });
+
+      });
+      
+    function replaceClass(url) {window.location.replace(url); };
+
+</script>
+
+
+
+  {{> frm_enter_std}}  
+
+  <form action={{form.link}} method="post">
+
+    <input type="text" id="myID" name="id" value={{form.id}}>
+    <input type="text" id="myCopy" name="copy" value={{form.copy}}>
+    <input type="text" id="myEdit" name="edit" value={{form.edit}}>
+
+    {{#each form.fields}}
+    <div class="form-group">
+      <label for="{{this.lable}}">{{this.lable}}</label>
+      <input type={{this.type}} class="form-control" name={{this.field}} id={{this.field}} value="{{this.value}}">
+    </div>
+    {{/each}}
+    <input type="submit" value="Submit">
+  </form>
+
+</div>

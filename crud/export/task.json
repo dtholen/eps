@@ -1,0 +1,7 @@
+{ "_id" : { "$oid" : "5c8e06ed2fd44253b5e2cc2b" }, "ID" : "100", "LID" : "ATH", "text" : "Project #1", "start_date" : "01-04-2013 00:00", "duration" : "5", "parent" : "", "link" : "", "progress" : "0.8" }
+{ "_id" : { "$oid" : "5c8e06ed2fd44253b5e2cc2c" }, "ID" : "200", "LID" : "ATH", "text" : "Projekt #2", "start_date" : "02-04-2013 00:00", "duration" : "2", "parent" : "", "link" : "", "progress" : "0.89" }
+{ "_id" : { "$oid" : "5c8e59bf184fb2335d89802b" }, "ID" : "300", "LID" : "ATH", "text" : "Projekt #3", "start_date" : "04-04-2013 00:00", "duration" : "4", "parent" : "", "link" : "", "progress" : "0.51" }
+{ "_id" : { "$oid" : "5c8e59d7184fb2335d89802c" }, "ID" : "310", "LID" : "ATH", "text" : "task #1", "start_date" : "04-04-2013", "duration" : "2", "parent" : "300", "link" : "" }
+{ "_id" : { "$oid" : "5c8e5a73184fb2335d89802d" }, "ID" : "320", "LID" : "ATH", "text" : "task #2", "start_date" : "06-04-2013 00:00", "duration" : "1", "parent" : "300", "link" : "", "progress" : "" }
+{ "_id" : { "$oid" : "5c8e5aa9184fb2335d89802e" }, "ID" : "330", "LID" : "ATH", "text" : "task #2", "start_date" : "07-04-2013 00:00", "duration" : "1", "parent" : "300", "link" : "", "progress" : "" }
+{ "_id" : { "$oid" : "5c90cde9c1fb8275a6a6c43a" }, "ID" : "340", "LID" : "ATH", "text" : "task #4", "start_date" : "07-04-2013 00:00", "duration" : "1", "parent" : "300", "link" : "", "progress" : "" }

@@ -1,0 +1,8 @@
+<div style="border-radius: 1px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+     {{> nav_button}}
+     <i class="fa fa-ellipsis-h"></i> 
+     <button id="btn4" class="btn btn-info" onclick='createFilter("sFilter","")'>all</button>
+     {{#each param.limits}}
+        <button id="btn5" class="btn btn-info" onclick='createFilter("sFilter","{{this.lable}}")'>{{this.lable}}</button>
+     {{/each}}
+</div>

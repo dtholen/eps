@@ -1,0 +1,4 @@
+{ "_id" : { "$oid" : "5c59cc4d4899295f9c2e400e" }, "ID" : "NEW", "name" : "Inventar", "value" : "1", "icon" : "glyphicon glyphicon-hand-up" }
+{ "_id" : { "$oid" : "5c59cc4d4899295f9c2e400f" }, "ID" : "LOST", "name" : "Verloren", "value" : "-1", "icon" : "glyphicon glyphicon-hand-down" }
+{ "_id" : { "$oid" : "5c59cc4d4899295f9c2e4010" }, "ID" : "ISSUE", "name" : "Ausleihen", "value" : "-1", "icon" : "glyphicon glyphicon-open-file" }
+{ "_id" : { "$oid" : "5c59cc4d4899295f9c2e4011" }, "ID" : "RETURN", "name" : "Zurückgeben", "value" : "1", "icon" : "glyphicon glyphicon-folder-open" }

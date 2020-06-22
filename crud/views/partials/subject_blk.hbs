@@ -1,0 +1,6 @@
+<div style="border-radius: 20px; background-color:grey; padding-left:10px; padding-top:5px; padding-bottom: 5px" class="container">
+     <button id="btn4" class="btn btn-info" onclick='createQuery("sQuery","")'>all</button>
+     {{#each subject}}
+        <button id="btn5" class="btn btn-info" onclick='createQuery("sQuery","{{this.ID}}")'>{{this.ID}}</button>
+    {{/each}}
+</div>

@@ -1,0 +1,27 @@
+{{> frm_std_function}}
+{{> frm_list_std}}
+
+  <table id="tableData" name="tableData" class="table table-bordered table-hover table-condensed " >
+
+    {{> std_tab_hdr}}
+    {{#each obj}}
+    
+      <tr bgcolor="{{this.bg}}" id="myTable" name="myTable"  >
+        <td><button id="btn1" class="glyphicon glyphicon-pencil btn btn-xs" onclick='replaceClass("/lib/entry/enter?id={{this._id}}")'></button></td>
+        <td id="ID">{{this.ID}}<input type="hidden" id="_id" name="_id" value="{{this._id}}" /></td>
+        <td id="name" name="name">{{this.name}}</td>
+        <td id="seq" name="name">{{this.seq}}</td>
+        <td id="link" name="link">{{this.link}}</td>
+        <td id="attr" name="attr">{{this.attr}}</td>
+        <td id="enabled" name="enabled">{{this.enabled}}</td>
+        <td id="timestamp" name="timestamp">{{this.ti}}</td>
+        <td width=10%>
+          <button id="btn2" class="glyphicon glyphicon-duplicate btn btn-xs" onclick='replaceClass("/lib/entry/copy?id={{this._id}}")'></button>
+          <button id="btn3" class="glyphicon glyphicon-trash btn btn-xs" onclick='deleteClass("{{this._id}}")'></button>
+        </td>
+      </tr>
+    {{/each}}  
+
+  </table> 
+
+  </div>

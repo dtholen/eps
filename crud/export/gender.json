@@ -1,0 +1,2 @@
+{ "_id" : { "$oid" : "5c72a9e1c3e8256b4785da94" }, "ID" : "F", "name" : "Female", "value" : "/root/iot/avatar/avatar1.svg" }
+{ "_id" : { "$oid" : "5c72b9c1318dc56c0dd83165" }, "ID" : "M", "name" : "Female", "value" : "/root/iot/avatar/avatar2.svg" }

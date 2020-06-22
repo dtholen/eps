@@ -1,0 +1,15 @@
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.entry" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.task" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.link" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.class" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.entity" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.book" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.trantype" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.icon" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.reports" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.subject" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.transaction" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.gender" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.teacher" }
+{ "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "library.system.users" }
+{ "v" : 1, "name" : "user_1_userSource_1", "key" : { "user" : 1, "userSource" : 1 }, "unique" : true, "ns" : "library.system.users" }

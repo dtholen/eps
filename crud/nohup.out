@@ -1,0 +1,52 @@
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Not disabling GPU
+shm_open() failed: Permission denied
+ProtocolHandler~setDefaultProtocolClient: Command failed: xdg-mime default Postman.desktop x-scheme-handler/postman
+/bin/sh: 1: xdg-mime: not found
+
+Error org.freedesktop.DBus.Error.Failed: cannot use setting "default-url-scheme-handler": not allowed
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1588006978707 main info "Booting Postman 7.23.0, linux-5.3.0-46-generic on x64"
+1588006978707 main info "EventBus~initialize - Success"
+1588006978708 main warn "CloudProxyManager~init: Error while reading proxy configuration from user data - ",{"errno":-2,"code":"ENOENT","syscall":"open","path":"/home/dieter/snap/postman/107/.config/Postman/Postman_Config/proxy","name":"Error","message":"ENOENT: no such file or directory, open '/home/dieter/snap/postman/107/.config/Postman/Postman_Config/proxy'","stack":"Error: ENOENT: no such file or directory, open '/home/dieter/snap/postman/107/.config/Postman/Postman_Config/proxy'"}
+1588006978709 main info "CloudProxyManager~init - Success"
+1588006978720 main info "UpdateHandler~init - Success"
+1588006978721 main info "RuntimeExecutionService~initialized: Success"
+1588006978757 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+1588006978797 main info "Bootstrap-models~bootstrap - Success"
+1588006978979 main info "window-manager~newSharedWindow: Shell loaded"
+1588006980453 main info "Main~AppEvents - Received booted event for process shared"
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+1588006982051 main info "Main~AppEvents - Received booted event for process requester"
+IPCClient ~ WindowHandler: New event is received { type: 'window-opened' }
+1588016654010 main info "WindowManager~closeHandler - Closed Window (id: 4 )"
+IPCClient ~ WindowHandler: New event is received { type: 'window-closed', windowId: 4 }
+1588016654022 main info "Quitting app"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Not disabling GPU
+shm_open() failed: Permission denied
+ProtocolHandler~setDefaultProtocolClient: Command failed: xdg-mime default Postman.desktop x-scheme-handler/postman
+/bin/sh: 1: xdg-mime: not found
+
+Error org.freedesktop.DBus.Error.Failed: cannot use setting "default-url-scheme-handler": not allowed
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1588415737917 main info "Booting Postman 7.23.0, linux-5.3.0-51-generic on x64"
+1588415737917 main info "EventBus~initialize - Success"
+1588415737922 main warn "CloudProxyManager~init: Error while reading proxy configuration from user data - ",{"errno":-2,"code":"ENOENT","syscall":"open","path":"/home/dieter/snap/postman/107/.config/Postman/Postman_Config/proxy","name":"Error","message":"ENOENT: no such file or directory, open '/home/dieter/snap/postman/107/.config/Postman/Postman_Config/proxy'","stack":"Error: ENOENT: no such file or directory, open '/home/dieter/snap/postman/107/.config/Postman/Postman_Config/proxy'"}
+1588415737923 main info "CloudProxyManager~init - Success"
+1588415737929 main info "UpdateHandler~init - Success"
+1588415737929 main info "RuntimeExecutionService~initialized: Success"
+1588415737960 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+1588415738006 main info "Bootstrap-models~bootstrap - Success"
+1588415738190 main info "window-manager~newSharedWindow: Shell loaded"
+1588415739501 main info "Main~AppEvents - Received booted event for process shared"
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+1588415741080 main info "Main~AppEvents - Received booted event for process requester"
+IPCClient ~ WindowHandler: New event is received { type: 'window-opened' }
+1588428661592 main info "WindowManager~closeHandler - Closed Window (id: 3 )"
+IPCClient ~ WindowHandler: New event is received { type: 'window-closed', windowId: 3 }
+1588428661617 main info "Quitting app"

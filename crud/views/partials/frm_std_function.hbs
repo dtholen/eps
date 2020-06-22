@@ -1,0 +1,56 @@
+<script type="text/javascript" language="javascript">
+  
+
+  function createQuery(key, value) {
+    $.post('/lib/redis/set',
+      { key: key, value: value },
+      function (data, status, xhr) {
+      }).done(function () {
+        location.reload();
+      })
+      .fail(function (jqxhr, settings, ex) { alert('failed, ' + ex); });
+
+  };
+
+  function createFilter(key, value) {
+    $.post('/lib/redis/set',
+      { key: key, value: value },
+      function (data, status, xhr) {
+      }).done(function () {
+        location.reload();
+      })
+      .fail(function (jqxhr, settings, ex) { alert('failed, ' + ex); });
+
+  };
+
+  function replaceClass(url) {
+    window.location.replace(url);
+
+  };
+
+  function assignClass(url) {
+    window.location.assign(url);
+
+  };
+
+  function deleteClass(id) {
+    $.post('/lib/{{form.entity}}/delete', { id: id },
+      function (data, status, xhr) {
+      }).done(function () {
+        location.reload();
+      })
+      .fail(function (jqxhr, settings, ex) { alert('failed, ' + ex); });
+
+  };
+
+
+</script>
+
+<script type="text/javascript" language="javascript">
+
+  function replaceClass(url) { 
+      window.location.replace(url);
+
+      };
+
+</script>

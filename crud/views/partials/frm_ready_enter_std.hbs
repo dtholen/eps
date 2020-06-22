@@ -1,0 +1,16 @@
+      var key = $("#myID").val();
+      if (key) {
+          var query = { _id: key };
+          $.post('/lib/{{form.entity}}/getByid',  
+          query, 
+          function(data, status, xhr) {
+          {{#each form.fields}}
+                $("#{{this.field}}").val(data.{{this.field}});
+          {{/each}}
+    
+          }).done(function() 
+          { 
+          })
+          .fail(function(jqxhr, settings, ex) { alert('failed, ' + ex); });
+      };
+

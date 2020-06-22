@@ -1,0 +1,1 @@
+mongoimport --db lib --collection entities </home/db/export/entity.json

@@ -1,0 +1,11 @@
+    <tr>
+      <th width=8%>edit</th>
+      {{#each form.fields}} <th onclick="sortToggle({{form.field}},0)" >{{this.lable}} </th> {{/each}}
+      <th width=13%>
+         <button class="glyphicon glyphicon-sort-by-attributes btn btn-xs" onclick='sortToggle('timestamp', 0)'>  Änderung</button>
+      </th>
+      <th width=13%>
+         <button class="glyphicon glyphicon-plus btn btn-xs" onclick='replaceClass("/lib/{{form.entity}}/enter")'></button>
+         <button class="glyphicon glyphicon-print btn btn-xs" onclick='assignClass("/lib/report/{{form.entity}}{{form.query}}")'></button>
+      </th>
+    </tr>

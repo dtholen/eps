@@ -46,7 +46,7 @@
     "static-favicon": "^2.0.0-alpha",
     "store": "^2.0.4",
     "swagger-express-mw": "^0.1.0",
-    "tar": "^4.4.8",
+    "tar": "^4.4.15",
     "targz": "^1.0.1",
     "unirest": "^0.5.1",
     "zookeeper": "^3.4.9-3"

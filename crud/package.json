@@ -18,7 +18,7 @@
     "carbone": "^1.2.1",
     "cors": "^2.8.5",
     "dateformat": "^3.0.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
     "handlebars": "^4.7.6",

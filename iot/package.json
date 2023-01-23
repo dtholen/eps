@@ -45,7 +45,7 @@
     "shortid": "^2.2.8",
     "static-favicon": "^2.0.0-alpha",
     "store": "^2.0.4",
-    "swagger-express-mw": "^0.1.0",
+    "swagger-express-mw": "^0.7.0",
     "tar": "^4.4.8",
     "targz": "^1.0.1",
     "unirest": "^0.5.1",
@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "should": "^7.1.0",
-    "supertest": "^1.0.0"
+    "supertest": "^6.3.3"
   },
   "scripts": {
     "start": "node app.js",
